@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cel663163xetc"]
+
+[ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="1_5nb50"]
+[ext_resource type="Script" path="res://scripts/context_bubble.gd" id="1_vii2p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1fh6"]
+radius = 4.12311
+
+[node name="ContextBubble" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_vii2p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 25)
+shape = SubResource("CircleShape2D_b1fh6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -3)
+texture = ExtResource("1_5nb50")
+region_enabled = true
+region_rect = Rect2(16.1903, 31.7013, 15.7999, 16.0393)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
