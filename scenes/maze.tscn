@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=4 uid="uid://d1ih3hgr0wfut"]
 
-[ext_resource type="Script" path="res://scenes/maze.gd" id="1_vvat7"]
+[ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="1_x2bwo"]
-[ext_resource type="PackedScene" uid="uid://dsrw4uiqmtdx4" path="res://scenes/player.tscn" id="2_h1crq"]
+[ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
 [ext_resource type="Texture2D" uid="uid://bkt1umksb8la1" path="res://assets/sprites/light.png" id="4_dir0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkqe5"]
