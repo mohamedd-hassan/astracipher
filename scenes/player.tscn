@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsrw4uiqmtdx4"]
+[gd_scene load_steps=10 format=3 uid="uid://w0hk7phbdsiq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dle7g"]
 [ext_resource type="Texture2D" uid="uid://1l3762sc8dad" path="res://assets/sprites/knight.png" id="1_qs0as"]
-[ext_resource type="PackedScene" uid="uid://cel663163xetc" path="res://scenes/context_bubble.tscn" id="2_gi8cq"]
+[ext_resource type="PackedScene" uid="uid://diiv8aovqlym2" path="res://scenes/context_bubble.tscn" id="2_gi8cq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpht7"]
 atlas = ExtResource("1_qs0as")
