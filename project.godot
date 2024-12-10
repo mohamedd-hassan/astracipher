@@ -26,11 +26,12 @@ directories/dch_directory={
 "npc1": "res://dialogue/characters/npc1.dch"
 }
 directories/dtl_directory={
-"npc1_timeline": "res://dialogue/timelines/npc1_timeline.dtl"
+"timelines/npc1_timeline": "res://dialogue/timelines/npc1_timeline.dtl"
 }
 layout/style_list=["res://dialogue/characters/styles.tres"]
 layout/default_style="Default"
 variables={}
+glossary/default_case_sensitive=true
 
 [editor_plugins]
 
