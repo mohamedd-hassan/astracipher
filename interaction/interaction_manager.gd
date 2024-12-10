@@ -1,8 +1,7 @@
 extends Node2D
 
-
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var label = $Label
+@onready var label: Label = $Label
 
 const BASE_TEXT = "[E] to "
 
@@ -30,15 +29,13 @@ func _process(delta: float) -> void:
 		label.global_position.y -= 36
 		label.global_position.x -= label.size.x/2
 		label.show()
-	#else:
-	#	label.hide()
-		# Hidden so that it doesn't create an error l7ad man4of a5retha eh (help)
+	else:
+		label.hide()
 
 func _sort_by_distance_to_player(area1, area2):
 	var area1_to_player = player.global_position.distance_to(area1.global_position)
 	var area2_to_player = player.global_position.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player
-	
 
 func _input(event):
 	if event.is_action_pressed("interact_npc") && can_interact:

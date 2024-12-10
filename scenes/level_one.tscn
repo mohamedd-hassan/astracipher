@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bmia40b27okoa"]
+[gd_scene load_steps=13 format=4 uid="uid://bmia40b27okoa"]
 
 [ext_resource type="Script" path="res://scripts/act_1.gd" id="1_k17nh"]
 [ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="2_eouoh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7qynxb5p7uaw" path="res://scenes/npc.tscn" id="4_ux1i4"]
 [ext_resource type="Script" path="res://scripts/npc1.gd" id="5_ym4l6"]
 [ext_resource type="PackedScene" uid="uid://b5xxx5obog3io" path="res://interaction/interactiona area/interaction_area.tscn" id="6_wtv0u"]
+[ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="7_dnsdc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8f5w"]
 texture = ExtResource("2_eouoh")
@@ -297,3 +298,14 @@ action_name = "talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc/InteractionArea"]
 shape = SubResource("CircleShape2D_mbnrk")
+
+[node name="Door_L" parent="." instance=ExtResource("7_dnsdc")]
+position = Vector2(-311, -4)
+destination_level_tag = "maze"
+destination_door_tag = "L"
+spawn_direction = "right"
+
+[node name="Spawn" parent="Door_L" index="2"]
+position = Vector2(29, 1)
+
+[editable path="Door_L"]
