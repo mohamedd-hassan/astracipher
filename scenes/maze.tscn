@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgjoabc4h4wu3" path="res://assets/sprites/tileset.png" id="2_ca4f0"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
 [ext_resource type="Texture2D" uid="uid://bkt1umksb8la1" path="res://assets/sprites/light.png" id="4_dir0k"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="5_emj1k"]
+[ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="5_emj1k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvytw"]
 texture = ExtResource("2_ca4f0")
@@ -151,6 +151,7 @@ tile_set = SubResource("TileSet_j65ys")
 zoom = Vector2(4.5, 4.5)
 
 [node name="PointLight2D2" type="PointLight2D" parent="Player"]
+position = Vector2(0, -3)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("4_dir0k")
@@ -166,6 +167,6 @@ destination_door_tag = "L"
 spawn_direction = "right"
 
 [node name="Spawn" parent="Door_L" index="2"]
-position = Vector2(35, 0)
+position = Vector2(20, 0)
 
 [editable path="Door_L"]

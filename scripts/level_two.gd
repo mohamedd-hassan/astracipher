@@ -1,17 +1,11 @@
 extends Node2D
 
 func _ready() -> void:
-	Dialogic.signal_event.connect(_on_dialogic_signal)
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 
-func _on_dialogic_signal(argument:String):
-	if argument == "end":
-		print("change")
-		Transition.transition()
-		await Transition.on_transition_finished
-		get_tree().change_scene_to_file("res://scenes/maze.tscn")
-		
+func _process(delta: float) -> void:
+	pass
 
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Door_" + destination_tag

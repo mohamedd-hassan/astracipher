@@ -24,11 +24,9 @@ func update_animation():
 		elif velocity.x > 0: direction = "right"
 		elif velocity.y > 0: direction = "down"
 		elif velocity.y < 0: direction = "up"
-		print(direction)
 		animated_sprite.play("walk_" + direction)
 	else:
 		animated_sprite.play("idle_" + direction)
-		print("idle")
 
 func _physics_process(delta: float) -> void:
 	get_input()

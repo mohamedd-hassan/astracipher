@@ -17,8 +17,8 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 InteractionManager="*res://interaction/interactionManager.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 NavigationManager="*res://scripts/navigationManager.gd"
 Transition="*res://scenes/transition.tscn"
 
@@ -55,6 +55,10 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
