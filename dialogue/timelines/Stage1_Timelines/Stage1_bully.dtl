@@ -1,0 +1,7 @@
+bully: Hey, look who it is! What are you doing here?
+*This is a bully be carefull*
+label bully
+- Respond
+	set {Knowledge} -= 0.1
+- Ignore
+	set {Knowledge} -= 0.1
