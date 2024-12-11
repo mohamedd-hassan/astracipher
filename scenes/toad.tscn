@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bibd0yhabfgc1"]
+[gd_scene load_steps=15 format=3 uid="uid://bibd0yhabfgc1"]
 
 [ext_resource type="Script" path="res://scripts/toad.gd" id="1_fb01s"]
 [ext_resource type="Texture2D" uid="uid://d0qrfv2ned6r5" path="res://assets/sprites/toad.png" id="2_yhcgy"]
@@ -71,7 +71,13 @@ animations = [{
 size = Vector2(14, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymoaj"]
-size = Vector2(12, 2)
+size = Vector2(14, 5)
+
+[sub_resource type="Curve2D" id="Curve2D_dhvup"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 57, -1, 0, 0, 0, 0, -43, -1)
+}
+point_count = 2
 
 [node name="Toad" type="CharacterBody2D"]
 collision_layer = 2
@@ -90,9 +96,17 @@ shape = SubResource("RectangleShape2D_4mma2")
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 3
+collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -12)
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_ymoaj")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-9, -9)
+target_position = Vector2(0, 15)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dhvup")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

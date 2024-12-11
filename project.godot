@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 InteractionManager="*res://interaction/interaction_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://scripts/global.gd"
 
 [dialogic]
 
@@ -30,7 +31,9 @@ directories/dtl_directory={
 }
 layout/style_list=["res://dialogue/characters/styles.tres"]
 layout/default_style="Default"
-variables={}
+variables={
+"Knowledge": 0.5
+}
 
 [editor_plugins]
 

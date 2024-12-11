@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3pf5m8e51gmk"]
+[gd_scene load_steps=13 format=3 uid="uid://b3pf5m8e51gmk"]
 
 [ext_resource type="Script" path="res://scripts/player_side.gd" id="1_83nq0"]
 [ext_resource type="Texture2D" uid="uid://lba720gyysl6" path="res://assets/sprites/cipherSide.png" id="1_txu08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ieh0"]
+atlas = ExtResource("1_txu08")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lm1hj"]
 atlas = ExtResource("1_txu08")
@@ -25,6 +29,14 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gwgi8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ieh0")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lm1hj")
@@ -59,20 +71,41 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvfkf"]
 radius = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24gak"]
+size = Vector2(21, 28.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4hwi"]
+size = Vector2(24, 7)
+
 [node name="PlayerSide" type="CharacterBody2D"]
 script = ExtResource("1_83nq0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_gwgi8")
-animation = &"run"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.370459
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -16)
+position = Vector2(2, -17)
 shape = SubResource("CapsuleShape2D_jvfkf")
 
 [node name="hitbox" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(3, -18.75)
+shape = SubResource("RectangleShape2D_24gak")
+
+[node name="feet" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+collision_priority = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="feet"]
+position = Vector2(2, -4)
+shape = SubResource("RectangleShape2D_e4hwi")
+
+[node name="death_timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
