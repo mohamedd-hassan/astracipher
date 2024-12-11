@@ -1,0 +1,26 @@
+npc1: Hi Cipher! What brings you here on a school morning?
+- I ditched school today!
+	npc1: That's cool! My school woudl've never let that slide. What school do you go to?
+	- A school nearby. Have you seen Astra by any chance?
+		jump npc1_timeline/A
+	- *school name*, have you heard of it?
+		npc1: I've sure heard of it...
+		jump npc1_timeline/lose
+- Hi #1. I'm looking for Astra, have you seen her?
+	label A
+	I'm sure I've seen her somewhere. Hmm... have you tried asking #2?
+	- I'll check with them now. Thank you!
+		npc1: Good luck!
+		jump npc1_timeline/gain
+	- Yeah, they weren't that helpful. I thought you might have an idea of where she could be.
+		npc1: Oh well, I don't have a clue! By the way, I've seen you hang around *school name* recently. Do you go there?
+		- Yeah I do!
+			npc1: Interesting...
+			label lose
+			set {Knowledge} -= 0.2
+			[signal arg="end"]
+		- Uh, I don't think that's relevant now. I got to get going, bye #1!
+			npc1: Okay... Bye...
+			label gain
+			set {Knowledge} += 0.3
+			[signal arg="end"]
