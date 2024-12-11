@@ -11,7 +11,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	
-	
 	point_light_2d_2.texture_scale = Dialogic.VAR.Knowledge
