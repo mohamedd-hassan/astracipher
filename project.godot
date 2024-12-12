@@ -25,7 +25,6 @@ Transition="*res://scenes/transition.tscn"
 [dialogic]
 
 directories/dch_directory={
-"npc1": "res://dialogue/characters/npc1.dch"
 "Admin": "res://dialogue/timelines/Stage1_Timelines/Admin.dch",
 "bully": "res://dialogue/timelines/Stage1_Timelines/bully.dch",
 "character": "res://dialogue/timelines/Stage1_Timelines/character.dch",
@@ -46,14 +45,12 @@ directories/dtl_directory={
 "npc1_timeline": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline.dtl"
 >>>>>>> Stashed changes
 }
-layout/style_list=["res://dialogue/characters/styles.tres"]
 layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres"]
 layout/default_style="Default"
 variables={
 "Knowledge": 0.5
 }
 extensions_folder="res://addons/dialogic_additions"
-text/letter_speed=0.01
 text/letter_speed=0.005
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
