@@ -1,0 +1,11 @@
+cipher_monologue: Astra’s notes… they’re all I have.
+cipher_monologue: It’s like she left them for me, knowing I’d come searching for her.
+cipher_monologue: But why would she warn me?
+cipher_monologue: She kept telling me to turn back, to stay away. But how could I?
+cipher_monologue: She’s my sister. She should’ve known I’d come for her.
+cipher_monologue: She knew the risks. She knew this path would lead me right into the same trap.
+cipher_monologue: But I’m not turning back.
+[wait time="1.0"]
+cipher_monologue: I can't.
+[wait time="1.0"]
+[signal arg="end"]
