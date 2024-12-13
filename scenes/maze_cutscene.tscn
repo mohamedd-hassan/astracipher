@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=4 uid="uid://b4yfvvy5sqt40"]
+[gd_scene load_steps=38 format=4 uid="uid://b4yfvvy5sqt40"]
 
 [ext_resource type="Script" path="res://scripts/maze_cutscene.gd" id="1_mb1d2"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="2_2tplq"]
+[ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="2_csxcl"]
 [ext_resource type="Texture2D" uid="uid://bv2aaow7fqi32" path="res://assets/sprites/Dungeon_brick_wall_grey.png.png" id="2_cxsvx"]
 [ext_resource type="Texture2D" uid="uid://cgjoabc4h4wu3" path="res://assets/sprites/tileset.png" id="3_m5f6k"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="4_gwajo"]
@@ -8103,6 +8104,21 @@ texture = ExtResource("3_m5f6k")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4jxqh")
 
+[sub_resource type="Animation" id="Animation_gpnnl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_aciqi")]
+}
+
 [sub_resource type="Animation" id="Animation_hmq26"]
 resource_name = "flicker"
 length = 0.75
@@ -8118,21 +8134,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("6_aciqi"), ExtResource("7_8f7xt"), ExtResource("8_f74rt"), ExtResource("9_4gt56"), ExtResource("8_f74rt"), ExtResource("7_8f7xt")]
-}
-
-[sub_resource type="Animation" id="Animation_gpnnl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_aciqi")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dxjgo"]
@@ -8264,6 +8265,14 @@ animations = [{
 
 [node name="MazeCutscene" type="Node2D"]
 script = ExtResource("1_mb1d2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_csxcl")]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0627451, 0.0235294, 0.0941176, 1)
