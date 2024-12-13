@@ -6,8 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://b7qynxb5p7uaw" path="res://scenes/npc.tscn" id="4_ux1i4"]
 [ext_resource type="Script" path="res://scripts/npc1.gd" id="5_ym4l6"]
 [ext_resource type="PackedScene" uid="uid://b5xxx5obog3io" path="res://interaction/interactiona area/interaction_area.tscn" id="6_wtv0u"]
+
 [ext_resource type="Script" path="res://scenes/npc2.gd" id="7_x121g"]
 [ext_resource type="Script" path="res://scenes/npc3.gd" id="8_f0oo4"]
+
+[ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="7_dnsdc"]
+[ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="8_n67qi"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8f5w"]
 texture = ExtResource("2_eouoh")
@@ -300,6 +305,7 @@ action_name = "talk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc/InteractionArea"]
 shape = SubResource("CircleShape2D_mbnrk")
 
+
 [node name="npc2" parent="." instance=ExtResource("4_ux1i4")]
 position = Vector2(-2, 59)
 script = ExtResource("7_x121g")
@@ -321,3 +327,19 @@ action_name = "talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc3/InteractionArea"]
 shape = SubResource("CircleShape2D_mbnrk")
+
+[node name="Door_L" parent="." instance=ExtResource("7_dnsdc")]
+position = Vector2(-311, -4)
+destination_level_tag = "level_two"
+destination_door_tag = "L"
+spawn_direction = "right"
+
+[node name="Spawn" parent="Door_L" index="2"]
+position = Vector2(29, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_n67qi")]
+
+[editable path="Door_L"]
+
