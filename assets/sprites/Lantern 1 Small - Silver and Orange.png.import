@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2k5va336tt34"
-path="res://.godot/imported/Lantern 1 - Silver and Orange.png-992caecb9784e241a9022dfbf5d46b4e.ctex"
+uid="uid://dcpen0syllq3k"
+path="res://.godot/imported/Lantern 1 Small - Silver and Orange.png-5fec520b4adf5f11ab0ec9032750b7ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Lantern 1 - Silver and Orange.png"
-dest_files=["res://.godot/imported/Lantern 1 - Silver and Orange.png-992caecb9784e241a9022dfbf5d46b4e.ctex"]
+source_file="res://assets/sprites/Lantern 1 Small - Silver and Orange.png"
+dest_files=["res://.godot/imported/Lantern 1 Small - Silver and Orange.png-5fec520b4adf5f11ab0ec9032750b7ef.ctex"]
 
 [params]
 

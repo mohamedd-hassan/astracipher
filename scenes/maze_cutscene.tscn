@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://b4yfvvy5sqt40"]
+[gd_scene load_steps=38 format=4 uid="uid://b4yfvvy5sqt40"]
 
 [ext_resource type="Script" path="res://scripts/maze_cutscene.gd" id="1_mb1d2"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="2_2tplq"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dsyr0kgljjva1" path="res://assets/sprites/idleright.png" id="12_8dcbk"]
 [ext_resource type="Texture2D" uid="uid://c2jhcl5fc3yi0" path="res://assets/sprites/walkleft.png" id="13_nydpc"]
 [ext_resource type="Texture2D" uid="uid://dyqbeeq7ga8nm" path="res://assets/sprites/walkright.png" id="14_37xq1"]
-[ext_resource type="PackedScene" uid="uid://c2btqdbaj8nip" path="res://scenes/lantern.tscn" id="16_hpwht"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nswj4"]
 texture = ExtResource("2_cxsvx")
@@ -8276,7 +8275,6 @@ offset_right = -576.0
 offset_bottom = -324.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0627451, 0.0235294, 0.0941176, 1)
 
 [node name="background" type="TileMapLayer" parent="."]
@@ -8338,24 +8336,5 @@ sprite_frames = SubResource("SpriteFrames_mi7h5")
 animation = &"idle_right"
 autoplay = "idle_right"
 frame_progress = 0.0814136
-
-[node name="Lantern" parent="." instance=ExtResource("16_hpwht")]
-position = Vector2(-212, -47)
-
-[node name="Lantern2" parent="." instance=ExtResource("16_hpwht")]
-
-[node name="Lantern3" parent="." instance=ExtResource("16_hpwht")]
-
-[node name="Lantern4" parent="." instance=ExtResource("16_hpwht")]
-
-[node name="Lantern5" parent="." instance=ExtResource("16_hpwht")]
-
-[node name="Lantern6" parent="." instance=ExtResource("16_hpwht")]
-
-[node name="Lantern7" parent="." instance=ExtResource("16_hpwht")]
-
-[node name="Lantern8" parent="." instance=ExtResource("16_hpwht")]
-
-[node name="Lantern9" parent="." instance=ExtResource("16_hpwht")]
 
 [editable path="Player"]

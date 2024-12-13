@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2k5va336tt34"
-path="res://.godot/imported/Lantern 1 - Silver and Orange.png-992caecb9784e241a9022dfbf5d46b4e.ctex"
+uid="uid://cwewt2ty8tanw"
+path="res://.godot/imported/dungeon_tiles.png-cd8e98f0e2476557a661bd1328346eca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Lantern 1 - Silver and Orange.png"
-dest_files=["res://.godot/imported/Lantern 1 - Silver and Orange.png-992caecb9784e241a9022dfbf5d46b4e.ctex"]
+source_file="res://assets/sprites/dungeon_tiles.png"
+dest_files=["res://.godot/imported/dungeon_tiles.png-cd8e98f0e2476557a661bd1328346eca.ctex"]
 
 [params]
 
