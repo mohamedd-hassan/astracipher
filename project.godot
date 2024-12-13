@@ -23,14 +23,27 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"npc1": "res://dialogue/characters/npc1.dch"
+"Admin": "res://dialogue/timelines/Stage1_Timelines/Admin.dch",
+"bully": "res://dialogue/timelines/Stage1_Timelines/bully.dch",
+"character": "res://dialogue/timelines/Stage1_Timelines/character.dch",
+"npc1": "res://dialogue/characters/npc1.dch",
+"npc2": "res://dialogue/timelines/Stage1_Timelines/npc2.dch"
 }
 directories/dtl_directory={
-"timelines/npc1_timeline": "res://dialogue/timelines/npc1_timeline.dtl"
+"Stage1_2ndtimebully": "res://dialogue/timelines/Stage1_Timelines/Stage1_2ndtimebully.dtl",
+"Stage1_3rdbully": "res://dialogue/timelines/Stage1_Timelines/Stage1_3rdbully.dtl",
+"Stage1_Admin": "res://dialogue/timelines/Stage1_Timelines/Stage1_Admin.dtl",
+"Stage1_NPC2": "res://dialogue/timelines/Stage1_Timelines/Stage1_NPC2.dtl",
+"Stage1_bully": "res://dialogue/timelines/Stage1_Timelines/Stage1_bully.dtl",
+"npc1_timeline": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline.dtl"
 }
 layout/style_list=["res://dialogue/characters/styles.tres"]
 layout/default_style="Default"
-variables={}
+variables={
+"Help_Needed": false,
+"Knowledge": 0.5,
+"timelines": 0
+}
 glossary/default_case_sensitive=true
 
 [editor_plugins]

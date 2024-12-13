@@ -1,7 +1,10 @@
 bully: Hey, look who it is! What are you doing here?
 *This is a bully be carefull*
-label bully
 - Respond
 	set {Knowledge} -= 0.1
+	[signal arg="responded1"]
+	set {timelines} = 1
 - Ignore
 	set {Knowledge} -= 0.1
+	set {timelines} = 1
+	[signal arg="Ignored1"]
