@@ -183,6 +183,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2tlrd")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y2h0r")
 }, {
 "duration": 1.0,
@@ -262,9 +270,8 @@ script = ExtResource("1_dle7g")
 position = Vector2(0, -4)
 scale = Vector2(1.145, 1.09)
 sprite_frames = SubResource("SpriteFrames_gcvdd")
-animation = &"walk_right"
+animation = &"idle_right"
 autoplay = "idle_right"
-frame_progress = 0.62873
 offset = Vector2(0, 7.15256e-07)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

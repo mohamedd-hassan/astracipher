@@ -33,7 +33,7 @@ directories/dtl_directory={
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
 "timelines/npc1_timeline": "res://dialogue/timelines/npc1_timeline.dtl"
 }
-layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres"]
+layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres", "res://dialogue/characters/cutscene_style2.tres"]
 layout/default_style="Default"
 variables={
 "Knowledge": 0.5

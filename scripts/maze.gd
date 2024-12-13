@@ -1,16 +1,32 @@
 extends Node2D
-
-@onready var node_2d: Node2D = $"."
-@onready var point_light: PointLight2D = $Player/PointLight2D
-@onready var animation_player: AnimationPlayer = $Player/PointLight2D/AnimationPlayer
 const KNOWLEDGE_VARIATION = 0.1
 
-# Called when the node enters the scene tree for the first time.
+@onready var point_light: PointLight2D = $Player/PointLight2D
+@onready var knowledge_light_animation: AnimationPlayer = $Player/PointLight2D/AnimationPlayer
+@onready var astra_animation: AnimatedSprite2D = $Astra/AnimatedSprite2D2
+@onready var player: Player = $Player
+@onready var cutscene_animation: AnimationPlayer = $CutsceneAnimation
+@onready var spawn: Marker2D = $Door_L/Spawn
+@onready var player_animation: AnimatedSprite2D = $Player/AnimatedSprite2D2
+
+var met_cipher = false
+
 func _ready() -> void:
-	pass # Replace with function body.
+	player.global_position = spawn.global_position
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	point_light.texture_scale = Dialogic.VAR.Knowledge
-	animation_player.play("flicker")
+	if !met_cipher:
+		astra_animation.play("idle_down")
+	knowledge_light_animation.play("flicker")
+	
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		met_cipher = true
+		print("entered body")
+		cutscene()
+	
+func cutscene():
+	print("should play animation")
+	cutscene_animation.play("walk_to_astra")
