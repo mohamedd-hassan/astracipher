@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://d1ih3hgr0wfut"]
+[gd_scene load_steps=18 format=4 uid="uid://d1ih3hgr0wfut"]
 
 [ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="Texture2D" uid="uid://cgjoabc4h4wu3" path="res://assets/sprites/tileset.png" id="2_ca4f0"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
-[ext_resource type="Texture2D" uid="uid://bkt1umksb8la1" path="res://assets/sprites/light.png" id="4_dir0k"]
+[ext_resource type="Texture2D" uid="uid://o862lqlf5af5" path="res://assets/sprites/64x64 textures (2).png" id="4_atml1"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="5_emj1k"]
+[ext_resource type="Texture2D" uid="uid://5q3ajoe3tpyh" path="res://assets/sprites/64x64 textures (3).png" id="5_tgsfc"]
+[ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="6_86nm1"]
+[ext_resource type="Texture2D" uid="uid://6jx4e5rgo4xb" path="res://assets/sprites/64x64 textures (4).png" id="6_otp3j"]
+[ext_resource type="Texture2D" uid="uid://b23dcsfi4fe47" path="res://assets/sprites/64x64 textures (5).png" id="7_r6mbn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvytw"]
 texture = ExtResource("2_ca4f0")
@@ -133,6 +137,44 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6i1o3")
 sources/1 = SubResource("TileSetAtlasSource_l5vo8")
 
+[sub_resource type="Animation" id="Animation_gpnnl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_atml1")]
+}
+
+[sub_resource type="Animation" id="Animation_hmq26"]
+resource_name = "flicker"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_atml1"), ExtResource("5_tgsfc"), ExtResource("6_otp3j"), ExtResource("7_r6mbn"), ExtResource("6_otp3j"), ExtResource("5_tgsfc")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dxjgo"]
+_data = {
+"RESET": SubResource("Animation_gpnnl"),
+"flicker": SubResource("Animation_hmq26")
+}
+
 [node name="Maze" type="Node2D"]
 script = ExtResource("1_vvat7")
 
@@ -150,14 +192,21 @@ tile_set = SubResource("TileSet_j65ys")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4.5, 4.5)
 
-[node name="PointLight2D2" type="PointLight2D" parent="Player"]
-position = Vector2(0, -3)
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(0, -4)
+scale = Vector2(2.5, 2.5)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("4_dir0k")
-texture_scale = 0.3
+texture = ExtResource("4_atml1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/PointLight2D"]
+libraries = {
+"": SubResource("AnimationLibrary_dxjgo")
+}
+speed_scale = 0.85
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0615588, 0.0232294, 0.0957499, 1)
 
 [node name="Door_L" parent="." instance=ExtResource("5_emj1k")]
@@ -168,5 +217,13 @@ spawn_direction = "right"
 
 [node name="Spawn" parent="Door_L" index="2"]
 position = Vector2(20, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_86nm1")]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
 
 [editable path="Door_L"]
