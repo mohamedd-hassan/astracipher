@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b3pf5m8e51gmk" path="res://scenes/player_side.tscn" id="3_ne8in"]
 [ext_resource type="PackedScene" uid="uid://bibd0yhabfgc1" path="res://scenes/toad.tscn" id="4_sga55"]
 
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0v1w6"]
 texture = ExtResource("2_b1li5")
 0:0/size_in_atlas = Vector2i(1, 11)

@@ -9,6 +9,11 @@ var active_areas = []
 var can_interact = true
 
 func _ready():
+	label = Label.new()
+	label.name = "Label"
+	add_child(label)
+	get_tree().root.add_child(label)  # Add it to the scene tree
+
 	get_tree().node_added.connect(func(_node):
 		player = get_tree().get_first_node_in_group("player")
 	)
