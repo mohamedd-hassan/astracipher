@@ -1,0 +1,10 @@
+Admin: Hello, Cipher! How can I help you today?
+if {Help_Needed} == false:
+	- I am trying to find Astra can you help?
+		Admin: Of Course , come with me
+elif {Help_Needed} == true:
+	- There is someone bullying me can you help me please?
+		Admin: Of Course Of Course 
+		Admin: Can I help you with anything else?
+		- I can't find Astra
+			Admin: OH NO !  I think I know where to search come. 
