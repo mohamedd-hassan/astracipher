@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=15 format=4 uid="uid://bpi7w14xkyutn"]
+
 
 [ext_resource type="Texture2D" uid="uid://cpxsg4y4hmtfy" path="res://assets/sprites/block.png" id="1_llfxw"]
 [ext_resource type="Script" path="res://scenes/stage_2_puzzle_2.gd" id="1_xh5pl"]
@@ -40,6 +42,7 @@ radius = 13.1529
 [node name="Stage2Puzzle2" type="Node2D"]
 script = ExtResource("1_xh5pl")
 
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -54,6 +57,7 @@ motion_mirroring = Vector2(5372, 0)
 [node name="Mountains" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(897, -44)
 texture = ExtResource("3_082xd")
+
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
