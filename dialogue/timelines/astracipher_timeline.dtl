@@ -1,8 +1,21 @@
 cipher: Astra?
 [signal arg="move_forward"]
-[wait time="0.8"]
+[wait time="1.5"]
 cipher: Astra! There you are! I knew I’d find you if I just kept moving!
+[signal arg="astra_turn1"]
 astra: Cipher? I… You shouldn’t be here. This place —
+[signal arg="astra_turn2"]
 cipher: This place is like one big puzzle! But I’m here to get you out of it.
-astra: You don’t get it. It’s not just a puzzle. It wants to keep us here. We need to—
+astra: You don’t get it. It’s not just a puzzle. It wants to keep us here. We need to —
+[signal arg="zoom_out"]
+[wait time="2.0"]
+[signal arg="drone_in"]
 join villain center
+[wait time="0.8"]
+villain: Ah, the careful guide and the daring explorer — what a delightful duo.
+[signal arg="lights_off"]
+[wait time="1.0"]
+villain: Let’s play a little game, shall we?
+cipher: What the —
+villain: Try escaping the maze now, losers!
+[signal arg="drone_out"]

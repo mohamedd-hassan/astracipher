@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxu2r04fsam0"
-path="res://.godot/imported/brick.png-0c294d89c49991f6c08b66e375c6c0ef.ctex"
+uid="uid://ci8bybdk8lrl0"
+path="res://.godot/imported/Drone.png-934999edc494430e8db4fd08511cca54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/brick.png"
-dest_files=["res://.godot/imported/brick.png-0c294d89c49991f6c08b66e375c6c0ef.ctex"]
+source_file="res://assets/sprites/Drone.png"
+dest_files=["res://.godot/imported/Drone.png-934999edc494430e8db4fd08511cca54.ctex"]
 
 [params]
 
