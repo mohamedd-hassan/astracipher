@@ -1,0 +1,24 @@
+npc2: Hey there,  Cipher!  what brings you to this part of the world?
+- Just exploring ! Anything interesting around here?
+	npc2: Well,I met someone earlier who claimed to know Astra, but it didn't feel right.
+	- Off? What do you mean?
+		jump point1
+- Hi #2 . #1 said you might know where Astra is. Have you seen her?
+	npc2: Hmm...I think I saw someone asking about Astra earlier but they seemed ... off . What's your next move?
+	- Why didn’t it feel right?
+		jump point1
+	- I’ll keep that in mind. Thanks!
+		jump point2
+label point1
+npc2: They were asking weird questions, like they didn’t really know Astra but wanted to.
+- Maybe they were just curious.
+	npc2: Maybe, but there are impostors everywhere. You can’t trust everyone you meet.
+	- I’ll see if I can find them anyway.
+		npc2: Just be careful. Not everyone is who they say they are.
+		set {Knowledge} -= 0.1
+	- Good point. Thanks for the heads-up.
+		label point2
+		npc2: No problem. If you're still searching, you should ask #3, the Admin. They might know something.
+		- Do you know where he is right now?
+			npc2: Yep, you'll find him just around the corner. Good luck!
+			set {Knowledge} += 0.1

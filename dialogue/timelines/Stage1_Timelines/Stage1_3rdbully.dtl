@@ -1,0 +1,8 @@
+bully: What are you doing here now? You think the mayor can save you?
+- Ask the mayor for help
+	set {Knowledge} += 0.1
+	set {Help_Needed} = true
+	[signal arg="mayor"]
+- Respond
+	set {Knowledge} -= 0.1
+	[signal arg="responded3"]
