@@ -1,0 +1,8 @@
+cipher: Astra?
+[signal arg="move_forward"]
+[wait time="0.8"]
+cipher: Astra! There you are! I knew I’d find you if I just kept moving!
+astra: Cipher? I… You shouldn’t be here. This place —
+cipher: This place is like one big puzzle! But I’m here to get you out of it.
+astra: You don’t get it. It’s not just a puzzle. It wants to keep us here. We need to—
+join villain center

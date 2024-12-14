@@ -26,14 +26,18 @@ Global="*res://scripts/global.gd"
 [dialogic]
 
 directories/dch_directory={
+"astra": "res://dialogue/characters/astra.dch",
+"cipher": "res://dialogue/characters/cipher.dch",
 "cipher_monologue": "res://dialogue/timelines/cipher_monologue.dch",
-"npc1": "res://dialogue/characters/npc1.dch"
+"npc1": "res://dialogue/characters/npc1.dch",
+"villain": "res://dialogue/characters/villain.dch"
 }
 directories/dtl_directory={
+"astracipher_timeline": "res://dialogue/timelines/astracipher_timeline.dtl",
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
 "timelines/npc1_timeline": "res://dialogue/timelines/npc1_timeline.dtl"
 }
-layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres", "res://dialogue/characters/cutscene_style2.tres"]
+layout/style_list=["res://dialogue/characters/styles.tres", "", "res://dialogue/characters/cutscene_style2.tres", "res://dialogue/characters/finalscene_style.tres"]
 layout/default_style="Default"
 variables={
 "Knowledge": 0.5
