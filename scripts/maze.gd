@@ -42,6 +42,15 @@ func _on_dialogic_signal(argument:String):
 		cutscene_animation.play("lights_off")
 	elif argument == "drone_out":
 		cutscene_animation.play("drone_out")
+	elif argument == "knowledge_light":
+		cutscene_animation.play("knowledge_light")
+		await cutscene_animation.animation_finished
+		point_light.visible = true
+	elif argument == "timer":
+		player.set_physics_process(true)
+		player.set_process_input(true)
+		
+		
 	
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -56,6 +65,5 @@ func cutscene():
 	player.set_process_input(false)
 	cutscene_animation.play("walk_to_astra")
 	await cutscene_animation.animation_finished
-	print("dialogue")
 	Dialogic.start("astracipher_timeline")
 	await Dialogic.timeline_ended
