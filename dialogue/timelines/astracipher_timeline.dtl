@@ -24,3 +24,4 @@ villain: Try escaping the maze now, losers!
 [wait time="2.5"]
 cipher: We need to move fast, I don't have much time left before my light runs out!
 [signal arg="timer"]
+[wait time="1.0"]

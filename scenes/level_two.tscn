@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfa4nvi7l1cqw"]
+[gd_scene load_steps=6 format=3 uid="uid://dfa4nvi7l1cqw"]
 
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="1_4afd1"]
 [ext_resource type="Script" path="res://scripts/level_two.gd" id="1_ml28r"]
+[ext_resource type="PackedScene" uid="uid://bipe77xcklhxl" path="res://scenes/stopwatch.tscn" id="2_ofhi6"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="3_645ke"]
 [ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="4_d6twi"]
 
@@ -30,6 +31,13 @@ position = Vector2(-34, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4.5, 4.5)
+
+[node name="Stopwatch" parent="Player/Camera2D" instance=ExtResource("2_ofhi6")]
+offset_left = -42.0
+offset_top = -67.0
+offset_right = -42.0
+offset_bottom = -67.0
+scale = Vector2(0.645, 0.645)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
