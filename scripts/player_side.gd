@@ -3,11 +3,15 @@ extends CharacterBody2D
 var is_dying = false
 var is_jumping = false
 
+
+
+const GRAVITY = 1000
 const SPEED = 300.0
 const JUMP_VELOCITY = -325.0
 
 @onready var death_timer: Timer = $death_timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var coyote_timer: Timer = $coyote_timer
 
 func _ready() -> void:
 	add_to_group("player")
@@ -25,12 +29,11 @@ func _physics_process(delta: float) -> void:
 		is_jumping = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() || !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -38,9 +41,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	update_animation(direction)
-
+	
+	var was_on_floor = is_on_floor()
+	
 	move_and_slide()
-
+	
+	if was_on_floor && !is_on_floor() && not velocity.y < 0:
+		coyote_timer.start()
+	
 func update_animation(direction):
 	if is_dying:
 		return
