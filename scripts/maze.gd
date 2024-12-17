@@ -9,6 +9,9 @@ const KNOWLEDGE_VARIATION = 0.1
 @onready var spawn: Marker2D = $Door_L/Spawn
 @onready var player_animation: AnimatedSprite2D = $Player/AnimatedSprite2D2
 @onready var drone: AnimatedSprite2D = $Drone
+@onready var stopwatch: Stopwatch = $Player/Camera2D/Stopwatch
+@onready var timer: Timer = $Player/Camera2D/Stopwatch/Timer
+@onready var interaction_area: Area2D = $InteractionArea
 
 var met_cipher = false
 var animation_end = false
@@ -24,6 +27,8 @@ func _process(delta: float) -> void:
 	if !met_cipher:
 		astra_animation.play("idle_down")
 	knowledge_light_animation.play("flicker")
+	if met_cipher:
+		point_light.texture_scale = timer.time_left / 300
 
 func _on_dialogic_signal(argument:String):
 	if argument == "move_forward":
@@ -42,6 +47,17 @@ func _on_dialogic_signal(argument:String):
 		cutscene_animation.play("lights_off")
 	elif argument == "drone_out":
 		cutscene_animation.play("drone_out")
+	elif argument == "knowledge_light":
+		cutscene_animation.play("knowledge_light")
+		await cutscene_animation.animation_finished
+		point_light.visible = true
+	elif argument == "timer":
+		stopwatch.visible = true
+		player.set_physics_process(true)
+		player.set_process_input(true)
+		timer.start()
+		
+		
 	
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -51,11 +67,11 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	
 func cutscene():
 	met_cipher = true
+	interaction_area.queue_free()
 	print("should play animation")
 	player.set_physics_process(false)
 	player.set_process_input(false)
 	cutscene_animation.play("walk_to_astra")
 	await cutscene_animation.animation_finished
-	print("dialogue")
 	Dialogic.start("astracipher_timeline")
 	await Dialogic.timeline_ended
