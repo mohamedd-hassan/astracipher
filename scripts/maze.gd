@@ -3,11 +3,11 @@ const KNOWLEDGE_VARIATION = 0.1
 
 @onready var point_light: PointLight2D = $Player/PointLight2D
 @onready var knowledge_light_animation: AnimationPlayer = $Player/PointLight2D/AnimationPlayer
-@onready var astra_animation: AnimatedSprite2D = $Astra/AnimatedSprite2D2
+@onready var astra_animation: AnimatedSprite2D = $Astra/AnimatedSprite2D
 @onready var player: Player = $Player
 @onready var cutscene_animation: AnimationPlayer = $CutsceneAnimation
 @onready var spawn: Marker2D = $Door_L/Spawn
-@onready var player_animation: AnimatedSprite2D = $Player/AnimatedSprite2D2
+@onready var player_animation: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var drone: AnimatedSprite2D = $Drone
 @onready var stopwatch: Stopwatch = $Player/Camera2D/Stopwatch
 @onready var timer: Timer = $Player/Camera2D/Stopwatch/Timer

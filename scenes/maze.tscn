@@ -1,8 +1,9 @@
-[gd_scene load_steps=72 format=4 uid="uid://d1ih3hgr0wfut"]
+[gd_scene load_steps=73 format=4 uid="uid://d1ih3hgr0wfut"]
 
 [ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
 [ext_resource type="Texture2D" uid="uid://o862lqlf5af5" path="res://assets/sprites/64x64 textures (2).png" id="4_atml1"]
+[ext_resource type="PackedScene" uid="uid://da3ml6letag1u" path="res://scenes/stopwatch.tscn" id="5_5mcw4"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="5_emj1k"]
 [ext_resource type="Texture2D" uid="uid://5q3ajoe3tpyh" path="res://assets/sprites/64x64 textures (3).png" id="5_tgsfc"]
 [ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="6_86nm1"]
@@ -14,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://hb0vy0wxkqe5" path="res://scenes/astra.tscn" id="12_akjf6"]
 [ext_resource type="Texture2D" uid="uid://cvi0yfbcghxgh" path="res://assets/sprites/Char_009_Idle.png" id="13_p7jdg"]
 [ext_resource type="Texture2D" uid="uid://dkd3q7xs23jku" path="res://assets/sprites/Char_009.png" id="14_rw434"]
-[ext_resource type="PackedScene" uid="uid://b0dxquygfrtv5" path="res://scenes/drone.tscn" id="15_npfd0"]
+[ext_resource type="PackedScene" uid="uid://dujxgjwxe2mae" path="res://scenes/drone.tscn" id="15_npfd0"]
 
 [sub_resource type="Animation" id="Animation_gpnnl"]
 length = 0.001
@@ -1437,6 +1438,8 @@ animation = &"idle_down"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4.5, 4.5)
+
+[node name="Stopwatch" parent="Player/Camera2D" instance=ExtResource("5_5mcw4")]
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 visible = false

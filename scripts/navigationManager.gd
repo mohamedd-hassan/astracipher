@@ -3,7 +3,7 @@ extends Node
 const scene_level_one = preload("res://scenes/level_one.tscn")
 const scene_level_two = preload("res://scenes/level_two1.tscn")
 const scene_maze_cutscene = preload("res://scenes/maze_cutscene.tscn")
-const scene_maze = preload("res://scenes/maze1.tscn")
+const scene_maze = preload("res://scenes/maze.tscn")
 
 signal on_trigger_player_spawn
 

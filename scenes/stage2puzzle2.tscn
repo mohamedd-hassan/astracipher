@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=4 uid="uid://bpi7w14xkyutn"]
 
-[ext_resource type="Texture2D" uid="uid://cpxsg4y4hmtfy" path="res://assets/sprites/block.png" id="1_llfxw"]
+[ext_resource type="Texture2D" uid="uid://b66hsqkp5xlun" path="res://assets/sprites/block.png" id="1_llfxw"]
 [ext_resource type="Script" path="res://scenes/stage_2_puzzle_2.gd" id="1_xh5pl"]
-[ext_resource type="Texture2D" uid="uid://c6061s5ets5bl" path="res://assets/sprites/bliss_sky.png" id="2_4wu16"]
-[ext_resource type="Texture2D" uid="uid://bifgb6ikcx2yh" path="res://assets/sprites/flagpole.png" id="2_b1li5"]
-[ext_resource type="Texture2D" uid="uid://0ndyxcff0ppy" path="res://assets/sprites/brick.png" id="2_gn4sx"]
-[ext_resource type="Texture2D" uid="uid://cmcjd8tfpi3mh" path="res://assets/sprites/bliss_mountains.png" id="3_082xd"]
+[ext_resource type="Texture2D" uid="uid://dosl48375nn76" path="res://assets/sprites/bliss_sky.png" id="2_4wu16"]
+[ext_resource type="Texture2D" uid="uid://dmlbhrjy2cooa" path="res://assets/sprites/flagpole.png" id="2_b1li5"]
+[ext_resource type="Texture2D" uid="uid://caxu2r04fsam0" path="res://assets/sprites/brick.png" id="2_gn4sx"]
+[ext_resource type="Texture2D" uid="uid://dwe50thw4apcc" path="res://assets/sprites/bliss_mountains.png" id="3_082xd"]
 [ext_resource type="PackedScene" uid="uid://b3pf5m8e51gmk" path="res://scenes/player_side.tscn" id="3_ne8in"]
 [ext_resource type="PackedScene" uid="uid://bibd0yhabfgc1" path="res://scenes/toad.tscn" id="4_sga55"]
 
