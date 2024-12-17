@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://d1ih3hgr0wfut"]
+[gd_scene load_steps=72 format=4 uid="uid://vcuqdj61p3dt"]
 
 [ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
