@@ -1,17 +1,22 @@
 extends CharacterBody2D
-@onready var interaction_area: Area2D = $InteractionArea
+
+@export var parent : CharacterBody2D
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D2
+@onready var follow_point = parent.get_node("FollowPoint")
 
-var start_interaction = false
-
+var speed = 100
+var direction = "right"
 func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	if !start_interaction:
-		animated_sprite.play("idle_down")
+	if Global.met_cipher and Global.cutscene_end:
+		var target = follow_point.global_position
+		velocity = Vector2.ZERO
+		if position.distance_to(target) > 5:
+			velocity = position.direction_to(target) * speed
+			print(velocity)
+
+		move_and_slide()
 		
-func _on_interaction_area_body_entered(body: Node2D) -> void:
-	start_interaction = true
-	print("entered astra (ew)")
-	animated_sprite.play("up")
