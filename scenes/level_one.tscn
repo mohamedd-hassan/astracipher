@@ -297,7 +297,6 @@ script = ExtResource("5_ym4l6")
 
 [node name="InteractionArea" parent="npc" instance=ExtResource("6_wtv0u")]
 collision_layer = 2
-action_name = "talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc/InteractionArea"]
 shape = SubResource("CircleShape2D_mbnrk")
@@ -308,7 +307,6 @@ script = ExtResource("7_x121g")
 
 [node name="InteractionArea" parent="npc2" instance=ExtResource("6_wtv0u")]
 collision_layer = 2
-action_name = "talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc2/InteractionArea"]
 shape = SubResource("CircleShape2D_mbnrk")
@@ -319,7 +317,6 @@ script = ExtResource("8_f0oo4")
 
 [node name="InteractionArea" parent="npc3" instance=ExtResource("6_wtv0u")]
 collision_layer = 2
-action_name = "talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc3/InteractionArea"]
 shape = SubResource("CircleShape2D_mbnrk")

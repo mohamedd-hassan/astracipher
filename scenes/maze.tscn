@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://d1ih3hgr0wfut"]
+[gd_scene load_steps=77 format=4 uid="uid://d1ih3hgr0wfut"]
 
 [ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
@@ -15,7 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://hb0vy0wxkqe5" path="res://scenes/astra.tscn" id="12_akjf6"]
 [ext_resource type="Texture2D" uid="uid://cvi0yfbcghxgh" path="res://assets/sprites/Char_009_Idle.png" id="13_p7jdg"]
 [ext_resource type="Texture2D" uid="uid://dkd3q7xs23jku" path="res://assets/sprites/Char_009.png" id="14_rw434"]
-[ext_resource type="PackedScene" uid="uid://dujxgjwxe2mae" path="res://scenes/drone.tscn" id="15_npfd0"]
+[ext_resource type="PackedScene" uid="uid://b0dxquygfrtv5" path="res://scenes/drone.tscn" id="15_npfd0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_la66l"]
+light_mode = 1
 
 [sub_resource type="Animation" id="Animation_gpnnl"]
 length = 0.001
@@ -921,6 +924,18 @@ tracks/26/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("../CanvasModulate:color")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0627451, 0.0235294, 0.0941176, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_a4qoe"]
 resource_name = "astra_turn1"
@@ -1028,10 +1043,10 @@ tracks/0/path = NodePath("../Drone:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": []
+"values": [Vector2(278, -313), Vector2(661, -313)]
 }
 
 [sub_resource type="Animation" id="Animation_yatpq"]
@@ -1398,6 +1413,60 @@ tracks/3/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -34)]
 }
 
+[sub_resource type="Animation" id="Animation_t6pu5"]
+resource_name = "knowledge_light"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.655, 2.655), Vector2(4.5, 4.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_down"]
+}
+
+[sub_resource type="Animation" id="Animation_7vgka"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0627451, 0.0235294, 0.0941176, 1), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fvgab"]
 _data = {
 "RESET": SubResource("Animation_neeoo"),
@@ -1405,11 +1474,16 @@ _data = {
 "astra_turn2": SubResource("Animation_qryrm"),
 "drone_in": SubResource("Animation_bbm38"),
 "drone_out": SubResource("Animation_xx88t"),
+"fade_to_black": SubResource("Animation_7vgka"),
+"knowledge_light": SubResource("Animation_t6pu5"),
 "lights_off": SubResource("Animation_yatpq"),
 "move_forward": SubResource("Animation_j34ku"),
 "walk_to_astra": SubResource("Animation_0x0v6"),
 "zoom_out": SubResource("Animation_ms1gi")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1hj1"]
+size = Vector2(67, 54)
 
 [node name="Maze" type="Node2D"]
 script = ExtResource("1_vvat7")
@@ -1440,6 +1514,13 @@ animation = &"idle_down"
 zoom = Vector2(4.5, 4.5)
 
 [node name="Stopwatch" parent="Player/Camera2D" instance=ExtResource("5_5mcw4")]
+visible = false
+material = SubResource("CanvasItemMaterial_la66l")
+offset_left = -105.0
+offset_top = -63.0
+offset_right = -105.0
+offset_bottom = -63.0
+scale = Vector2(0.38, 0.38)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 visible = false
@@ -1473,6 +1554,7 @@ tile_map_data = PackedByteArray("AAADAPj/AAAEAAMAAAADAPn/AAACAAIAAAADAPr/AAAFAAM
 tile_set = SubResource("TileSet_ycfao")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0627451, 0.0235294, 0.0941176, 1)
 
 [node name="Door_L" parent="." instance=ExtResource("5_emj1k")]
@@ -1718,9 +1800,10 @@ color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Astra" parent="." instance=ExtResource("12_akjf6")]
+[node name="Astra" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("12_akjf6")]
 position = Vector2(321, -198)
 scale = Vector2(0.545, 0.545)
+parent = NodePath("../Player")
 
 [node name="AnimatedSprite2D" parent="Astra" index="0"]
 visible = false
@@ -1754,10 +1837,19 @@ libraries = {
 }
 speed_scale = 0.8
 
+[node name="SolvedMaze" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolvedMaze"]
+position = Vector2(-2, 20)
+shape = SubResource("RectangleShape2D_l1hj1")
+
+[connection signal="timeout" from="Player/Camera2D/Stopwatch/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
 [connection signal="animation_finished" from="CutsceneAnimation" to="." method="_on_cutscene_animation_animation_finished"]
+[connection signal="body_entered" from="SolvedMaze" to="." method="_on_solved_maze_body_entered"]
 
 [editable path="Player"]
+[editable path="Player/Camera2D/Stopwatch"]
 [editable path="Door_L"]
 [editable path="Astra"]
