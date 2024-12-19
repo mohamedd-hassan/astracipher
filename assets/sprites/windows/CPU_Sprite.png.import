@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmlbhrjy2cooa"
-path="res://.godot/imported/flagpole.png-fe6415e85618f3b44192e0be76832583.ctex"
+uid="uid://rxdtti2nl61n"
+path="res://.godot/imported/CPU_Sprite.png-8e323a1692672668f18ec405e51ea05e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/flagpole.png"
-dest_files=["res://.godot/imported/flagpole.png-fe6415e85618f3b44192e0be76832583.ctex"]
+source_file="res://assets/sprites/windows/CPU_Sprite.png"
+dest_files=["res://.godot/imported/CPU_Sprite.png-8e323a1692672668f18ec405e51ea05e.ctex"]
 
 [params]
 

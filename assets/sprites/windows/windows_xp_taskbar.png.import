@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be27iuqnmhnc"
-path="res://.godot/imported/toad.png-9b151a0c2fa665fa0bafaf41050030df.ctex"
+uid="uid://dunokk2wlu8cc"
+path="res://.godot/imported/windows_xp_taskbar.png-e296f6f8177aef3fae9cfd67a260fa75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/toad.png"
-dest_files=["res://.godot/imported/toad.png-9b151a0c2fa665fa0bafaf41050030df.ctex"]
+source_file="res://assets/sprites/windows/windows_xp_taskbar.png"
+dest_files=["res://.godot/imported/windows_xp_taskbar.png-e296f6f8177aef3fae9cfd67a260fa75.ctex"]
 
 [params]
 
