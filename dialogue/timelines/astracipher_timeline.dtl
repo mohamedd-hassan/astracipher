@@ -11,7 +11,7 @@ astra: You don’t get it. It’s not just a puzzle. It wants to keep us here. W
 [wait time="2.0"]
 [signal arg="drone_in"]
 join villain center
-[wait time="0.8"]
+[wait time="2.0"]
 villain: Ah, the careful guide and the daring explorer — what a delightful duo.
 [signal arg="lights_off"]
 [wait time="1.0"]
@@ -19,3 +19,9 @@ villain: Let’s play a little game, shall we?
 cipher: What the —
 villain: Try escaping the maze now, losers!
 [signal arg="drone_out"]
+[wait time="0.5"]
+[signal arg="knowledge_light"]
+[wait time="2.5"]
+cipher: We need to move fast, I don't have much time left before my light runs out!
+[signal arg="timer"]
+[wait time="1.0"]

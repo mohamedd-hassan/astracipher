@@ -1,5 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://bpi7w14xkyutn"]
 
+
 [ext_resource type="Script" path="res://scripts/windows_scene_1.gd" id="1_e1qb4"]
 [ext_resource type="PackedScene" uid="uid://bgwy04acidn6x" path="res://scenes/windows_scene_2.tscn" id="2_uyy70"]
 [ext_resource type="PackedScene" uid="uid://bjol3vn2h1na" path="res://scenes/background_windows.tscn" id="2_ya7lr"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://caxu2r04fsam0" path="res://assets/sprites/windows/brick.png" id="6_wh1vh"]
 [ext_resource type="PackedScene" uid="uid://b3pf5m8e51gmk" path="res://scenes/player_side.tscn" id="7_m3xc2"]
 [ext_resource type="Shader" path="res://assets/sprites/windows/shaders/stage2puzzle2.gdshader" id="8_836ee"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0v1w6"]
 texture = ExtResource("4_ag0fd")
