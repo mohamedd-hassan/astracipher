@@ -15,10 +15,10 @@ shader_parameter/shake_power = 0.045
 shader_parameter/shake_rate = 0.303
 shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.021
+shader_parameter/shake_color_rate = 0.033
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erpjr"]
-size = Vector2(3611, 68)
+size = Vector2(3611, 36)
 
 [node name="windows_scene_2" type="Node2D"]
 
@@ -92,12 +92,14 @@ metadata/_edit_use_anchors_ = true
 visible = false
 show_behind_parent = true
 material = SubResource("ShaderMaterial_jjqkb")
+layout_mode = 0
 offset_right = 1846.0
 offset_bottom = 682.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_jjqkb")
-offset_right = 1846.0
+offset_top = 170.0
+offset_right = 1824.0
 offset_bottom = 682.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -119,8 +121,7 @@ position_smoothing_speed = 15.0
 visible = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(1798, 614)
+position = Vector2(1798, 630)
 shape = SubResource("RectangleShape2D_erpjr")

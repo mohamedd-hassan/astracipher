@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://d1ih3hgr0wfut"]
+[gd_scene load_steps=78 format=4 uid="uid://d1ih3hgr0wfut"]
 
 [ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
@@ -17,7 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://dkd3q7xs23jku" path="res://assets/sprites/Char_009.png" id="14_rw434"]
 [ext_resource type="PackedScene" uid="uid://b0dxquygfrtv5" path="res://scenes/drone.tscn" id="15_npfd0"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_la66l"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ljqw5"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8hpya"]
 light_mode = 1
 
 [sub_resource type="Animation" id="Animation_gpnnl"]
@@ -1046,23 +1049,61 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-<<<<<<< HEAD
-"values": [Vector2(278, -313), Vector2(640, -313)]
+"values": [Vector2(278, -313), Vector2(661, -313)]
+}
+
+[sub_resource type="Animation" id="Animation_7vgka"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0627451, 0.0235294, 0.0941176, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t6pu5"]
+resource_name = "knowledge_light"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.655, 2.655), Vector2(4.5, 4.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Drone:animation")
+tracks/1/path = NodePath("Camera2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idle", &"fly_in"]
-=======
-"values": [Vector2(278, -313), Vector2(661, -313)]
->>>>>>> main
+"values": [&"idle_down"]
 }
 
 [sub_resource type="Animation" id="Animation_yatpq"]
@@ -1429,60 +1470,6 @@ tracks/3/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -34)]
 }
 
-[sub_resource type="Animation" id="Animation_t6pu5"]
-resource_name = "knowledge_light"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.655, 2.655), Vector2(4.5, 4.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -34), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.366667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle_down"]
-}
-
-[sub_resource type="Animation" id="Animation_7vgka"]
-resource_name = "fade_to_black"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../CanvasModulate:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0627451, 0.0235294, 0.0941176, 1), Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fvgab"]
 _data = {
 "RESET": SubResource("Animation_neeoo"),
@@ -1527,16 +1514,21 @@ position = Vector2(304, -292)
 animation = &"idle_down"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+material = SubResource("CanvasItemMaterial_ljqw5")
 zoom = Vector2(4.5, 4.5)
 
 [node name="Stopwatch" parent="Player/Camera2D" instance=ExtResource("5_5mcw4")]
-visible = false
-material = SubResource("CanvasItemMaterial_la66l")
+light_mask = 0
+visibility_layer = 1024
+material = SubResource("CanvasItemMaterial_8hpya")
 offset_left = -105.0
 offset_top = -63.0
 offset_right = -105.0
 offset_bottom = -63.0
 scale = Vector2(0.38, 0.38)
+
+[node name="Timer" parent="Player/Camera2D/Stopwatch" index="2"]
+autostart = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 visible = false
@@ -1570,7 +1562,6 @@ tile_map_data = PackedByteArray("AAADAPj/AAAEAAMAAAADAPn/AAACAAIAAAADAPr/AAAFAAM
 tile_set = SubResource("TileSet_ycfao")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0627451, 0.0235294, 0.0941176, 1)
 
 [node name="Door_L" parent="." instance=ExtResource("5_emj1k")]
