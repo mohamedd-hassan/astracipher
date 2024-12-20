@@ -1046,7 +1046,23 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
+<<<<<<< HEAD
+"values": [Vector2(278, -313), Vector2(640, -313)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Drone:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"idle", &"fly_in"]
+=======
 "values": [Vector2(278, -313), Vector2(661, -313)]
+>>>>>>> main
 }
 
 [sub_resource type="Animation" id="Animation_yatpq"]

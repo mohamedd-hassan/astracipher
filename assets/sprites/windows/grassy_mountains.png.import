@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drcggl8c2frdw"
-path="res://.godot/imported/bliss.png-c3404d95ae6c05bcc544ff20dfed0b65.ctex"
+uid="uid://djub5vcb5gbbn"
+path="res://.godot/imported/grassy_mountains.png-01488a2fd47dbb28c91f4391bc046013.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bliss.png"
-dest_files=["res://.godot/imported/bliss.png-c3404d95ae6c05bcc544ff20dfed0b65.ctex"]
+source_file="res://assets/sprites/windows/grassy_mountains.png"
+dest_files=["res://.godot/imported/grassy_mountains.png-01488a2fd47dbb28c91f4391bc046013.ctex"]
 
 [params]
 
