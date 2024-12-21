@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwe50thw4apcc"
-path="res://.godot/imported/bliss_mountains.png-400633fbc3657c910452158793d2bb6c.ctex"
+uid="uid://7n6a0sr18156"
+path="res://.godot/imported/level_1_city_1.png-6937c91fe59bccd5b086b7d6b417d1d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bliss_mountains.png"
-dest_files=["res://.godot/imported/bliss_mountains.png-400633fbc3657c910452158793d2bb6c.ctex"]
+source_file="res://assets/sprites/windows/level_1_city_1.png"
+dest_files=["res://.godot/imported/level_1_city_1.png-6937c91fe59bccd5b086b7d6b417d1d8.ctex"]
 
 [params]
 

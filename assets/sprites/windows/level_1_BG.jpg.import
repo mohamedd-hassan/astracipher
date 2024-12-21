@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmlbhrjy2cooa"
-path="res://.godot/imported/flagpole.png-fe6415e85618f3b44192e0be76832583.ctex"
+uid="uid://c3c8vko1vrlxx"
+path="res://.godot/imported/level_1_BG.jpg-f5c6ebda8dfc9f2e7e9c84fe2f3659cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/flagpole.png"
-dest_files=["res://.godot/imported/flagpole.png-fe6415e85618f3b44192e0be76832583.ctex"]
+source_file="res://assets/sprites/windows/level_1_BG.jpg"
+dest_files=["res://.godot/imported/level_1_BG.jpg-f5c6ebda8dfc9f2e7e9c84fe2f3659cd.ctex"]
 
 [params]
 

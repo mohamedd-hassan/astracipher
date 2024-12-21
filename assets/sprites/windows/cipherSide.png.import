@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be27iuqnmhnc"
-path="res://.godot/imported/toad.png-9b151a0c2fa665fa0bafaf41050030df.ctex"
+uid="uid://dliib06qasfwa"
+path="res://.godot/imported/cipherSide.png-306871b3c1e0c164128eaa1dcd15a501.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/toad.png"
-dest_files=["res://.godot/imported/toad.png-9b151a0c2fa665fa0bafaf41050030df.ctex"]
+source_file="res://assets/sprites/windows/cipherSide.png"
+dest_files=["res://.godot/imported/cipherSide.png-306871b3c1e0c164128eaa1dcd15a501.ctex"]
 
 [params]
 

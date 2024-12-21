@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dosl48375nn76"
-path="res://.godot/imported/bliss_sky.png-eec32e3509ada8bfb434febbe2d8ad08.ctex"
+uid="uid://caxu2r04fsam0"
+path="res://.godot/imported/brick.png-94fd00dd5ae0f4f73a9049ec61602773.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bliss_sky.png"
-dest_files=["res://.godot/imported/bliss_sky.png-eec32e3509ada8bfb434febbe2d8ad08.ctex"]
+source_file="res://assets/sprites/windows/brick.png"
+dest_files=["res://.godot/imported/brick.png-94fd00dd5ae0f4f73a9049ec61602773.ctex"]
 
 [params]
 

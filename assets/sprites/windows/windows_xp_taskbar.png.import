@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dliib06qasfwa"
-path="res://.godot/imported/cipherSide.png-383ad4f0ea023735bde11387c43602ee.ctex"
+uid="uid://dunokk2wlu8cc"
+path="res://.godot/imported/windows_xp_taskbar.png-e296f6f8177aef3fae9cfd67a260fa75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cipherSide.png"
-dest_files=["res://.godot/imported/cipherSide.png-383ad4f0ea023735bde11387c43602ee.ctex"]
+source_file="res://assets/sprites/windows/windows_xp_taskbar.png"
+dest_files=["res://.godot/imported/windows_xp_taskbar.png-e296f6f8177aef3fae9cfd67a260fa75.ctex"]
 
 [params]
 

@@ -20,6 +20,7 @@ func go_to_level(level_tag, destination_tag):
 		"maze_cutscene":
 			scene_to_load = scene_maze_cutscene
 		"maze":
+			pass
 			scene_to_load = scene_maze
 	
 	if scene_to_load != null:
