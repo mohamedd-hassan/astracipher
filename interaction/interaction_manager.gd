@@ -1,14 +1,11 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
-
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 var active_areas = []
 var can_interact = true
 
 func _ready():
-	
-
 	get_tree().node_added.connect(func(_node):
 		player = get_tree().get_first_node_in_group("player")
 	)
@@ -24,7 +21,6 @@ func unregister_area(area: InteractionArea):
 func _process(delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		
 
 func _sort_by_distance_to_player(area1, area2):
 	var area1_to_player = player.global_position.distance_to(area1.global_position)
@@ -35,7 +31,7 @@ func _input(event):
 	if event.is_action_pressed("interact_npc") && can_interact:
 		if active_areas.size() > 0:
 			can_interact = false
-			
+
 			await active_areas[0].interact.call()
 			can_interact = true
 	
