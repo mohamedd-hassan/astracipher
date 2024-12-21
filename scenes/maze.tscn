@@ -1518,8 +1518,9 @@ material = SubResource("CanvasItemMaterial_ljqw5")
 zoom = Vector2(4.5, 4.5)
 
 [node name="Stopwatch" parent="Player/Camera2D" instance=ExtResource("5_5mcw4")]
-light_mask = 0
-visibility_layer = 1024
+visible = false
+light_mask = 512
+visibility_layer = 1025
 material = SubResource("CanvasItemMaterial_8hpya")
 offset_left = -105.0
 offset_top = -63.0
@@ -1528,6 +1529,7 @@ offset_bottom = -63.0
 scale = Vector2(0.38, 0.38)
 
 [node name="Timer" parent="Player/Camera2D/Stopwatch" index="2"]
+wait_time = 299.51
 autostart = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]

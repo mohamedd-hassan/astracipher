@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 
 
 func _on_dialogic_signal(argument:String):
+	# really milking the dialogue signals for this one
 	if argument == "move_forward":
 		cutscene_animation.play("move_forward")
 	elif argument == "astra_turn1":
@@ -65,7 +66,7 @@ func update_astra_animation():
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Global.met_cipher = true
-		print("entered body")
+		print("entered body (ew?)")
 		cutscene()
 	
 func cutscene():

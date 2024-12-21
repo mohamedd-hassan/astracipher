@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc5ehfwvkrjay"]
+
+[ext_resource type="Script" path="res://scripts/typing_sound.gd" id="1_qo7we"]
+[ext_resource type="FontFile" uid="uid://cxu6lylvnfq4k" path="res://assets/fonts/lucon.ttf" id="2_nlmad"]
+[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="3_g25g5"]
+
+[sub_resource type="Animation" id="Animation_ntcgn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rhtkn"]
+resource_name = "typing"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.63333, 2.93333, 3.3, 3.63333, 4, 4.31968, 5.4, 6.1, 7.63334, 9.13333, 10.3, 10.9, 14, 15, 16.2333, 16.8, 18.0333, 18.6, 21.6, 22.5333, 24.4, 25.1, 26.6333, 27.4, 29.8333, 30.4667, 33.8667, 35.3667, 38.4667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08, 0.078, 0.08, 0.078, 0.08, 0.078, 0.119, 0.119, 0.215, 0.215, 0.272, 0.272, 0.382, 0.382, 0.412, 0.412, 0.442, 0.442, 0.557, 0.557, 0.61, 0.61, 0.685, 0.685, 0.81, 0.81, 0.905, 0.905, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtle0"]
+_data = {
+"RESET": SubResource("Animation_ntcgn"),
+"typing": SubResource("Animation_rhtkn")
+}
+
+[node name="Lost" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1156.0
+offset_bottom = 649.0
+script = ExtResource("1_qo7we")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 1150.0
+offset_bottom = 630.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_nlmad")
+theme_override_font_sizes/normal_font_size = 21
+text = "You ran out of light before escaping the maze. |
+
+The maze trapped you, just like the dark web can trap anyone who goes too far. 
+
+It might seem harmless at first, but every step pulls you deeper into something you can’t control.
+
+One wrong click, one risky choice, and suddenly you’re somewhere you don’t understand, with no way out.
+
+This maze? It’s just a story. But in real life, the dangers are very real. 
+
+Be careful online. Stay in safe places and never wander into the unknown.
+
+The internet is powerful — but you need to use it wisely. 
+
+Don’t let curiosity take you somewhere you can’t escape."
+fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("3_g25g5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_xtle0")
+}
