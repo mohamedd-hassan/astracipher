@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://bgwy04acidn6x"]
+
+[ext_resource type="Texture2D" uid="uid://c3c8vko1vrlxx" path="res://assets/sprites/windows/level_1_BG.jpg" id="2_14hly"]
+[ext_resource type="Texture2D" uid="uid://7n6a0sr18156" path="res://assets/sprites/windows/level_1_city_1.png" id="3_3en6v"]
+[ext_resource type="Texture2D" uid="uid://rnem0nh2sdkk" path="res://assets/sprites/windows/level_1_city_2.png" id="4_2mv0t"]
+[ext_resource type="Texture2D" uid="uid://bmeqktdjhyq02" path="res://assets/sprites/windows/level_1_city_3.png" id="5_ani0r"]
+[ext_resource type="Texture2D" uid="uid://bu1k8w1iblhk5" path="res://assets/sprites/windows/level_1_front.png" id="6_cote8"]
+[ext_resource type="Texture2D" uid="uid://dlbb5cckt4ga0" path="res://assets/sprites/windows/startbar.jpg" id="6_x215j"]
+[ext_resource type="PackedScene" uid="uid://b3pf5m8e51gmk" path="res://scenes/player_side.tscn" id="7_32drd"]
+[ext_resource type="Shader" path="res://assets/sprites/windows/shaders/stage2puzzle2.gdshader" id="7_e7mjc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjqkb"]
+shader = ExtResource("7_e7mjc")
+shader_parameter/shake_power = 0.045
+shader_parameter/shake_rate = 0.303
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.033
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erpjr"]
+size = Vector2(3611, 36)
+
+[node name="windows_scene_2" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -3.0
+offset_top = 259.0
+offset_right = 3597.0
+offset_bottom = 1045.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_14hly")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -294.0
+offset_top = 391.0
+offset_right = 3306.0
+offset_bottom = 1025.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_3en6v")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -251.0
+offset_top = 387.0
+offset_right = 3349.0
+offset_bottom = 1021.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_2mv0t")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = -255.0
+offset_top = 362.0
+offset_right = 3345.0
+offset_bottom = 996.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ani0r")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+offset_left = -4.0
+offset_top = 330.0
+offset_right = 3596.0
+offset_bottom = 970.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_cote8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3.0
+offset_top = -17.0
+offset_right = 415.0
+offset_bottom = 218.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Taskbar" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00239234
+anchor_top = 2.62534
+anchor_right = 0.00196159
+anchor_bottom = 2.63385
+offset_left = 2.0
+offset_top = 0.0449219
+offset_right = 1367.18
+offset_bottom = 117.045
+texture = ExtResource("6_x215j")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
+show_behind_parent = true
+material = SubResource("ShaderMaterial_jjqkb")
+layout_mode = 0
+offset_right = 1846.0
+offset_bottom = 682.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jjqkb")
+offset_top = 170.0
+offset_right = 1824.0
+offset_bottom = 682.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="PlayerSide" parent="TileMapLayer" instance=ExtResource("7_32drd")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(68, 574)
+
+[node name="Camera2D" type="Camera2D" parent="TileMapLayer/PlayerSide"]
+zoom = Vector2(2.75, 2.75)
+limit_left = 0
+limit_top = 0
+limit_right = 1800
+limit_bottom = 650
+position_smoothing_speed = 15.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+visible = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1798, 630)
+shape = SubResource("RectangleShape2D_erpjr")

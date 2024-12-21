@@ -3,11 +3,20 @@ extends CharacterBody2D
 var is_dying = false
 var is_jumping = false
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -325.0
 
+
+@export var Gravity = 1000
+@export var SPEED = 300.0 
+@export var JUMP_VELOCITY = -350.0
+
+@onready var jump_height_timer: Timer = $jump_height_timer
+@onready var jump_buffer_timer: Timer = $jump_buffer_timer
 @onready var death_timer: Timer = $death_timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var coyote_timer: Timer = $coyote_timer
+
+var can_coyote_jump = false
+var jump_buffered = false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -19,18 +28,23 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if !is_on_floor() && !can_coyote_jump:
+		if velocity.y < 0:
+			velocity.y += Gravity * delta
+			velocity.x += Gravity * delta
+		elif velocity.y > 1000:
+			velocity.y = 1000
+		else:
+			velocity.y += Gravity * 1.5 * delta
+			velocity.x += Gravity * 1.5 * delta
 	else:
 		is_jumping = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		is_jumping = true
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	if Input.is_action_just_pressed("jump"):
+		jump_height_timer.start()
+		jump()
+		
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -38,14 +52,27 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	update_animation(direction)
-
+	
+	var was_on_floor = is_on_floor()
+	
 	move_and_slide()
-
+	
+	if was_on_floor && !is_on_floor() && not velocity.y < 0:
+		can_coyote_jump = true
+		coyote_timer.start()
+		
+	if !was_on_floor && is_on_floor():
+		if jump_buffered:
+			jump_buffered = false
+			jump()
+	
 func update_animation(direction):
 	if is_dying:
 		return
 	if is_jumping:
 		animated_sprite_2d.play("jump")
+		if direction !=0:
+			animated_sprite_2d.flip_h = (direction<0)
 	elif direction != 0:
 		animated_sprite_2d.flip_h = (direction<0)
 		animated_sprite_2d.play("run")
@@ -87,3 +114,28 @@ func _on_DeathTimer_timeout():
 	else: 
 		Dialogic.VAR.Knowledge -= 0.3
 		get_tree().change_scene_to_file("res://scenes/maze.tscn")
+
+func _on_jump_height_timer_timeout() -> void:
+	if !Input.is_action_pressed("jump"):
+		if velocity.y < -100:
+			velocity.y = -100
+			print("low jump")
+	else:
+		print("high jump")
+
+func _on_jump_buffer_timer_timeout() -> void:
+	jump_buffered = false
+
+func _on_coyote_timer_timeout() -> void:
+	can_coyote_jump = false
+
+func jump():
+	if is_on_floor() || can_coyote_jump:
+		velocity.y = JUMP_VELOCITY
+		is_jumping = true
+		if can_coyote_jump:
+			can_coyote_jump = false
+	else:
+		if !jump_buffered:
+			jump_buffered = true
+			jump_buffer_timer.start()

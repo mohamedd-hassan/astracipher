@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://hb0vy0wxkqe5"]
+[gd_scene load_steps=39 format=3 uid="uid://hb0vy0wxkqe5"]
 
 [ext_resource type="Texture2D" uid="uid://cvi0yfbcghxgh" path="res://assets/sprites/Char_009_Idle.png" id="1_dvlym"]
+[ext_resource type="Script" path="res://scripts/astra.gd" id="1_mau35"]
 [ext_resource type="Texture2D" uid="uid://dkd3q7xs23jku" path="res://assets/sprites/Char_009.png" id="2_jj1sy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ceve"]
@@ -286,9 +287,10 @@ animations = [{
 size = Vector2(16, 11)
 
 [node name="Astra" type="CharacterBody2D"]
+script = ExtResource("1_mau35")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -9.4)
+position = Vector2(0, -15.88)
 scale = Vector2(1.13, 1.13)
 sprite_frames = SubResource("SpriteFrames_5flmt")
 animation = &"up"
@@ -296,5 +298,5 @@ autoplay = "idle_down"
 frame_progress = 0.60158
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9.5)
+position = Vector2(0, 3.02)
 shape = SubResource("RectangleShape2D_tsau4")

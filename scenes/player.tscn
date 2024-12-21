@@ -281,3 +281,6 @@ shape = SubResource("RectangleShape2D_810sj")
 [node name="ContextBubble" parent="." instance=ExtResource("2_gi8cq")]
 visible = false
 position = Vector2(-9, -17)
+
+[node name="FollowPoint" type="Marker2D" parent="."]
+position = Vector2(-20, 4)

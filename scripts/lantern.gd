@@ -1,6 +1,5 @@
 extends AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $PointLight2D/AnimationPlayer
-@onready var interaction_area: InteractionArea = $InteractionArea
 @onready var lantern: AnimatedSprite2D = $"."
 
 
