@@ -47,7 +47,7 @@ func _on_spawn(position: Vector2, direction: String):
 	animated_sprite.play("walk")
 	animated_sprite.stop()
 
-# there HAS to be a better way to do this but i cba
+# there HAS to be a better way to do this but i can't be bothered bsra7a
 func update_follow_point():
 	if animated_sprite.animation == "idle_down" or animated_sprite.animation == "walk_down":
 		follow_point.position = Vector2(0,-20)
