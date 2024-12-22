@@ -1512,6 +1512,7 @@ position = Vector2(304, -292)
 
 [node name="AnimatedSprite2D" parent="Player" index="0"]
 animation = &"idle_down"
+frame_progress = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 material = SubResource("CanvasItemMaterial_ljqw5")
