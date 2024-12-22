@@ -85,6 +85,10 @@ glossary/default_case_sensitive=true
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[global_group]
+
+Player=""
+
 [input]
 
 dialogic_default_action={
