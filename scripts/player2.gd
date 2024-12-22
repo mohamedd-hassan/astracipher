@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 115.0
 const JUMP_VELOCITY = -250.0
 var direction = "right"

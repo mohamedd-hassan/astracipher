@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://vvocemyaahid"]
+
+[ext_resource type="Texture2D" uid="uid://c3d8ncmfk4uku" path="res://assets/sprites/johnnysilverhand.png" id="1_d18j2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju2v3"]
+atlas = ExtResource("1_d18j2")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kjdn"]
+atlas = ExtResource("1_d18j2")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x6wh"]
+atlas = ExtResource("1_d18j2")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l2ke"]
+atlas = ExtResource("1_d18j2")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aenk"]
+atlas = ExtResource("1_d18j2")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c0fd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju2v3")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kjdn")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x6wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l2ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aenk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l2ke")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54lja"]
+size = Vector2(7, 9)
+
+[node name="Puzzle2Npc" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4c0fd")
+animation = &"idle_right"
+autoplay = "idle_right"
+frame_progress = 0.713683
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 9.5)
+shape = SubResource("RectangleShape2D_54lja")
