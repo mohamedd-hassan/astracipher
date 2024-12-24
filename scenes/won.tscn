@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqd3fwhppvv6c"]
+[gd_scene load_steps=11 format=3 uid="uid://bgtkem6kmc6f1"]
 
-[ext_resource type="Script" path="res://scripts/lost.gd" id="1_6agu0"]
-[ext_resource type="FontFile" uid="uid://cxu6lylvnfq4k" path="res://assets/fonts/lucon.ttf" id="2_nlmad"]
-[ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="3_nhsa6"]
-[ext_resource type="AudioStream" uid="uid://k3kdbpul60yn" path="res://assets/music/lastscene.mp3" id="4_ushdy"]
+[ext_resource type="FontFile" uid="uid://cxu6lylvnfq4k" path="res://assets/fonts/lucon.ttf" id="1_3o38v"]
+[ext_resource type="Script" path="res://scripts/won.gd" id="1_7ccgr"]
+[ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="2_c0k3a"]
+[ext_resource type="AudioStream" uid="uid://k3kdbpul60yn" path="res://assets/music/lastscene.mp3" id="3_73uxi"]
 
 [sub_resource type="Animation" id="Animation_ntcgn"]
 length = 0.001
@@ -163,8 +163,8 @@ _data = {
 "fade_out": SubResource("Animation_qwp3j")
 }
 
-[node name="Lost" type="Node2D"]
-script = ExtResource("1_6agu0")
+[node name="Won" type="Node2D"]
+script = ExtResource("1_7ccgr")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -181,38 +181,31 @@ offset_right = 1130.0
 offset_bottom = 619.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 24.0
 offset_top = 22.0
 offset_right = 1150.0
 offset_bottom = 630.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_constants/line_separation = 4
-theme_override_fonts/normal_font = ExtResource("2_nlmad")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 14
+theme_override_fonts/normal_font = ExtResource("1_3o38v")
 theme_override_font_sizes/normal_font_size = 21
-text = "You ran out of light before escaping the maze. 
+text = "You made it out of the maze before your light ran out.
 
-The maze trapped you, just like the dark web can trap anyone who goes too far. 
+But it wasn’t easy, was it? The twists, the traps, the dead-ends, they were everywhere. In a real situation, it’s even harder.
 
-It might seem harmless at first, but every step pulls you deeper into something you can’t control.
+The dark web doesn’t come with a replay button. One wrong move, one risky click, and you could end up in a place you don’t understand, with no way out.
 
-One wrong click, one risky choice, and suddenly you’re somewhere you don’t understand, with no way out.
+Always think before you click, stay in safe places, and be careful where your curiosity takes you. 
 
-This maze? It’s just a story. But in real life, the dangers are very real. 
-
-Be careful online. Stay in safe places and never wander into the unknown.
-
-The internet is powerful — but you need to use it wisely. 
-
-Don’t let curiosity take you somewhere you can’t escape. |"
+The internet is powerful—but it’s not a game. Use it wisely. |"
 fit_content = true
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="typing" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_nhsa6")
+stream = ExtResource("2_c0k3a")
 panning_strength = 1.26
 bus = &"SFX"
 
@@ -224,8 +217,7 @@ libraries = {
 [node name="fade" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 1161.0
-offset_bottom = 427.0
-color = Color(0, 0, 0, 1)
+offset_bottom = 406.0
 
 [node name="fade_out" type="AnimationPlayer" parent="."]
 libraries = {
@@ -233,5 +225,5 @@ libraries = {
 }
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ushdy")
+stream = ExtResource("3_73uxi")
 bus = &"Music"

@@ -83,13 +83,17 @@ func cutscene():
 
 
 func _on_timer_timeout() -> void:
-		lost()
+	lost()
 
 func lost():
-	pass # fades to black and text appears, then game ends
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_file("res://scenes/lost.tscn")
 	
 func won():
-	pass # fades to white and text appears, then game ends
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_file("res://scenes/won.tscn")
 	
 func _on_solved_maze_body_entered(body: Node2D) -> void:
 	won()
