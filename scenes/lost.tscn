@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc5ehfwvkrjay"]
+[gd_scene load_steps=11 format=3 uid="uid://cqd3fwhppvv6c"]
 
-[ext_resource type="Script" path="res://scripts/typing_sound.gd" id="1_qo7we"]
+[ext_resource type="Script" path="res://scripts/lost.gd" id="1_6agu0"]
 [ext_resource type="FontFile" uid="uid://cxu6lylvnfq4k" path="res://assets/fonts/lucon.ttf" id="2_nlmad"]
-[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="3_g25g5"]
+[ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="3_nhsa6"]
+[ext_resource type="AudioStream" uid="uid://k3kdbpul60yn" path="res://assets/music/lastscene.mp3" id="4_ushdy"]
 
 [sub_resource type="Animation" id="Animation_ntcgn"]
 length = 0.001
@@ -18,10 +19,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("music:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("music:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_rhtkn"]
 resource_name = "typing"
-length = 60.0
+length = 50.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,10 +66,58 @@ tracks/0/path = NodePath("RichTextLabel:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.63333, 2.93333, 3.3, 3.63333, 4, 4.31968, 5.4, 6.1, 7.63334, 9.13333, 10.3, 10.9, 14, 15, 16.2333, 16.8, 18.0333, 18.6, 21.6, 22.5333, 24.4, 25.1, 26.6333, 27.4, 29.8333, 30.4667, 33.8667, 35.3667, 38.4667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.8, 3.76667, 4.5, 4.83333, 7.33333, 7.96771, 9.7, 10.2667, 13.8333, 14.3667, 15.2, 15.5333, 16.2667, 16.6333, 19.5333, 20.0333, 21.1333, 21.5, 23.7667, 24.2, 25.1667, 25.5, 28.1333, 28.5597, 30, 30.2333, 32.0667, 32.5, 36.0333, 36.2333, 36.4333, 36.6333, 36.8333, 37.0333, 37.2333, 37.4333, 37.6333, 37.8333, 38.0333, 38.2333, 38.4333, 38.6333, 38.8333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.08, 0.078, 0.08, 0.078, 0.08, 0.078, 0.119, 0.119, 0.215, 0.215, 0.272, 0.272, 0.382, 0.382, 0.412, 0.412, 0.442, 0.442, 0.557, 0.557, 0.61, 0.61, 0.685, 0.685, 0.81, 0.81, 0.905, 0.905, 1.0]
+"values": [0.0, 0.0798947, 0.0798947, 0.11756, 0.11756, 0.213776, 0.213776, 0.268999, 0.268999, 0.378228, 0.378228, 0.409667, 0.409667, 0.43896, 0.43896, 0.552415, 0.552415, 0.603621, 0.603621, 0.681307, 0.681307, 0.712849, 0.712849, 0.804912, 0.804912, 0.846539, 0.846539, 0.902697, 0.902697, 1.0, 1.0, 0.999, 1.0, 1.0, 0.999, 1.0, 1.0, 0.999, 1.0, 1.0, 0.999, 1.0, 1.0, 0.999]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade_out")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("RESET", "fade_out"),
+"times": PackedFloat32Array(0, 34.3333)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("music:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 39.0667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("music:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(37.8, 39.9667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(38.8333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xtle0"]
@@ -41,26 +126,64 @@ _data = {
 "typing": SubResource("Animation_rhtkn")
 }
 
+[sub_resource type="Animation" id="Animation_lvaqd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qwp3j"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxmm5"]
+_data = {
+"RESET": SubResource("Animation_lvaqd"),
+"fade_out": SubResource("Animation_qwp3j")
+}
+
 [node name="Lost" type="Node2D"]
+script = ExtResource("1_6agu0")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1156.0
-offset_bottom = 649.0
-script = ExtResource("1_qo7we")
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="background" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1130.0
+offset_bottom = 619.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
-layout_mode = 0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 24.0
 offset_top = 22.0
 offset_right = 1150.0
@@ -69,7 +192,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_nlmad")
 theme_override_font_sizes/normal_font_size = 21
-text = "You ran out of light before escaping the maze. |
+text = "You ran out of light before escaping the maze. 
 
 The maze trapped you, just like the dark web can trap anyone who goes too far. 
 
@@ -83,15 +206,32 @@ Be careful online. Stay in safe places and never wander into the unknown.
 
 The internet is powerful — but you need to use it wisely. 
 
-Don’t let curiosity take you somewhere you can’t escape."
+Don’t let curiosity take you somewhere you can’t escape. |"
 fit_content = true
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
-stream = ExtResource("3_g25g5")
+[node name="typing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nhsa6")
+panning_strength = 1.26
+bus = &"SFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+[node name="main_animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xtle0")
 }
+
+[node name="fade" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1161.0
+offset_bottom = 427.0
+color = Color(0, 0, 0, 1)
+
+[node name="fade_out" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hxmm5")
+}
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ushdy")
+bus = &"Music"

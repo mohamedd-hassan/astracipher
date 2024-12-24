@@ -15,7 +15,7 @@ func go_to_level(level_tag, destination_tag):
 	match level_tag:
 		"level_one":
 			scene_to_load = scene_level_one
-		"level_two":
+		"level_two1":
 			scene_to_load = scene_level_two
 		"maze_cutscene":
 			scene_to_load = scene_maze_cutscene
