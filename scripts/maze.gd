@@ -8,9 +8,9 @@ extends Node2D
 @onready var spawn: Marker2D = $Door_L/Spawn
 @onready var player_animation: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var drone: AnimatedSprite2D = $Drone
-@onready var stopwatch: Stopwatch = $Player/Camera2D/Stopwatch
-@onready var timer: Timer = $Player/Camera2D/Stopwatch/Timer
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var stopwatch: Stopwatch = $"pause menu/Stopwatch"
+@onready var timer: Timer = $"pause menu/Stopwatch/Timer"
 
 var animation_end = false
 

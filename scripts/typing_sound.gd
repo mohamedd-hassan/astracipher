@@ -1,10 +1,18 @@
-extends Control
+extends Node2D
 
+@onready var typing: AudioStreamPlayer2D = $typing
+@onready var main_animation: AnimationPlayer = $main_animation
 var visible_characters = 0
+
 func _ready() -> void:
-	$AnimationPlayer.play("typing")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	main_animation.play("typing")
+
 func _process(delta: float) -> void:
 	if visible_characters != $RichTextLabel.visible_characters:
 		visible_characters = $RichTextLabel.visible_characters
-		$AudioStreamPlayer2D.play()
+		typing.play()
+
+func transition():
+		Transition.transition()
+		await Transition.on_transition_finished
+		get_tree().change_scene_to_file("res://CREDITS/GodotCredits.tscn")

@@ -18,6 +18,7 @@ const speed_up_multiplier := 10.0
 var scroll_speed : float = base_speed
 var speed_up := false
 
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var colorrect := $ColorRect
 @onready var videoplayer := $VideoPlayer
 @onready var line := $CreditsContainer/Line
@@ -33,12 +34,17 @@ var lines := []
 
 var credits = [
 	[
+		" 
+		 
+		 ",
 		"A game by..."
 	],[
 		"Programming",
 		"Mohamed Hassan",
 		"Nourin Awad",
-		"Omar Ashraf"
+		"Omar Ashraf",
+		"Marwa Al-Azzazi",
+		"Yousef Fawzy"
 	],[
 		"Art",
 		"Menna Ewis"
@@ -50,7 +56,8 @@ var credits = [
 		"Also Lowkey Stole It"
 	],[
 		"Testers",
-		"a5oya"
+		"A5oya",
+		"The Rest Of The Team"
 	],[
 		"Tools used",
 		"Developed with Godot Engine",
@@ -60,18 +67,21 @@ var credits = [
 		"https://myfavouriteartprogram.com"
 	],[
 		"Special thanks",
-		"My parents",
-		"My friends",
+		"Abeer Tawakol",
+		"The rest of the people we should thank",
 		"My pet rabbit"
 	],[
 		"Special hatred",
 		"Github",
 		"Osboo3 el projects",
 		"Github, again"
+	],[
+		"Please don't sue us we're just kids"
 	]
 ]
 
 func _ready():
+	audio_stream_player.play()
 	colorrect.color = bg_color
 	videoplayer.set_stream(Video)
 	if !Use_Video_Audio:
