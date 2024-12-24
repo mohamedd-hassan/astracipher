@@ -37,7 +37,7 @@ var credits = [
 		" 
 		 
 		 ",
-		"A game by..."
+		"A game by... TBD?"
 	],[
 		"Programming",
 		"Mohamed Hassan",
@@ -68,8 +68,7 @@ var credits = [
 	],[
 		"Special thanks",
 		"Abeer Tawakol",
-		"The rest of the people we should thank",
-		"My pet rabbit"
+		"The rest of the people we should thank"
 	],[
 		"Special hatred",
 		"Github",
