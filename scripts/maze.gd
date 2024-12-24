@@ -9,13 +9,22 @@ extends Node2D
 @onready var player_animation: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var drone: AnimatedSprite2D = $Drone
 @onready var interaction_area: Area2D = $InteractionArea
-@onready var stopwatch: Stopwatch = $"pause menu/Stopwatch"
-@onready var timer: Timer = $"pause menu/Stopwatch/Timer"
+#@onready var stopwatch: Stopwatch = $stopwatch/Stopwatch
+@onready var solved_maze: CollisionShape2D = $SolvedMaze/CollisionShape2D
+@onready var door_l: CollisionShape2D = $Door_L/CollisionShape2D
+#@onready var timer: Timer = $stopwatch/Stopwatch/Timer
+@onready var stopwatch: Stopwatch = $stopwatch/Stopwatch
+@onready var timer: Timer = $stopwatch/Stopwatch/Timer
+@onready var progress_bar: TextureProgressBar = $stopwatch/Stopwatch/TextureProgressBar
 
+var time = 0.0
 var animation_end = false
 
 func _ready() -> void:
+	solved_maze.disabled = true
+	solved_maze.visible = false
 	drone.visible = false
+	door_l.disabled = true
 	player.global_position = spawn.global_position
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
@@ -27,7 +36,17 @@ func _process(delta: float) -> void:
 		astra_animation.play("idle_down")
 	knowledge_light_animation.play("flicker")
 	if Global.met_cipher:
-		point_light.texture_scale = timer.time_left / 300
+		solved_maze.disabled = false
+		solved_maze.visible = true
+		if Dialogic.VAR.Knowledge <= 0.5:
+			point_light.texture_scale = 0.5
+			timer.wait_time = 50
+			point_light.texture_scale = timer.time_left * 0.01
+		else:
+			time = Dialogic.VAR.Knowledge / 0.01
+			timer.wait_time = time
+			point_light.texture_scale = timer.time_left * 0.01
+		progress_bar.value = (timer.time_left / time) * 100
 
 
 func _on_dialogic_signal(argument:String):
@@ -50,7 +69,7 @@ func _on_dialogic_signal(argument:String):
 		cutscene_animation.play("drone_out")
 	elif argument == "knowledge_light":
 		cutscene_animation.play("knowledge_light")
-		await cutscene_animation.animation_finished
+		# await cutscene_animation.animation_finished
 		point_light.visible = true
 	elif argument == "timer":
 		drone.visible = false
@@ -84,16 +103,20 @@ func cutscene():
 
 func _on_timer_timeout() -> void:
 	lost()
-
+	
+func _on_solved_maze_body_entered(body: Node2D) -> void:
+	print("SOMEONE ENTERED")
+	if body is Player:
+		print("PLAYER WON")
+		won()
+	
 func lost():
 	Transition.transition()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/lost.tscn")
 	
 func won():
-	Transition.transition()
+	Transition.transition2()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/won.tscn")
 	
-func _on_solved_maze_body_entered(body: Node2D) -> void:
-	won()

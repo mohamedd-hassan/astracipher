@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0r2fksmw45gs"]
+[gd_scene load_steps=7 format=3 uid="uid://b0r2fksmw45gs"]
 
-[ext_resource type="Script" path="res://scripts/transition.gd" id="1_e7jsh"]
+[ext_resource type="Script" path="res://scripts/transition.gd" id="1_dmd24"]
 
 [sub_resource type="Animation" id="Animation_c7d6b"]
 length = 0.001
@@ -11,6 +11,18 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -49,15 +61,32 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_t8vxw"]
+resource_name = "fade_to_white"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h145c"]
 _data = {
 "RESET": SubResource("Animation_c7d6b"),
 "fade_to_black": SubResource("Animation_pfnhl"),
-"fade_to_scene": SubResource("Animation_dj3kv")
+"fade_to_scene": SubResource("Animation_dj3kv"),
+"fade_to_white": SubResource("Animation_t8vxw")
 }
 
 [node name="Transition" type="CanvasLayer"]
-script = ExtResource("1_e7jsh")
+script = ExtResource("1_dmd24")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -67,6 +96,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
