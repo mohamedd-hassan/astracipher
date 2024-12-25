@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://6d7jde1hf3bi"]
+[gd_scene load_steps=6 format=3 uid="uid://6d7jde1hf3bi"]
 
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="1_4afd1"]
 [ext_resource type="Script" path="res://scripts/level_two.gd" id="1_ml28r"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="3_645ke"]
 [ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="4_d6twi"]
+[ext_resource type="PackedScene" uid="uid://b7qynxb5p7uaw" path="res://scenes/npc.tscn" id="5_sepgf"]
 
 [node name="LevelTwo" type="Node2D"]
 script = ExtResource("1_ml28r")
@@ -38,6 +39,12 @@ offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0
 offset_bottom = -324.0
+
+[node name="npc" parent="." instance=ExtResource("5_sepgf")]
+position = Vector2(50, -1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc"]
+polygon = PackedVector2Array(-1, -12, 5, -1, 5, -1, 0, 12, 0, 12, -6, 1, -6, 1)
 
 [editable path="Door_L"]
 [editable path="Door_R"]
