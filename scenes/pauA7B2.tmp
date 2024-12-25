@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfjf7bqc8cm0c"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_fntbe"]
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_6wik8"]
 [ext_resource type="Shader" path="res://scenes/pause_menu.gdshader" id="1_n2074"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5eplm"]
@@ -78,7 +78,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fntbe")
+script = ExtResource("1_6wik8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_5eplm")

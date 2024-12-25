@@ -85,6 +85,9 @@ glossary/default_case_sensitive=true
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf"
 [global_group]
 
 Player=""

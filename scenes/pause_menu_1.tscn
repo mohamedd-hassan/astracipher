@@ -1,0 +1,193 @@
+[gd_scene load_steps=12 format=3 uid="uid://dm0tte3plt1e8"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu_1.gd" id="1_tb4bj"]
+[ext_resource type="Shader" path="res://scenes/pause_menu_1.gdshader" id="2_57bbx"]
+[ext_resource type="Texture2D" uid="uid://ciracebf3n64y" path="res://assets/pixil-frame-0.png" id="3_abcw3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2ua2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv4v2"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.80708, 0.342609, 0.156999, 1)
+border_width_bottom = 2
+border_color = Color(0.266667, 0.141176, 0.203922, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e3ge"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.905882, 0.415686, 0.227451, 1)
+border_width_bottom = 4
+border_color = Color(0.13135, 0.143211, 0.316499, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+shadow_size = 2
+
+[sub_resource type="Theme" id="Theme_7b04k"]
+Button/font_sizes/font_size = 30
+Button/styles/focus = SubResource("StyleBoxEmpty_t2ua2")
+Button/styles/hover = SubResource("StyleBoxFlat_bv4v2")
+Button/styles/normal = SubResource("StyleBoxFlat_6e3ge")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i51xk"]
+shader = ExtResource("2_57bbx")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_hwbdc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_03qj8"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.882]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shiha"]
+_data = {
+"RESET": SubResource("Animation_hwbdc"),
+"blur": SubResource("Animation_03qj8")
+}
+
+[node name="pause_menu1" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7b04k")
+script = ExtResource("1_tb4bj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_i51xk")
+layout_mode = 0
+offset_left = -577.0
+offset_top = -323.0
+offset_right = 574.0
+offset_bottom = 323.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -242.0
+offset_right = 205.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_abcw3")
+region_rect = Rect2(471, 96.9998, 308, 275)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -140.0
+offset_right = 105.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="resume" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+icon_alignment = 1
+
+[node name="options" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="quit" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_shiha")
+}
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/quit" to="." method="_on_quit_pressed"]
