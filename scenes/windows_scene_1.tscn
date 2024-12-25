@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/windows_scene_1.gd" id="1_e1qb4"]
 [ext_resource type="PackedScene" uid="uid://bgwy04acidn6x" path="res://scenes/windows_scene_2.tscn" id="2_uyy70"]
-
 [ext_resource type="Texture2D" uid="uid://dunokk2wlu8cc" path="res://assets/sprites/windows/windows_xp_taskbar.png" id="3_4wxaa"]
 [ext_resource type="Texture2D" uid="uid://ba5ckwfs2rpgy" path="res://assets/sprites/windows/icons/Bliss_1440x1080.jpg" id="3_s3tyv"]
 [ext_resource type="Texture2D" uid="uid://gcsihuq54xpm" path="res://assets/sprites/windows/icons/IE.png" id="6_hql8c"]
@@ -633,6 +632,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgy6s"]
 size = Vector2(154, 495.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw2w5"]
+shader = ExtResource("49_fm85j")
+shader_parameter/shake_power = 0.0
+shader_parameter/shake_rate = 0.0
+shader_parameter/shake_speed = 0.495
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.033
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wgwdf"]
 shader = ExtResource("11_4kcrt")
 shader_parameter/overlay = true
@@ -642,28 +649,20 @@ shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
 shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
+shader_parameter/roll_speed = 1.51
 shader_parameter/roll_size = 0.0
 shader_parameter/roll_variation = 0.1
 shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 0.0
 shader_parameter/static_noise_intensity = 0.0
-shader_parameter/aberration = 4.75e-08
+shader_parameter/aberration = 0.03
 shader_parameter/brightness = 1.13
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.677
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.0
 shader_parameter/vignette_opacity = 0.5
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw2w5"]
-shader = ExtResource("49_fm85j")
-shader_parameter/shake_power = 0.0
-shader_parameter/shake_rate = 0.0
-shader_parameter/shake_speed = 0.495
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.033
 
 [node name="windows_scene_1" type="Node2D"]
 script = ExtResource("1_e1qb4")
@@ -771,7 +770,7 @@ position = Vector2(126, 56.5)
 shape = SubResource("RectangleShape2D_k7nuy")
 
 [node name="PlayerSide" parent="." instance=ExtResource("7_m3xc2")]
-position = Vector2(1182, 424)
+position = Vector2(131, 390)
 scale = Vector2(1.52127, 1.52127)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PlayerSide"]
@@ -823,14 +822,6 @@ position = Vector2(1615, 522)
 position = Vector2(-173, -152)
 shape = SubResource("RectangleShape2D_hgy6s")
 
-[node name="CRT" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_wgwdf")
-offset_left = -34.0
-offset_top = -473.0
-offset_right = 1385.0
-offset_bottom = 672.0
-
 [node name="virus" type="TextureRect" parent="."]
 visible = false
 offset_left = 1111.0
@@ -845,12 +836,6 @@ position = Vector2(1381, 390)
 scale = Vector2(0.444445, 0.444445)
 texture = ExtResource("45_a57fj")
 
-[node name="Glitch" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_yw2w5")
-offset_top = -392.0
-offset_right = 1765.0
-offset_bottom = 682.0
-
 [node name="BSOD" type="TextureRect" parent="."]
 visible = false
 offset_left = 692.0
@@ -859,6 +844,19 @@ offset_right = 1502.0
 offset_bottom = 694.0
 scale = Vector2(0.846, 0.846)
 texture = ExtResource("50_s2tpk")
+
+[node name="Glitch" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yw2w5")
+offset_top = -392.0
+offset_right = 1765.0
+offset_bottom = 682.0
+
+[node name="CRT" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wgwdf")
+offset_left = -34.0
+offset_top = -473.0
+offset_right = 1385.0
+offset_bottom = 672.0
 
 [connection signal="body_entered" from="pitfall" to="." method="_on_pitfall_body_entered"]
 [connection signal="body_entered" from="win" to="." method="_on_win_body_entered"]
