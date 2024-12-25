@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player_side.gd" id="1_83nq0"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icjqp"]
 size = Vector2(10, 18)
 

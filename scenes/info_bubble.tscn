@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjgmibukofn7j"]
+
+[ext_resource type="Script" path="res://scenes/info_bubble.gd" id="1_vh53d"]
+[ext_resource type="Texture2D" uid="uid://bhp7sn638u8l5" path="res://assets/infobubble.png" id="1_yejop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw0gg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnkro"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12eo6"]
+bg_color = Color(0.692258, 0.668777, 0.621827, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysucq"]
+bg_color = Color(0.780109, 0.760913, 0.722531, 1)
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.501961, 0.501961, 0.501961, 1)
+shadow_color = Color(0.831373, 0.815686, 0.784314, 1)
+shadow_offset = Vector2(0, 5)
+
+[node name="info_bubble" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vh53d")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yejop")
+region_rect = Rect2(789.486, 374.788, 7851.02, 6640.7)
+
+[node name="attention" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 340.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.831373, 0.815686, 0.784314, 1)
+theme_override_font_sizes/font_size = 55
+text = "Attention !
+"
+
+[node name="continue" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -84.0
+offset_right = 101.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_iw0gg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pnkro")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_12eo6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ysucq")
+text = "Continue"
+
+[connection signal="pressed" from="NinePatchRect/continue" to="." method="_on_continue_pressed"]

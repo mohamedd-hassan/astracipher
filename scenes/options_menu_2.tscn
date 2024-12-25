@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvme5avdf08gl"]
+
+[ext_resource type="Script" path="res://scenes/options_menu_1.gd" id="2_p0mu4"]
+[ext_resource type="Texture2D" uid="uid://ca72n54jpadvx" path="res://assets/pixil-frame-1.png" id="2_s8ng0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4d8gt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6djrj"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.54902, 0.509804, 0.490196, 1)
+border_width_bottom = 2
+border_color = Color(0.266667, 0.141176, 0.203922, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kl2y"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.658824, 0.619608, 0.603922, 1)
+border_width_bottom = 4
+border_color = Color(0.129412, 0.145098, 0.317647, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+shadow_size = 2
+
+[sub_resource type="Theme" id="Theme_wptr0"]
+Button/font_sizes/font_size = 30
+Button/styles/focus = SubResource("StyleBoxEmpty_4d8gt")
+Button/styles/hover = SubResource("StyleBoxFlat_6djrj")
+Button/styles/normal = SubResource("StyleBoxFlat_1kl2y")
+
+[node name="options_menu_2" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wptr0")
+script = ExtResource("2_p0mu4")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -242.0
+offset_right = 205.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s8ng0")
+region_rect = Rect2(470.675, 95.8976, 308.82, 276.429)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -106.5
+offset_right = 108.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="resources" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resouces"
+icon_alignment = 1
+
+[node name="back" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back
+"
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/resources" to="." method="_on_resources_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/back" to="." method="_on_back_pressed"]

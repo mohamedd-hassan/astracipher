@@ -20,8 +20,8 @@ config/icon="res://assets/icon.svg"
 InteractionManager="*res://interaction/interactionManager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 NavigationManager="*res://scripts/navigationManager.gd"
-Transition="*res://scenes/transition.tscn"
 Global="*res://scripts/global.gd"
+Transition="*res://scenes/transition.tscn"
 
 [dialogic]
 
@@ -52,7 +52,7 @@ layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/time
 layout/default_style="Default"
 variables={
 "Help_Needed": false,
-"Knowledge": 0.5,
+"Knowledge": 1.0,
 "timelines": 0
 }
 extensions_folder="res://addons/dialogic_additions"
@@ -90,6 +90,9 @@ movie_writer/movie_file="D:/Mohamed/Projects/Games/Resources/astracipher.avi"
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf"
 [global_group]
 
 Player=""

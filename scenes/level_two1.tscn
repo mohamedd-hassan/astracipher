@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://mf5ib0dknbdl" path="res://scenes/puzzle_1_npc.tscn" id="8_xw3nf"]
 [ext_resource type="Texture2D" uid="uid://1yx1sccd3xtj" path="res://assets/sprites/Props-01.png" id="9_hpxhn"]
 [ext_resource type="PackedScene" uid="uid://vvocemyaahid" path="res://scenes/puzzle_2_npc.tscn" id="9_w6u4n"]
-[ext_resource type="Texture2D" uid="uid://bv2aaow7fqi32" path="res://assets/sprites/Dungeon_brick_wall_grey.png.png" id="11_yi3ix"]
+[ext_resource type="Texture2D" uid="uid://bkt1umksb8la1" path="res://assets/sprites/light.png" id="16_d2riq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4u1tm"]
 texture = ExtResource("9_hpxhn")
@@ -1887,6 +1887,7 @@ tracks/1/keys = {
 "values": [&"walk_left", &"idle_left"]
 }
 
+
 [sub_resource type="Animation" id="Animation_vn8ml"]
 resource_name = "npc1_out"
 tracks/0/type = "value"
@@ -1912,7 +1913,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [&"walk_right", &"idle_right"]
-}
 
 [sub_resource type="Animation" id="Animation_s6gpy"]
 resource_name = "npc2_turn"
@@ -1929,6 +1929,7 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"idle_right", &"idle_left"]
 }
+
 
 [sub_resource type="Animation" id="Animation_4jtrs"]
 resource_name = "screen_down"
@@ -2083,14 +2084,6 @@ offset_top = -324.0
 offset_right = -576.0
 offset_bottom = -324.0
 
-[node name="Node" type="Node" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node"]
-visible = false
-position = Vector2(1331, -198)
-scale = Vector2(0.335, 0.335)
-texture = ExtResource("11_yi3ix")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_yp5vj")
@@ -2108,8 +2101,20 @@ shape = SubResource("RectangleShape2D_bcqym")
 position = Vector2(384.5, -31)
 shape = SubResource("RectangleShape2D_f08j8")
 
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-1, 6)
+
+[node name="streetlamplight" type="PointLight2D" parent="."]
+position = Vector2(228, -55)
+color = Color(0.995469, 1, 0.913364, 1)
+energy = 0.8
+texture = ExtResource("16_d2riq")
+texture_scale = 0.45
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.657889, 0.79572, 0.974847, 1)
+
 
 [connection signal="body_entered" from="Puzzle2Interaction" to="." method="_on_puzzle_2_interaction_body_entered"]
 [connection signal="body_entered" from="Puzzle1Interaction" to="." method="_on_puzzle_1_interaction_body_entered"]

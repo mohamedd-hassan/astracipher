@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw4auvkmrqdb8"]
+[gd_scene load_steps=3 format=3 uid="uid://bbcydg4fmt4fl"]
 
 [ext_resource type="Script" path="res://scripts/option_buttons.gd" id="1_jwj3k"]
+
+[sub_resource type="GDScript" id="GDScript_nv0v2"]
 
 [node name="Options Menu" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_nv0v2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -28,4 +31,4 @@ layout_mode = 2
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/Buttons/Resources" to="MarginContainer/Buttons" method="_on_resources_pressed"]
-[connection signal="pressed" from="MarginContainer/Buttons/Back" to="MarginContainer/Buttons" method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Back" to="." method="_on_back_pressed"]
