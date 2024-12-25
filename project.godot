@@ -42,17 +42,35 @@ directories/dtl_directory={
 "Stage1_Admin": "res://dialogue/timelines/Stage1_Timelines/Stage1_Admin.dtl",
 "Stage1_NPC2": "res://dialogue/timelines/Stage1_Timelines/Stage1_NPC2.dtl",
 "Stage1_bully": "res://dialogue/timelines/Stage1_Timelines/Stage1_bully.dtl",
+"admin2nd": "res://dialogue/timelines/Stage1_Timelines/admin2nd.dtl",
 "astracipher_timeline": "res://dialogue/timelines/astracipher_timeline.dtl",
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
+"nigtmare": "res://dialogue/timelines/nigtmare.dtl",
 "npc1_timeline": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline.dtl",
+
+"npc1_timeline2": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline2.dtl",
+"spotting npc1": "res://dialogue/timelines/Stage1_Timelines/spotting npc1.dtl",
+"starting": "res://dialogue/timelines/Stage1_Timelines/starting.dtl",
+"talk_to_2": "res://dialogue/timelines/Stage1_Timelines/talk_to_2.dtl",
+"talk_to_one": "res://dialogue/timelines/Stage1_Timelines/talk_to_one.dtl",
+"talknpc2nd": "res://dialogue/timelines/Stage1_Timelines/talknpc2nd.dtl",
+
 "shady_npc1_timelinetimeline": "res://dialogue/timelines/stage2_timelines/shady_npc1_timeline.dtl",
+
 "windows_scene_1_timeline": "res://dialogue/timelines/windows_timelines/windows_scene_1_timeline.dtl"
 }
 layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres"]
 layout/default_style="Default"
 variables={
 "Help_Needed": false,
-"Knowledge": 1.0,
+
+"Knowledge": 0.5,
+"code": "0",
+"talked": false,
+"talked2": false,
+"talked_admin": false,
+"talked_admin_wrong": false,
+
 "timelines": 0
 }
 extensions_folder="res://addons/dialogic_additions"

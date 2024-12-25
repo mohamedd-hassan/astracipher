@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7qynxb5p7uaw"]
-
-[ext_resource type="Texture2D" uid="uid://1l3762sc8dad" path="res://assets/sprites/knight.png" id="1_a74i6"]
+[gd_scene load_steps=2 format=3 uid="uid://b7qynxb5p7uaw"]
 
 [sub_resource type="GDScript" id="GDScript_choa7"]
 script/source = "extends Area2D
@@ -10,11 +8,6 @@ script/source = "extends Area2D
 modulate = Color(0.404339, 0.537955, 0.190652, 1)
 collision_layer = 2
 script = SubResource("GDScript_choa7")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_a74i6")
-region_enabled = true
-region_rect = Rect2(7.2688, 6.40843, 16.2502, 24.2159)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
