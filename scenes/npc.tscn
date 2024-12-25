@@ -2,16 +2,6 @@
 
 [sub_resource type="GDScript" id="GDScript_choa7"]
 script/source = "extends Area2D
-
-func _ready() -> void:
-	input_event.connect(_on_input_event.bind())
-
-
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_E:
-			print(\"Key 1 pressed.\")
 "
 
 [node name="npc" type="Area2D"]

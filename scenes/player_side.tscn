@@ -1,101 +1,29 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3pf5m8e51gmk"]
+[gd_scene load_steps=5 format=3 uid="uid://b3pf5m8e51gmk"]
 
 [ext_resource type="Script" path="res://scripts/player_side.gd" id="1_83nq0"]
-[ext_resource type="Texture2D" uid="uid://dliib06qasfwa" path="res://assets/sprites/windows/cipherSide.png" id="1_txu08"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ieh0"]
-atlas = ExtResource("1_txu08")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lm1hj"]
-atlas = ExtResource("1_txu08")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xq63s"]
-atlas = ExtResource("1_txu08")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lde63"]
-atlas = ExtResource("1_txu08")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sob8c"]
-atlas = ExtResource("1_txu08")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qe7km"]
-atlas = ExtResource("1_txu08")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gwgi8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ieh0")
-}],
-"loop": true,
-"name": &"die",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lm1hj")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xq63s")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lde63")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sob8c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qe7km")
-}],
-"loop": true,
-"name": &"run",
-"speed": 9.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icjqp"]
-size = Vector2(14, 31)
+size = Vector2(10, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24gak"]
-size = Vector2(22.5, 28.5)
+size = Vector2(12, 19.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4hwi"]
-size = Vector2(24, 7.5)
+size = Vector2(14, 3)
 
 [node name="PlayerSide" type="CharacterBody2D"]
 script = ExtResource("1_83nq0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_gwgi8")
-animation = &"idle"
-autoplay = "idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -16.5)
+position = Vector2(1, -13)
 shape = SubResource("RectangleShape2D_icjqp")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-visible = false
-position = Vector2(2.25, -18.75)
+position = Vector2(1, -13.375)
 shape = SubResource("RectangleShape2D_24gak")
 
 [node name="feet" type="Area2D" parent="."]
@@ -104,7 +32,7 @@ collision_mask = 2
 collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="feet"]
-position = Vector2(2, -3.75)
+position = Vector2(1, -4.5)
 shape = SubResource("RectangleShape2D_e4hwi")
 
 [node name="death_timer" type="Timer" parent="."]

@@ -8,7 +8,7 @@ class_name Stopwatch
 
 func _process(delta: float) -> void:
 	label.text = time_to_string()
-	progress_bar.value = (timer.time_left / 300) * 100
+	# progress_bar.value = (timer.time_left / 300) * 100
 
 	
 func time_to_string() -> String:

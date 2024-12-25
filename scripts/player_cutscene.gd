@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const GRAVITY = 200.0
-const WALK_SPEED = 50
+const WALK_SPEED = 40
 var direction = "right"
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D2
 

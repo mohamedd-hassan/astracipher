@@ -115,38 +115,37 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mma2"]
-size = Vector2(14, 11)
+size = Vector2(43.5, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymoaj"]
-size = Vector2(14, 5)
+size = Vector2(50, 12.0001)
 
 [node name="cpu_enemy" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 3
+position = Vector2(0, -1)
 script = ExtResource("1_nmc3u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(-4.99986, -7.99987)
 sprite_frames = SubResource("SpriteFrames_o7285")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.164042
+frame_progress = 0.300916
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_4mma2")
 
 [node name="hitbox" type="Area2D" parent="."]
+position = Vector2(-4.99982, 0.0001297)
 collision_layer = 2
 collision_mask = 3
 collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -14.5)
+position = Vector2(4.99994, -25.0001)
 shape = SubResource("RectangleShape2D_ymoaj")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-9, -9)
-target_position = Vector2(0, 15)
+position = Vector2(-28.9999, -8.99975)
+target_position = Vector2(0, 29)
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

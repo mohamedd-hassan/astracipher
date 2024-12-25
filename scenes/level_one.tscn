@@ -9,11 +9,14 @@
 [ext_resource type="Script" path="res://scripts/npc1.gd" id="5_ym4l6"]
 [ext_resource type="PackedScene" uid="uid://b5xxx5obog3io" path="res://interaction/interactiona area/interaction_area.tscn" id="6_wtv0u"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="7_dnsdc"]
+[ext_resource type="PackedScene" uid="uid://dm0tte3plt1e8" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
 [ext_resource type="Script" path="res://scenes/npc2.gd" id="7_x121g"]
 [ext_resource type="Script" path="res://scenes/npc3.gd" id="8_f0oo4"]
-[ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="8_n67qi"]
+
+
 [ext_resource type="Texture2D" uid="uid://1l3762sc8dad" path="res://assets/sprites/knight.png" id="10_cgfu1"]
 [ext_resource type="Script" path="res://scenes/admin.gd" id="10_o5gtd"]
+
 [ext_resource type="Texture2D" uid="uid://we7glyt0cpqx" path="res://assets/sprites/spr_tileset_sunnysideworld_16px.png" id="11_0wrpk"]
 [ext_resource type="Texture2D" uid="uid://c55q385me0q3g" path="res://assets/sprites/Chr_Wizard.png" id="11_uheel"]
 [ext_resource type="Script" path="res://scenes/area_2d.gd" id="14_dh6p8"]
@@ -5804,7 +5807,7 @@ tile_set = SubResource("TileSet_n6m5m")
 tile_map_data = PackedByteArray("AADm//f/AAABABwAAADm//j/AAABAB0AAADn//f/AAACABwAAADn//j/AAACAB0AAADo//f/AAADABwAAADo//j/AAADAB0AAADp//f/AAAEABwAAADp//j/AAAEAB0AAADo//r/AAAPAB4AAADo//v/AAAPAB8AAADo//z/AAAPACAAAADp//r/AAAQAB4AAADp//v/AAAQAB8AAADp//z/AAAQACAAAADk//r/AAAPAB4AAADk//v/AAAPAB8AAADk//z/AAAPACAAAADl//r/AAAQAB4AAADl//v/AAAQAB8AAADl//z/AAAQACAAAADg//r/AAATAB4AAADg//v/AAATAB8AAADg//z/AAATACAAAADh//r/AAAUAB4AAADh//v/AAAUAB8AAADh//z/AAAUACAAAADi//r/AAARABkAAADi//v/AAARABoAAADi//z/AAARABsAAADj//r/AAASABkAAADj//v/AAASABoAAADj//z/AAASABsAAADi//b/AAAIABgAAADi//f/AAAIABkAAADj//b/AAAJABgAAADj//f/AAAJABkAAADk//b/AAAKABgAAADk//f/AAAKABkAAADf//b/AAAIABgAAADf//f/AAAIABkAAADg//b/AAAJABgAAADg//f/AAAJABkAAADh//b/AAAKABgAAADh//f/AAAKABkAAAA=")
 tile_set = SubResource("TileSet_6dnr3")
 
-[node name="Player" parent="." instance=ExtResource("3_1poiu")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_1poiu")]
 position = Vector2(0, -77)
 collision_layer = 4
 collision_mask = 7
@@ -5890,10 +5893,12 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_mbnrk")
 
 [node name="Door_L" parent="." instance=ExtResource("7_dnsdc")]
+
 position = Vector2(32, -321)
 collision_layer = 2
 collision_mask = 4
 destination_level_tag = "level_two"
+
 destination_door_tag = "L"
 spawn_direction = "right"
 
@@ -5902,7 +5907,7 @@ position = Vector2(29, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_n67qi")]
+[node name="pause_menu1" parent="CanvasLayer" instance=ExtResource("8_16wmf")]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
