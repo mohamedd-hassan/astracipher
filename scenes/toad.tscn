@@ -1,38 +1,29 @@
-[gd_scene load_steps=15 format=3 uid="uid://bibd0yhabfgc1"]
+[gd_scene load_steps=14 format=3 uid="uid://bibd0yhabfgc1"]
 
 [ext_resource type="Script" path="res://scripts/toad.gd" id="1_fb01s"]
-[ext_resource type="Texture2D" uid="uid://be27iuqnmhnc" path="res://assets/sprites/toad.png" id="2_yhcgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_adlbv"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jilqo"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yukmf"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65leo"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fi67i"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ac0kh"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksy0k"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnhy8"]
-atlas = ExtResource("2_yhcgy")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o7285"]
