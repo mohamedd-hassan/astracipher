@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://urs1vrmugkrc" path="res://assets/sprites/purple.png" id="2_pix0m"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="3_645ke"]
 [ext_resource type="Script" path="res://scripts/player2.gd" id="4_81otk"]
-[ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="4_d6twi"]
+[ext_resource type="PackedScene" uid="uid://3v5dys4mlir2" path="res://scenes/pause_menu_2.tscn" id="4_d6twi"]
 [ext_resource type="Texture2D" uid="uid://4le8paq8qmj8" path="res://assets/sprites/pixil-frame-0 (1).png" id="5_nav5o"]
 [ext_resource type="Texture2D" uid="uid://85kub71x1ios" path="res://assets/sprites/streetstilesetDEMO.png" id="6_10uuv"]
 [ext_resource type="Texture2D" uid="uid://bdmnvmdfys0kl" path="res://assets/sprites/Tiles.png" id="7_7tw4f"]
