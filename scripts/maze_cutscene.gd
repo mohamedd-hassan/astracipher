@@ -5,8 +5,11 @@ extends Node2D
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	print("signal sent")
 	Dialogic.start("cutscene_timeline")
 	await Dialogic.timeline_ended
+	print("timeline ended")
+
 
 func _on_dialogic_signal(argument:String):
 	if argument == "end":

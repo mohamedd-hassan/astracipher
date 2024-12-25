@@ -1,7 +1,7 @@
 extends Node
 
 const scene_level_one = preload("res://scenes/level_one.tscn")
-const scene_level_two = preload("res://scenes/level_two.tscn")
+const scene_level_two = preload("res://scenes/level_two1.tscn")
 const scene_maze_cutscene = preload("res://scenes/maze_cutscene.tscn")
 const scene_maze = preload("res://scenes/maze.tscn")
 
@@ -15,11 +15,12 @@ func go_to_level(level_tag, destination_tag):
 	match level_tag:
 		"level_one":
 			scene_to_load = scene_level_one
-		"level_two":
+		"level_two1":
 			scene_to_load = scene_level_two
 		"maze_cutscene":
 			scene_to_load = scene_maze_cutscene
 		"maze":
+			pass
 			scene_to_load = scene_maze
 	
 	if scene_to_load != null:

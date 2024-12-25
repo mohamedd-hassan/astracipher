@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://c31jfcfapqlsd"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_3bt3i"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_d6ru2"]
+[ext_resource type="PackedScene" uid="uid://b7od7ye6j1kpj" path="res://dialogue/characters/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="2_n7d05"]
+
+[sub_resource type="Resource" id="Resource_b6cmg"]
+script = ExtResource("1_3bt3i")
+overrides = {
+"global_bg_color": "Color(0, 0, 0, 0)",
+"global_font": "\"res://assets/fonts/Minecraft.ttf\"",
+"global_font_size": "25.0"
+}
+
+[sub_resource type="Resource" id="Resource_37vjh"]
+script = ExtResource("1_3bt3i")
+scene = ExtResource("2_n7d05")
+overrides = {
+"box_color_custom": "Color(0, 0, 0, 0)",
+"normal_font": "\"res://assets/fonts/Minecraft.ttf\"",
+"text_size": "30.0"
+}
+
+[resource]
+script = ExtResource("2_d6ru2")
+name = "cutscene_style2"
+layer_list = Array[String](["10"])
+layer_info = {
+"": SubResource("Resource_b6cmg"),
+"10": SubResource("Resource_37vjh")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_3bt3i")]([])
+metadata/_latest_layer = "10"

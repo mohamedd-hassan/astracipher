@@ -1,0 +1,9 @@
+bully: Hey, you're still here? I thought you'd run away by now.
+- Respond
+	set {Knowledge} += 0.1
+	set {timelines} = 2
+	[signal arg="responded2"]
+- Ignore
+	set {Knowledge} -= 0.1
+	set {timelines} = 2
+	[signal arg="Ignored2"]

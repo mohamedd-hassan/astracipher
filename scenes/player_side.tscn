@@ -1,9 +1,7 @@
-
 [gd_scene load_steps=13 format=3 uid="uid://b3pf5m8e51gmk"]
 
-
 [ext_resource type="Script" path="res://scripts/player_side.gd" id="1_83nq0"]
-[ext_resource type="Texture2D" uid="uid://lba720gyysl6" path="res://assets/sprites/cipherSide.png" id="1_txu08"]
+[ext_resource type="Texture2D" uid="uid://dliib06qasfwa" path="res://assets/sprites/windows/cipherSide.png" id="1_txu08"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ieh0"]
 atlas = ExtResource("1_txu08")
@@ -70,14 +68,14 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvfkf"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icjqp"]
+size = Vector2(14, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24gak"]
-size = Vector2(21, 28.5)
+size = Vector2(22.5, 28.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4hwi"]
-size = Vector2(24, 7)
+size = Vector2(24, 7.5)
 
 [node name="PlayerSide" type="CharacterBody2D"]
 script = ExtResource("1_83nq0")
@@ -85,18 +83,19 @@ script = ExtResource("1_83nq0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_gwgi8")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -17)
-shape = SubResource("CapsuleShape2D_jvfkf")
+position = Vector2(1, -16.5)
+shape = SubResource("RectangleShape2D_icjqp")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(3, -18.75)
+visible = false
+position = Vector2(2.25, -18.75)
 shape = SubResource("RectangleShape2D_24gak")
 
 [node name="feet" type="Area2D" parent="."]
@@ -105,9 +104,24 @@ collision_mask = 2
 collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="feet"]
-position = Vector2(2, -4)
+position = Vector2(2, -3.75)
 shape = SubResource("RectangleShape2D_e4hwi")
 
 [node name="death_timer" type="Timer" parent="."]
 
+[node name="coyote_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="jump_buffer_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="jump_height_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="coyote_timer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="jump_buffer_timer" to="." method="_on_jump_buffer_timer_timeout"]
+[connection signal="timeout" from="jump_height_timer" to="." method="_on_jump_height_timer_timeout"]

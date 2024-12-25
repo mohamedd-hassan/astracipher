@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4rknyx2lcp08"]
+[gd_scene load_steps=4 format=3 uid="uid://b4rknyx2lcp08"]
 
 [ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="1_oah3b"]
+[ext_resource type="Texture2D" uid="uid://bv2aaow7fqi32" path="res://assets/sprites/Dungeon_brick_wall_grey.png.png" id="2_xyjuy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fp7x0"]
+texture = ExtResource("2_xyjuy")
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -34,6 +38,14 @@ text = "Options"
 [node name="Quit" type="Button" parent="MarginContainer/Buttons"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fp7x0")
 
 [connection signal="pressed" from="MarginContainer/Buttons/Play" to="MarginContainer/Buttons" method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/Buttons/Options" to="MarginContainer/Buttons" method="_on_options_pressed"]
