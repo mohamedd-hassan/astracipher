@@ -2,12 +2,21 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var puzzle_1_npc_collision = $Puzzle1Npc/CollisionShape2D
+@onready var marker_2d: Marker2D = $Marker2D
+@onready var player_animator: AnimatedSprite2D = $Player/AnimatedSprite2D
+@onready var puzzle_1_npc: CharacterBody2D = $Puzzle1Npc
 
+var has_done_npc1_puzzle = false
 
 
 func _ready() -> void:
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+	if Global.player_position != null:
+		player.global_position = Global.player_position
+	else:
+		player.global_position = marker_2d.global_position
 
 func _process(delta: float) -> void:
 	pass
@@ -22,14 +31,34 @@ func _on_level_spawn(destination_tag: String):
 func _on_puzzle_1_interaction_body_entered(body: Node2D) -> void:
 	print("entered puzzle 1")
 	if body.is_in_group("Player"):
-		print("player entered puzzle 1")
-		player.set_physics_process(false)
-		player.set_process_input(false)
-		animation_player.play("npc1_in")
-		await animation_player.animation_finished
-		player.set_physics_process(true)
-		player.set_process_input(true)
-
+		if Global.has_won == false:
+			print("player entered puzzle 1")
+			player.set_physics_process(false)
+			player.set_process_input(false)
+			player_animator.play("idle_right")
+			animation_player.play("npc1_in")
+			await animation_player.animation_finished
+			Dialogic.start("shady_npc1_timelinetimeline")
+			await Dialogic.timeline_ended
+			player.set_physics_process(true)
+			player.set_process_input(true)
+			Global.player_position = player.global_position
+			NavigationManager.go_to_level("windows", null)
+			
+		elif Global.has_won == true and has_done_npc1_puzzle == false:
+			print("player finished puzzle 1")
+			player.set_physics_process(false)
+			player.set_process_input(false)
+			player_animator.play("idle_right")
+			puzzle_1_npc.global_position.x = 366
+			Dialogic.start("shady_npc1_timelinetimeline")
+			await Dialogic.timeline_ended
+			animation_player.play("npc1_out")
+			await animation_player.animation_finished
+			puzzle_1_npc_collision.disabled = true
+			player.set_physics_process(true)
+			player.set_process_input(true)
+			has_done_npc1_puzzle = true
 
 func _on_puzzle_2_interaction_body_entered(body: Node2D) -> void:
 	print("entered puzzle 2")

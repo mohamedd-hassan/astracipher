@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://6d7jde1hf3bi"]
+[gd_scene load_steps=40 format=4 uid="uid://6d7jde1hf3bi"]
 
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="1_4afd1"]
 [ext_resource type="Script" path="res://scripts/level_two.gd" id="1_ml28r"]
@@ -1887,6 +1887,33 @@ tracks/1/keys = {
 "values": [&"walk_left", &"idle_left"]
 }
 
+
+[sub_resource type="Animation" id="Animation_vn8ml"]
+resource_name = "npc1_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Puzzle1Npc:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(366, 2), Vector2(391, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Puzzle1Npc/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"walk_right", &"idle_right"]
+
 [sub_resource type="Animation" id="Animation_s6gpy"]
 resource_name = "npc2_turn"
 length = 0.1
@@ -1902,6 +1929,7 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"idle_right", &"idle_left"]
 }
+
 
 [sub_resource type="Animation" id="Animation_4jtrs"]
 resource_name = "screen_down"
@@ -1922,6 +1950,7 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_vxum8"),
 "npc1_in": SubResource("Animation_ekh5f"),
+"npc1_out": SubResource("Animation_vn8ml"),
 "npc2_turn": SubResource("Animation_s6gpy"),
 "screen_down": SubResource("Animation_4jtrs")
 }
@@ -2003,7 +2032,7 @@ position = Vector2(23, 0)
 
 [node name="Door_R" parent="." instance=ExtResource("1_4afd1")]
 top_level = true
-position = Vector2(1039, -32)
+position = Vector2(997, -34)
 destination_level_tag = "maze_cutscene"
 destination_door_tag = "L"
 spawn_direction = "right"
@@ -2037,6 +2066,10 @@ shape = SubResource("RectangleShape2D_iuwc0")
 position = Vector2(0, 10)
 script = ExtResource("4_81otk")
 
+[node name="AnimatedSprite2D" parent="Player" index="0"]
+animation = &"idle_right"
+frame_progress = 0.0
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -29)
 zoom = Vector2(4.13, 4.13)
@@ -2068,6 +2101,10 @@ shape = SubResource("RectangleShape2D_bcqym")
 position = Vector2(384.5, -31)
 shape = SubResource("RectangleShape2D_f08j8")
 
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-1, 6)
+
 [node name="streetlamplight" type="PointLight2D" parent="."]
 position = Vector2(228, -55)
 color = Color(0.995469, 1, 0.913364, 1)
@@ -2077,6 +2114,7 @@ texture_scale = 0.45
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.657889, 0.79572, 0.974847, 1)
+
 
 [connection signal="body_entered" from="Puzzle2Interaction" to="." method="_on_puzzle_2_interaction_body_entered"]
 [connection signal="body_entered" from="Puzzle1Interaction" to="." method="_on_puzzle_1_interaction_body_entered"]
