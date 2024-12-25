@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://bmia40b27okoa"]
+[gd_scene load_steps=66 format=4 uid="uid://bmia40b27okoa"]
 
 [ext_resource type="Script" path="res://scripts/act_1.gd" id="1_k17nh"]
 [ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="2_eouoh"]
@@ -9,20 +9,18 @@
 [ext_resource type="Script" path="res://scripts/npc1.gd" id="5_ym4l6"]
 [ext_resource type="PackedScene" uid="uid://b5xxx5obog3io" path="res://interaction/interactiona area/interaction_area.tscn" id="6_wtv0u"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="7_dnsdc"]
-[ext_resource type="PackedScene" uid="uid://dm0tte3plt1e8" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
 [ext_resource type="Script" path="res://scenes/npc2.gd" id="7_x121g"]
+[ext_resource type="PackedScene" uid="uid://dm0tte3plt1e8" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
 [ext_resource type="Script" path="res://scenes/npc3.gd" id="8_f0oo4"]
-
-
 [ext_resource type="Texture2D" uid="uid://1l3762sc8dad" path="res://assets/sprites/knight.png" id="10_cgfu1"]
 [ext_resource type="Script" path="res://scenes/admin.gd" id="10_o5gtd"]
-
 [ext_resource type="Texture2D" uid="uid://we7glyt0cpqx" path="res://assets/sprites/spr_tileset_sunnysideworld_16px.png" id="11_0wrpk"]
 [ext_resource type="Texture2D" uid="uid://c55q385me0q3g" path="res://assets/sprites/Chr_Wizard.png" id="11_uheel"]
 [ext_resource type="Script" path="res://scenes/area_2d.gd" id="14_dh6p8"]
 [ext_resource type="Texture2D" uid="uid://bo37ysagi7ro5" path="res://assets/sprites/hood_guy_spritesheet_n.background.png" id="14_ho2sv"]
 [ext_resource type="Texture2D" uid="uid://jw6vgn338h5b" path="res://assets/sprites/red-riding-hood_1.png" id="14_ikp58"]
 [ext_resource type="Texture2D" uid="uid://bk12um72unckv" path="res://assets/sprites/Fire-bomb.png" id="17_56mo8"]
+[ext_resource type="PackedScene" uid="uid://bjgmibukofn7j" path="res://scenes/info_bubble.tscn" id="19_letfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8f5w"]
 texture = ExtResource("2_eouoh")
@@ -5893,12 +5891,10 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_mbnrk")
 
 [node name="Door_L" parent="." instance=ExtResource("7_dnsdc")]
-
 position = Vector2(32, -321)
 collision_layer = 2
 collision_mask = 4
 destination_level_tag = "level_two"
-
 destination_door_tag = "L"
 spawn_direction = "right"
 
@@ -5917,6 +5913,24 @@ script = ExtResource("14_dh6p8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, 10)
 shape = SubResource("CircleShape2D_gjegk")
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="info_bubble" parent="Control" instance=ExtResource("19_letfs")]
+visible = false
+offset_left = 294.0
+offset_top = 139.0
+offset_right = 294.0
+offset_bottom = 139.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="Control/info_bubble"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 102.0
+offset_right = 1114.0
+offset_bottom = 508.0
+theme_override_font_sizes/font_size = 50
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

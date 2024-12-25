@@ -19,10 +19,14 @@ npc1: Hi Cipher! What brings you here on a school morning?
 			npc1: Interesting...
 			label lose
 			set {Knowledge} -= 0.2
+			set {text1} = "bad"
 			[signal arg="end"]
 		- Uh, I don't think that's relevant now. I got to get going, bye #1!
 			npc1: Okay... Bye...
 			label gain
+			set {text1} = "good"
 			set {Knowledge} += 0.3
 			[signal arg="end"]
 set {talked} = true
+[signal arg="npc1"]
+[signal arg="move"]

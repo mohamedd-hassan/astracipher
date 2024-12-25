@@ -21,3 +21,4 @@ elif {Help_Needed} == true:
 		- I can't find Astra
 			Admin: OH NO !  I think I know where to search come. but first what is the code?
 			jump code
+[signal arg="move"]
