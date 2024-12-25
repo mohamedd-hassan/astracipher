@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjol3vn2h1na"]
+
+[ext_resource type="Texture2D" uid="uid://b0ip0torovnja" path="res://assets/sprites/windows/sky.png" id="1_hjtb6"]
+[ext_resource type="Texture2D" uid="uid://cro7rvsvk6vr7" path="res://assets/sprites/windows/far_mountains.png" id="2_rm0mr"]
+[ext_resource type="Texture2D" uid="uid://djub5vcb5gbbn" path="res://assets/sprites/windows/grassy_mountains.png" id="3_rhsdu"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+position = Vector2(577, 321)
+texture = ExtResource("1_hjtb6")
+
+[node name="FarMountains" type="ParallaxLayer" parent="."]
+position = Vector2(383, -217)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FarMountains"]
+position = Vector2(193, 538)
+texture = ExtResource("2_rm0mr")
+
+[node name="Near Mountains" type="ParallaxLayer" parent="."]
+position = Vector2(383, -211)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Near Mountains"]
+position = Vector2(190, 536)
+texture = ExtResource("3_rhsdu")

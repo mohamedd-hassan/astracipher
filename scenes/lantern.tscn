@@ -1,0 +1,128 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvvttu2tg7nal"]
+
+[ext_resource type="Texture2D" uid="uid://c3cv5xoq47cak" path="res://assets/sprites/Torch.png" id="1_pnkch"]
+[ext_resource type="Script" path="res://scripts/lantern.gd" id="1_s6ur6"]
+[ext_resource type="Texture2D" uid="uid://bkt1umksb8la1" path="res://assets/sprites/light.png" id="2_qj1uh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2qya"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du8eu"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pfhk"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3rt8"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35si4"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um63w"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w2rc"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdjw3"]
+atlas = ExtResource("1_pnkch")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhlvn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2qya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du8eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pfhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3rt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35si4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um63w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w2rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdjw3")
+}],
+"loop": true,
+"name": &"flicker",
+"speed": 9.0
+}]
+
+[sub_resource type="Animation" id="Animation_2kia2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+
+[sub_resource type="Animation" id="Animation_vuywa"]
+resource_name = "flicker"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.2, 0.3, 0.4, 0.2, 0.5, 0.3, 0.1, 0.6, 0.3, 0.4, 0.3, 0.5, 0.2, 0.4, 0.3, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8asen"]
+_data = {
+"RESET": SubResource("Animation_2kia2"),
+"flicker": SubResource("Animation_vuywa")
+}
+
+[node name="Lantern" type="AnimatedSprite2D"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_jhlvn")
+animation = &"flicker"
+frame_progress = 0.686076
+script = ExtResource("1_s6ur6")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(0.305, 0.305)
+color = Color(1, 1, 0.588235, 1)
+energy = 0.2
+texture = ExtResource("2_qj1uh")
+texture_scale = 0.55
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_8asen")
+}
