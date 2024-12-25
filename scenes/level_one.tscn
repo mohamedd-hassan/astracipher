@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/npc1.gd" id="5_ym4l6"]
 [ext_resource type="PackedScene" uid="uid://b5xxx5obog3io" path="res://interaction/interactiona area/interaction_area.tscn" id="6_wtv0u"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="7_dnsdc"]
-[ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="8_n67qi"]
+[ext_resource type="PackedScene" uid="uid://dm0tte3plt1e8" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8f5w"]
 texture = ExtResource("2_eouoh")
@@ -311,6 +311,6 @@ position = Vector2(29, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_n67qi")]
+[node name="pause_menu1" parent="CanvasLayer" instance=ExtResource("8_16wmf")]
 
 [editable path="Door_L"]

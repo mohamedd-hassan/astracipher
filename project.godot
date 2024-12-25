@@ -31,7 +31,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
-"timelines/npc1_timeline": "res://dialogue/timelines/npc1_timeline.dtl"
+"npc1_timeline": "res://dialogue/timelines/npc1_timeline.dtl"
 }
 layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres"]
 layout/default_style="Default"
@@ -68,6 +68,10 @@ glossary/default_case_sensitive=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf"
 
 [input]
 
