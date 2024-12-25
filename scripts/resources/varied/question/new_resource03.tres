@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://cgc5cttbbfc1f"]
+
+[ext_resource type="Script" path="res://resources/question.gd" id="1_lmqxu"]
+
+[resource]
+script = ExtResource("1_lmqxu")
+question_info = "Who is my favourite player"
+type = 0
+options = Array[String](["Ronaldo", "Messi", "Neymar", "Suarez"])
+correct = "Messi"

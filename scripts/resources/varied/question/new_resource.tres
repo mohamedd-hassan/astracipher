@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://bpmy503eelolb"]
+
+[ext_resource type="Script" path="res://resources/question.gd" id="1_ceho6"]
+
+[resource]
+script = ExtResource("1_ceho6")
+question_info = "What is my name"
+type = 0
+options = Array[String](["ahmed", "khaled", "mohamed", "yousef"])
+correct = "yousef"

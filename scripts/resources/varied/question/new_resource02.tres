@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://comwoj4naw8yc"]
+
+[ext_resource type="Script" path="res://resources/question.gd" id="1_v4vdc"]
+
+[resource]
+script = ExtResource("1_v4vdc")
+question_info = "Who is my favorite Superhero"
+type = 0
+options = Array[String](["Iron Man", "Captain America", "Spider Man", "Thor"])
+correct = "Spider Man"
