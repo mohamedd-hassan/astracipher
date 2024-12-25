@@ -292,9 +292,8 @@ script = ExtResource("1_dle7g")
 position = Vector2(0, -8)
 scale = Vector2(1.145, 1.09)
 sprite_frames = SubResource("SpriteFrames_gcvdd")
-animation = &"idle_down"
+animation = &"idle_right"
 autoplay = "idle_right"
-frame_progress = 0.150048
 offset = Vector2(0, 7.15256e-07)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

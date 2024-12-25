@@ -3,3 +3,4 @@ if {talked_admin} == true:
 elif {talked_admin_wrong} == true:
 	Admin: Did you get the code?
 	jump Stage1_Admin/code
+[signal arg="move"]

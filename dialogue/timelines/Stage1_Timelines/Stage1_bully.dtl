@@ -4,6 +4,7 @@ bully: Hey, look who it is! What are you doing here?
 	set {Knowledge} -= 0.1
 	[signal arg="responded1"]
 	set {timelines} = 1
+	set {responded} = true
 - Ignore
 	set {Knowledge} -= 0.1
 	set {timelines} = 1

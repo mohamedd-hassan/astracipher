@@ -1887,7 +1887,6 @@ tracks/1/keys = {
 "values": [&"walk_left", &"idle_left"]
 }
 
-
 [sub_resource type="Animation" id="Animation_vn8ml"]
 resource_name = "npc1_out"
 tracks/0/type = "value"
@@ -1914,6 +1913,7 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"walk_right", &"idle_right"]
 }
+
 [sub_resource type="Animation" id="Animation_s6gpy"]
 resource_name = "npc2_turn"
 length = 0.1
@@ -1929,7 +1929,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"idle_right", &"idle_left"]
 }
-
 
 [sub_resource type="Animation" id="Animation_4jtrs"]
 resource_name = "screen_down"
@@ -2101,7 +2100,6 @@ shape = SubResource("RectangleShape2D_bcqym")
 position = Vector2(384.5, -31)
 shape = SubResource("RectangleShape2D_f08j8")
 
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-1, 6)
 
@@ -2114,7 +2112,6 @@ texture_scale = 0.45
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.657889, 0.79572, 0.974847, 1)
-
 
 [connection signal="body_entered" from="Puzzle2Interaction" to="." method="_on_puzzle_2_interaction_body_entered"]
 [connection signal="body_entered" from="Puzzle1Interaction" to="." method="_on_puzzle_1_interaction_body_entered"]
