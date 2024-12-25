@@ -45,6 +45,7 @@ directories/dtl_directory={
 "astracipher_timeline": "res://dialogue/timelines/astracipher_timeline.dtl",
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
 "npc1_timeline": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline.dtl",
+"shady_npc1_timelinetimeline": "res://dialogue/timelines/stage2_timelines/shady_npc1_timeline.dtl",
 "windows_scene_1_timeline": "res://dialogue/timelines/windows_timelines/windows_scene_1_timeline.dtl"
 }
 layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres"]
@@ -80,6 +81,10 @@ glossary/default_case_sensitive=true
 
 window/stretch/mode="canvas_items"
 glossary/default_case_sensitive=true
+
+[editor]
+
+movie_writer/movie_file="D:/Mohamed/Projects/Games/Resources/astracipher.avi"
 
 [editor_plugins]
 

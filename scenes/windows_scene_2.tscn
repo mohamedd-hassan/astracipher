@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgwy04acidn6x"]
+[gd_scene load_steps=27 format=3 uid="uid://bgwy04acidn6x"]
 
+[ext_resource type="Script" path="res://scripts/windows_scene_2.gd" id="1_63wo0"]
 [ext_resource type="Texture2D" uid="uid://c3c8vko1vrlxx" path="res://assets/sprites/windows/level_1_BG.jpg" id="2_14hly"]
 [ext_resource type="Texture2D" uid="uid://7n6a0sr18156" path="res://assets/sprites/windows/level_1_city_1.png" id="3_3en6v"]
 [ext_resource type="Texture2D" uid="uid://rnem0nh2sdkk" path="res://assets/sprites/windows/level_1_city_2.png" id="4_2mv0t"]
@@ -7,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bu1k8w1iblhk5" path="res://assets/sprites/windows/level_1_front.png" id="6_cote8"]
 [ext_resource type="Texture2D" uid="uid://dlbb5cckt4ga0" path="res://assets/sprites/windows/startbar.jpg" id="6_x215j"]
 [ext_resource type="PackedScene" uid="uid://b3pf5m8e51gmk" path="res://scenes/player_side.tscn" id="7_32drd"]
-[ext_resource type="Shader" path="res://assets/sprites/windows/shaders/stage2puzzle2.gdshader" id="7_e7mjc"]
+[ext_resource type="Shader" path="res://shaders/stage2puzzle2.gdshader" id="7_e7mjc"]
+[ext_resource type="Texture2D" uid="uid://bmg3qovdqw1q8" path="res://assets/sprites/cypher idle with bag.png" id="11_4ugag"]
+[ext_resource type="Texture2D" uid="uid://d2j87gu286if6" path="res://assets/sprites/cypher run bag.png" id="12_ywpt0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjqkb"]
 shader = ExtResource("7_e7mjc")
@@ -17,10 +20,110 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.033
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5ii1"]
+atlas = ExtResource("12_ywpt0")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51ods"]
+atlas = ExtResource("11_4ugag")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fek5b"]
+atlas = ExtResource("11_4ugag")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b36a7"]
+atlas = ExtResource("11_4ugag")
+region = Rect2(48, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnyb1"]
+atlas = ExtResource("11_4ugag")
+region = Rect2(72, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e1uk"]
+atlas = ExtResource("12_ywpt0")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g5ly"]
+atlas = ExtResource("12_ywpt0")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pcim"]
+atlas = ExtResource("12_ywpt0")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28oxl"]
+atlas = ExtResource("12_ywpt0")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu8sq"]
+atlas = ExtResource("12_ywpt0")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ec15x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ii1")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51ods")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fek5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b36a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnyb1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e1uk")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g5ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pcim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28oxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu8sq")
+}],
+"loop": true,
+"name": &"run",
+"speed": 9.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erpjr"]
 size = Vector2(3611, 36)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jst5a"]
+radius = 13.1529
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drsgo"]
+size = Vector2(154, 495.5)
+
 [node name="windows_scene_2" type="Node2D"]
+script = ExtResource("1_63wo0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -3.0
@@ -108,14 +211,21 @@ offset_bottom = 682.0
 light_mask = 2
 visibility_layer = 2
 position = Vector2(68, 574)
+scale = Vector2(1.521, 1.521)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/PlayerSide"]
 zoom = Vector2(2.75, 2.75)
 limit_left = 0
 limit_top = 0
 limit_right = 1800
-limit_bottom = 650
+limit_bottom = 620
 position_smoothing_speed = 15.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TileMapLayer/PlayerSide"]
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_ec15x")
+animation = &"run"
+autoplay = "idle"
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 visible = false
@@ -123,5 +233,30 @@ visible = false
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(1798, 630)
+position = Vector2(1800, 620)
 shape = SubResource("RectangleShape2D_erpjr")
+
+[node name="win" type="Area2D" parent="."]
+position = Vector2(1735, 585)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win"]
+position = Vector2(-1, 9)
+shape = SubResource("CircleShape2D_jst5a")
+
+[node name="WorldBoundary" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldBoundary"]
+position = Vector2(110, 513)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/StaticBody2D"]
+position = Vector2(-173, -152)
+shape = SubResource("RectangleShape2D_drsgo")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WorldBoundary"]
+position = Vector2(2053, 517)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/StaticBody2D2"]
+position = Vector2(-173, -152)
+shape = SubResource("RectangleShape2D_drsgo")
+
+[connection signal="body_entered" from="win" to="." method="_on_win_body_entered"]
