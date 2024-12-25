@@ -1,0 +1,140 @@
+[gd_scene load_steps=3 format=3 uid="uid://be136da6h4aqe"]
+
+[ext_resource type="Script" path="res://scripts/controllers/game_controller.gd" id="1_vmno1"]
+[ext_resource type="Resource" uid="uid://c2skkng411wmo" path="res://scripts/resources/varied/theme.tres" id="2_3aagb"]
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_vmno1")
+quiz = ExtResource("2_3aagb")
+color_right = Color(0, 0.443137, 0, 1)
+color_wrong = Color(0.627451, 0, 0, 1)
+
+[node name="AudioCorrect" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -6.0
+offset_right = 1162.0
+offset_bottom = 650.0
+color = Color(0.0741, 0.29523, 0.39, 1)
+
+[node name="Content" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -597.145
+offset_top = -305.903
+offset_right = 597.145
+offset_bottom = 305.903
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionInfo" type="VBoxContainer" parent="ColorRect/Content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_right = 323.0
+offset_bottom = 213.0
+grow_horizontal = 2
+
+[node name="QuestionText" type="Label" parent="ColorRect/Content/QuestionInfo"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 50
+text = "QUIZ GAME
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionHolder" type="VBoxContainer" parent="ColorRect/Content"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -487.0
+offset_top = -320.0
+offset_right = 487.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Button_Option" type="Button" parent="ColorRect/Content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Option2" type="Button" parent="ColorRect/Content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Option3" type="Button" parent="ColorRect/Content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Option4" type="Button" parent="ColorRect/Content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GameOver" type="ColorRect" parent="ColorRect/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -26.0
+offset_right = 5.70972
+offset_bottom = 32.1945
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.376471, 0, 0, 1)
+
+[node name="Title" type="Label" parent="ColorRect/Content/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.001
+offset_top = -307.998
+offset_right = 259.999
+offset_bottom = -156.998
+grow_horizontal = 2
+grow_vertical = 2
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="ColorRect/Content/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -68.4998
+offset_right = 61.5
+offset_bottom = 68.4998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "0/0"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/Content/GameOver"]
+visible = false
+layout_mode = 0
+offset_left = 376.0
+offset_top = 482.0
+offset_right = 876.0
+offset_bottom = 636.0
+
+[connection signal="pressed" from="ColorRect/Content/GameOver/Button" to="." method="_on_button_pressed"]

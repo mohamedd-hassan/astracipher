@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://cip17qa1wqswt"]
+
+[ext_resource type="Script" path="res://resources/question.gd" id="1_an0vh"]
+
+[resource]
+script = ExtResource("1_an0vh")
+question_info = "Which game I love playing the most"
+type = 0
+options = Array[String](["GTA", "FIFA", "Red Dead", "Spider man"])
+correct = "Red Dead"
