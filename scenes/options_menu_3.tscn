@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwutjlwyb2fmb"]
 
-[ext_resource type="Script" path="res://scenes/options_menu_3.gd" id="1_ctc8n"]
 [ext_resource type="Texture2D" uid="uid://bd1t0wxd2037u" path="res://assets/pixil-frame-3.png" id="2_n7a40"]
+[ext_resource type="Script" path="res://scenes/options_buttons_3.gd" id="2_nrjl6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4d8gt"]
 
@@ -58,7 +58,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_wptr0")
-script = ExtResource("1_ctc8n")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -90,6 +89,7 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
+script = ExtResource("2_nrjl6")
 
 [node name="resources" type="Button" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2

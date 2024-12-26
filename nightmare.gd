@@ -14,6 +14,8 @@ func _on_dialogic_signal(argument:String):
 
 	if argument == "nightmare":
 		print("signal")
+		Transition.transition()
+		await Transition.on_transition_finished
 		get_tree().change_scene_to_file("res://scenes/level_one.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

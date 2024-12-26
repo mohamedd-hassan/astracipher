@@ -73,6 +73,7 @@ metadata/edit_use_anchors = true
 position = Vector2(2, -2)
 scale = Vector2(5.195, 5.195)
 sprite_frames = SubResource("SpriteFrames_s0cb4")
+autoplay = "default"
 frame_progress = 0.202894
 
 [node name="Panel" type="Panel" parent="."]

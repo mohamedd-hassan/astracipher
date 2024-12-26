@@ -47,7 +47,8 @@ var credits = [
 		"Yousef Fawzy"
 	],[
 		"Art",
-		"Menna Ewis"
+		"Menna Ewis",
+		"Other Artists Online"
 	],[
 		"Music",
 		"Lowkey Stole It But Its Ok"
@@ -56,7 +57,6 @@ var credits = [
 		"Also Lowkey Stole It"
 	],[
 		"Testers",
-		"A5oya",
 		"The Rest Of The Team"
 	],[
 		"Tools used",
@@ -67,8 +67,9 @@ var credits = [
 		"https://myfavouriteartprogram.com"
 	],[
 		"Special thanks",
-		"Abeer Tawakol",
-		"The rest of the people we should thank"
+		"Dr. Abeer Tawakol",
+		"Eng. Ahmed Ramadan",
+		"And Others"
 	],[
 		"Special hatred",
 		"Github",

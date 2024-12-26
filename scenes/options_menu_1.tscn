@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://2i8r2s42w7tm"]
+[gd_scene load_steps=7 format=3 uid="uid://2i8r2s42w7tm"]
 
 [ext_resource type="Texture2D" uid="uid://ciracebf3n64y" path="res://assets/pixil-frame-0.png" id="2_6y1xv"]
+[ext_resource type="Script" path="res://scenes/options_buttons.gd" id="2_wak0l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4d8gt"]
 
@@ -48,6 +49,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_2ybxq")
 Button/styles/normal = SubResource("StyleBoxFlat_5dyjl")
 
 [node name="options_menu1" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -88,6 +90,7 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
+script = ExtResource("2_wak0l")
 
 [node name="resources" type="Button" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -101,4 +104,4 @@ size_flags_vertical = 3
 text = "Back"
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/resources" to="." method="_on_resources_pressed"]
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/back" to="NinePatchRect/VBoxContainer" method="_on_back_pressed"]
