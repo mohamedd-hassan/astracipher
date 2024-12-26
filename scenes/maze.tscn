@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://da3ml6letag1u" path="res://scenes/stopwatch.tscn" id="5_5mcw4"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="5_emj1k"]
 [ext_resource type="Texture2D" uid="uid://5q3ajoe3tpyh" path="res://assets/sprites/64x64 textures (3).png" id="5_tgsfc"]
-[ext_resource type="PackedScene" uid="uid://bfjf7bqc8cm0c" path="res://scenes/pause_menu.tscn" id="6_86nm1"]
+[ext_resource type="PackedScene" uid="uid://ds2dpfbvg8ca4" path="res://scenes/pause_menu_3.tscn" id="6_86nm1"]
 [ext_resource type="Texture2D" uid="uid://6jx4e5rgo4xb" path="res://assets/sprites/64x64 textures (4).png" id="6_otp3j"]
 [ext_resource type="Texture2D" uid="uid://b23dcsfi4fe47" path="res://assets/sprites/64x64 textures (5).png" id="7_r6mbn"]
 [ext_resource type="PackedScene" uid="uid://dvvttu2tg7nal" path="res://scenes/lantern.tscn" id="10_63ogl"]

@@ -8,7 +8,8 @@ npc1: Hi Cipher! What brings you here on a school morning?
 		jump npc1_timeline/lose
 - Hi #1. I'm looking for Astra, have you seen her?
 	label A
-	I'm sure I've seen her somewhere. Hmm... have you tried asking #2?
+	npc1: I'm sure I've seen her somewhere. Hmm... have you tried asking #2?
+	npc1: you can find him at the parking in the west
 	- I'll check with them now. Thank you!
 		npc1: Good luck!
 		jump npc1_timeline/gain
@@ -18,9 +19,14 @@ npc1: Hi Cipher! What brings you here on a school morning?
 			npc1: Interesting...
 			label lose
 			set {Knowledge} -= 0.2
+			set {text1} = "bad"
 			[signal arg="end"]
 		- Uh, I don't think that's relevant now. I got to get going, bye #1!
 			npc1: Okay... Bye...
 			label gain
+			set {text1} = "good"
 			set {Knowledge} += 0.3
 			[signal arg="end"]
+set {talked} = true
+[signal arg="npc1"]
+[signal arg="move"]

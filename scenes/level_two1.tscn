@@ -2113,11 +2113,13 @@ texture_scale = 0.45
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.657889, 0.79572, 0.974847, 1)
 
+
 [node name="GoToMaze" type="Area2D" parent="."]
 position = Vector2(987, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoToMaze"]
 shape = SubResource("RectangleShape2D_54ana")
+
 
 [connection signal="body_entered" from="Puzzle2Interaction" to="." method="_on_puzzle_2_interaction_body_entered"]
 [connection signal="body_entered" from="Puzzle1Interaction" to="." method="_on_puzzle_1_interaction_body_entered"]

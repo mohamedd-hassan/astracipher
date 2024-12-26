@@ -1,0 +1,9 @@
+[wait time="1.0"]
+cipher: The Same nightmare ...
+cipher: The Same old nightmare since she went missing
+[wait time="0.5"]
+cipher: I miss her so much
+cipher: I should do somethimg I should save her
+cipher:  I should escape this darkness my own darkness to help her and save her
+[wait time="1.0"]
+[signal arg="nightmare"]
