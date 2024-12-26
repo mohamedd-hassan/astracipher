@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/windows_scene_1.gd" id="1_e1qb4"]
 [ext_resource type="PackedScene" uid="uid://bgwy04acidn6x" path="res://scenes/windows_scene_2.tscn" id="2_uyy70"]
-[ext_resource type="PackedScene" path="res://scenes/background_windows.tscn" id="2_ya7lr"]
 [ext_resource type="Texture2D" uid="uid://dunokk2wlu8cc" path="res://assets/sprites/windows/windows_xp_taskbar.png" id="3_4wxaa"]
 [ext_resource type="Texture2D" uid="uid://ba5ckwfs2rpgy" path="res://assets/sprites/windows/icons/Bliss_1440x1080.jpg" id="3_s3tyv"]
 [ext_resource type="Texture2D" uid="uid://gcsihuq54xpm" path="res://assets/sprites/windows/icons/IE.png" id="6_hql8c"]
@@ -53,7 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://btlxb3jogyar8" path="res://assets/sprites/windows/popups/Windows_9X_BSOD.png" id="50_s2tpk"]
 [ext_resource type="AudioStream" uid="uid://c568xrxcf2kb" path="res://assets/sounds/Windows XP Critical Stop Sound.mp3" id="51_46lbg"]
 [ext_resource type="AudioStream" uid="uid://dw381aldn7q7t" path="res://assets/sounds/Click - Sound Effect (HD).mp3" id="52_tscpj"]
-[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="53_amrgc"]
+[ext_resource type="PackedScene" path="res://scenes/circle_transition.tscn" id="53_amrgc"]
 [ext_resource type="AudioStream" uid="uid://cdxtmics4m6wu" path="res://assets/sounds/01. Ground Theme.mp3" id="54_ki4yg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx6b8"]
@@ -662,8 +661,6 @@ rendering_quadrant_size = 17
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="TileMapLayer/PlayerSide"]
-zoom = Vector2(2.75, 2.75)
 [node name="downloading" type="StaticBody2D" parent="Platforms"]
 position = Vector2(415, 434)
 scale = Vector2(0.755, 0.755)
@@ -742,6 +739,9 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/system_failed"]
 position = Vector2(126, 56.5)
 shape = SubResource("RectangleShape2D_k7nuy")
+
+[node name="TileMapLayer_PlayerSide#Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.75, 2.75)
 
 [node name="PlayerSide" parent="." instance=ExtResource("7_m3xc2")]
 position = Vector2(135, 99)

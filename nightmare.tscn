@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="1_fti4f"]
 [ext_resource type="Script" path="res://nightmare.gd" id="1_o8sna"]
 [ext_resource type="Texture2D" uid="uid://we7glyt0cpqx" path="res://assets/sprites/spr_tileset_sunnysideworld_16px.png" id="2_yyjkl"]
-[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="4_d2ct3"]
+[ext_resource type="PackedScene" path="res://scenes/circle_transition.tscn" id="4_d2ct3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6dox"]
 texture = ExtResource("2_yyjkl")

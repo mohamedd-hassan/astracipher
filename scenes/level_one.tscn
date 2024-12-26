@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=27 format=4 uid="uid://bmia40b27okoa"]
+[gd_scene load_steps=79 format=4 uid="uid://bmia40b27okoa"]
 
 [ext_resource type="Script" path="res://scripts/act_1.gd" id="1_k17nh"]
 [ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="2_eouoh"]
@@ -11,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b5xxx5obog3io" path="res://interaction/interactiona area/interaction_area.tscn" id="6_wtv0u"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="7_dnsdc"]
 [ext_resource type="Script" path="res://scenes/npc2.gd" id="7_x121g"]
-[ext_resource type="PackedScene" uid="uid://dm0tte3plt1e8" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
 [ext_resource type="Script" path="res://scenes/npc3.gd" id="8_f0oo4"]
 [ext_resource type="Texture2D" uid="uid://1l3762sc8dad" path="res://assets/sprites/knight.png" id="10_cgfu1"]
 [ext_resource type="Script" path="res://scenes/admin.gd" id="10_o5gtd"]
@@ -21,10 +20,8 @@
 [ext_resource type="Script" path="res://scenes/area_2d.gd" id="14_dh6p8"]
 [ext_resource type="Texture2D" uid="uid://bo37ysagi7ro5" path="res://assets/sprites/hood_guy_spritesheet_n.background.png" id="14_ho2sv"]
 [ext_resource type="Texture2D" uid="uid://bk12um72unckv" path="res://assets/sprites/Fire-bomb.png" id="17_56mo8"]
-[ext_resource type="Texture2D" uid="uid://jw6vgn338h5b" path="res://assets/sprites/red-riding-hood_1.png" id="14_ikp58"]
-[ext_resource type="PackedScene" uid="uid://bjgmibukofn7j" path="res://scenes/info_bubble.tscn" id="19_letfs"]
+[ext_resource type="PackedScene" path="res://scenes/info_bubble.tscn" id="19_letfs"]
 [ext_resource type="AudioStream" uid="uid://cedjapimy8tsg" path="res://assets/sounds/Shiroku - Sports Men (Haruomi Hosono Instrumental Cover).mp3" id="22_3b2ew"]
-
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8f5w"]
 texture = ExtResource("2_eouoh")
@@ -5865,7 +5862,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjegk"]
 radius = 23.1948
 
-
 [node name="level1" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(1, 18)
@@ -5961,7 +5957,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc2/InteractionArea"]
 position = Vector2(5, 0)
 shape = SubResource("CircleShape2D_mbnrk")
-
 one_way_collision_margin = 0.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="npc2"]
@@ -5971,7 +5966,6 @@ sprite_frames = SubResource("SpriteFrames_wf851")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.906974
-
 
 [node name="npc3" parent="." instance=ExtResource("4_ux1i4")]
 modulate = Color(1, 1, 1, 1)
@@ -5993,10 +5987,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_mbnrk")
 
 [node name="Door_L" parent="." instance=ExtResource("7_dnsdc")]
-
-
 y_sort_enabled = true
-
 position = Vector2(32, -321)
 collision_layer = 2
 collision_mask = 4

@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://da3ml6letag1u" path="res://scenes/stopwatch.tscn" id="5_5mcw4"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="5_emj1k"]
 [ext_resource type="Texture2D" uid="uid://5q3ajoe3tpyh" path="res://assets/sprites/64x64 textures (3).png" id="5_tgsfc"]
-[ext_resource type="PackedScene" uid="uid://ds2dpfbvg8ca4" path="res://scenes/pause_menu_3.tscn" id="6_86nm1"]
 [ext_resource type="Texture2D" uid="uid://6jx4e5rgo4xb" path="res://assets/sprites/64x64 textures (4).png" id="6_otp3j"]
 [ext_resource type="Texture2D" uid="uid://b23dcsfi4fe47" path="res://assets/sprites/64x64 textures (5).png" id="7_r6mbn"]
 [ext_resource type="PackedScene" uid="uid://dvvttu2tg7nal" path="res://scenes/lantern.tscn" id="10_63ogl"]
@@ -15,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://hb0vy0wxkqe5" path="res://scenes/astra.tscn" id="12_akjf6"]
 [ext_resource type="Texture2D" uid="uid://dc2017ioq7ouv" path="res://assets/sprites/astra idle.png" id="13_3jq6j"]
 [ext_resource type="Texture2D" uid="uid://65x5ygcv2eks" path="res://assets/sprites/astra run.png" id="14_r8847"]
-[ext_resource type="PackedScene" uid="uid://ds2dpfbvg8ca4" path="res://scenes/pause_menu_3.tscn" id="15_8uwc8"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu_3.tscn" id="15_8uwc8"]
 [ext_resource type="PackedScene" uid="uid://b0dxquygfrtv5" path="res://scenes/drone.tscn" id="15_npfd0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ljqw5"]
@@ -1533,9 +1532,6 @@ texture_scale = 0.3
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_h1crq")]
 position = Vector2(304, -292)
-
-[node name="AnimatedSprite2D" parent="Player" index="0"]
-frame_progress = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 material = SubResource("CanvasItemMaterial_ljqw5")
