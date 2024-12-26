@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_mmwj7"]
 resource_name = "intro"
-length = 3.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,3 +65,4 @@ libraries = {
 material = SubResource("ShaderMaterial_hdkg4")
 offset_right = 1152.0
 offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true

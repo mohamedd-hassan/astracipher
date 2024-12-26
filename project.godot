@@ -49,11 +49,10 @@ directories/dtl_directory={
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
 "nigtmare": "res://dialogue/timelines/nigtmare.dtl",
 "npc1_timeline": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline.dtl",
-
+"npc1_timeline2": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline2.dtl",
 "on_tsuki_end_stage": "res://dialogue/timelines/stage2_timelines/on_tsuki_end_stage.dtl",
 "quiz_npc_end": "res://dialogue/timelines/stage2_timelines/quiz_npc_end.dtl",
 "quiz_npc_start": "res://dialogue/timelines/stage2_timelines/quiz_npc_start.dtl",
-"npc1_timeline2": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline2.dtl",
 "shady_npc1_timelinetimeline": "res://dialogue/timelines/stage2_timelines/shady_npc1_timeline.dtl",
 "spotting npc1": "res://dialogue/timelines/Stage1_Timelines/spotting npc1.dtl",
 "starting": "res://dialogue/timelines/Stage1_Timelines/starting.dtl",

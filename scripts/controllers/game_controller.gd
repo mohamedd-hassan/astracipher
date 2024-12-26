@@ -3,7 +3,8 @@ extends Node
 @export var quiz : QuizTheme
 @export var color_right : Color
 @export var color_wrong : Color
-@onready var circle_transition: Control = $circle_transition
+@onready var animation_player: AnimationPlayer = $circle/AnimationPlayer
+@onready var circle: Control = $circle
 
 var buttons : Array[Button]
 var index : int 
@@ -16,7 +17,9 @@ var current_quiz : QuizQuestion:
 @onready var question_texts: Label = $ColorRect/Content/QuestionInfo/QuestionText
 
 func _ready():
-	circle_transition
+	animation_player.play("intro")
+	await animation_player.animation_finished
+	circle.queue_free()
 	correct = 0
 	for button in $ColorRect/Content/QuestionHolder .get_children():
 		buttons.append(button)

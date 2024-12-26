@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b7mejefewn7go"]
+[gd_scene load_steps=7 format=4 uid="uid://b7mejefewn7go"]
 
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="1_fti4f"]
 [ext_resource type="Script" path="res://nightmare.gd" id="1_o8sna"]
 [ext_resource type="Texture2D" uid="uid://we7glyt0cpqx" path="res://assets/sprites/spr_tileset_sunnysideworld_16px.png" id="2_yyjkl"]
+[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="4_d2ct3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6dox"]
 texture = ExtResource("2_yyjkl")
@@ -1765,3 +1766,5 @@ position = Vector2(0, -2)
 position = Vector2(-14, 13)
 zoom = Vector2(4.5, 4.5)
 position_smoothing_enabled = true
+
+[node name="circle_transition" parent="." instance=ExtResource("4_d2ct3")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://bmia40b27okoa"]
+[gd_scene load_steps=67 format=4 uid="uid://bmia40b27okoa"]
 
 [ext_resource type="Script" path="res://scripts/act_1.gd" id="1_k17nh"]
 [ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="2_eouoh"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://jw6vgn338h5b" path="res://assets/sprites/red-riding-hood_1.png" id="14_ikp58"]
 [ext_resource type="Texture2D" uid="uid://bk12um72unckv" path="res://assets/sprites/Fire-bomb.png" id="17_56mo8"]
 [ext_resource type="PackedScene" uid="uid://bjgmibukofn7j" path="res://scenes/info_bubble.tscn" id="19_letfs"]
+[ext_resource type="AudioStream" uid="uid://cedjapimy8tsg" path="res://assets/sounds/Shiroku - Sports Men (Haruomi Hosono Instrumental Cover).mp3" id="22_3b2ew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8f5w"]
 texture = ExtResource("2_eouoh")
@@ -5943,6 +5944,12 @@ offset_top = 102.0
 offset_right = 1114.0
 offset_bottom = 508.0
 theme_override_font_sizes/font_size = 50
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_3b2ew")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
