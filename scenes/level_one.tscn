@@ -5778,6 +5778,7 @@ animations = [{
 radius = 23.1948
 
 [node name="level1" type="Node2D"]
+y_sort_enabled = true
 position = Vector2(1, 18)
 script = ExtResource("1_k17nh")
 
@@ -5805,17 +5806,11 @@ tile_set = SubResource("TileSet_n6m5m")
 tile_map_data = PackedByteArray("AADm//f/AAABABwAAADm//j/AAABAB0AAADn//f/AAACABwAAADn//j/AAACAB0AAADo//f/AAADABwAAADo//j/AAADAB0AAADp//f/AAAEABwAAADp//j/AAAEAB0AAADo//r/AAAPAB4AAADo//v/AAAPAB8AAADo//z/AAAPACAAAADp//r/AAAQAB4AAADp//v/AAAQAB8AAADp//z/AAAQACAAAADk//r/AAAPAB4AAADk//v/AAAPAB8AAADk//z/AAAPACAAAADl//r/AAAQAB4AAADl//v/AAAQAB8AAADl//z/AAAQACAAAADg//r/AAATAB4AAADg//v/AAATAB8AAADg//z/AAATACAAAADh//r/AAAUAB4AAADh//v/AAAUAB8AAADh//z/AAAUACAAAADi//r/AAARABkAAADi//v/AAARABoAAADi//z/AAARABsAAADj//r/AAASABkAAADj//v/AAASABoAAADj//z/AAASABsAAADi//b/AAAIABgAAADi//f/AAAIABkAAADj//b/AAAJABgAAADj//f/AAAJABkAAADk//b/AAAKABgAAADk//f/AAAKABkAAADf//b/AAAIABgAAADf//f/AAAIABkAAADg//b/AAAJABgAAADg//f/AAAJABkAAADh//b/AAAKABgAAADh//f/AAAKABkAAAA=")
 tile_set = SubResource("TileSet_6dnr3")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_1poiu")]
-position = Vector2(0, -77)
-collision_layer = 4
-collision_mask = 7
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(4.5, 4.5)
-
 [node name="npc" parent="." instance=ExtResource("4_ux1i4")]
 modulate = Color(1, 1, 1, 1)
-position = Vector2(-85, -2)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-87, 13)
 collision_mask = 4
 script = ExtResource("5_ym4l6")
 
@@ -5827,11 +5822,22 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_mbnrk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="npc"]
+position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_l1vi6")
 autoplay = "default"
 
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_1poiu")]
+position = Vector2(0, -77)
+collision_layer = 4
+collision_mask = 7
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4.5, 4.5)
+
 [node name="npc4" parent="." instance=ExtResource("4_ux1i4")]
 modulate = Color(1, 1, 1, 1)
+z_index = 1
+y_sort_enabled = true
 position = Vector2(33, -172)
 collision_mask = 4
 script = ExtResource("10_o5gtd")
@@ -5853,6 +5859,8 @@ autoplay = "idle"
 
 [node name="npc2" parent="." instance=ExtResource("4_ux1i4")]
 modulate = Color(1, 1, 1, 1)
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-493, -114)
 collision_mask = 4
 script = ExtResource("7_x121g")
@@ -5875,6 +5883,8 @@ autoplay = "idle"
 
 [node name="npc3" parent="." instance=ExtResource("4_ux1i4")]
 modulate = Color(1, 1, 1, 1)
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-289, -27)
 collision_mask = 4
 script = ExtResource("8_f0oo4")
@@ -5891,6 +5901,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_mbnrk")
 
 [node name="Door_L" parent="." instance=ExtResource("7_dnsdc")]
+y_sort_enabled = true
 position = Vector2(32, -321)
 collision_layer = 2
 collision_mask = 4
@@ -5925,6 +5936,7 @@ offset_bottom = 139.0
 scale = Vector2(0.5, 0.5)
 
 [node name="Label" type="Label" parent="Control/info_bubble"]
+y_sort_enabled = true
 layout_mode = 0
 offset_left = 26.0
 offset_top = 102.0
