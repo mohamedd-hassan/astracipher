@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3pf5m8e51gmk"]
+[gd_scene load_steps=6 format=3 uid="uid://b3pf5m8e51gmk"]
 
 [ext_resource type="Script" path="res://scripts/player_side.gd" id="1_83nq0"]
-
+[ext_resource type="AudioStream" uid="uid://lqfgblux6v82" path="res://assets/sounds/jump.wav" id="2_dg4yf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icjqp"]
 size = Vector2(10, 18)
@@ -10,7 +10,7 @@ size = Vector2(10, 18)
 size = Vector2(12, 19.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4hwi"]
-size = Vector2(14, 3)
+size = Vector2(12, 4)
 
 [node name="PlayerSide" type="CharacterBody2D"]
 script = ExtResource("1_83nq0")
@@ -32,7 +32,7 @@ collision_mask = 2
 collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="feet"]
-position = Vector2(1, -4.5)
+position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_e4hwi")
 
 [node name="death_timer" type="Timer" parent="."]
@@ -48,6 +48,11 @@ one_shot = true
 [node name="jump_height_timer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dg4yf")
+volume_db = 8.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="coyote_timer" to="." method="_on_coyote_timer_timeout"]

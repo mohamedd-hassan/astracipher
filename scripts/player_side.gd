@@ -14,6 +14,7 @@ var can_move = true
 @onready var death_timer: Timer = $death_timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var coyote_timer: Timer = $coyote_timer
+@onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx
 
 var can_coyote_jump = false
 var jump_buffered = false
@@ -117,7 +118,10 @@ func _on_DeathTimer_timeout():
 		get_tree().reload_current_scene()
 	else: 
 		Dialogic.VAR.Knowledge -= 0.3
-		get_tree().change_scene_to_file("res://scenes/maze.tscn")
+		Global.player_lives = 3
+		Global.enemies_killed = 0
+		get_tree().reload_current_scene()
+		
 
 func _on_jump_height_timer_timeout() -> void:
 	if !Input.is_action_pressed("jump"):
@@ -136,6 +140,7 @@ func _on_coyote_timer_timeout() -> void:
 func jump():
 	if is_on_floor() || can_coyote_jump:
 		velocity.y = JUMP_VELOCITY
+		jump_sfx.play()
 		is_jumping = true
 		if can_coyote_jump:
 			can_coyote_jump = false

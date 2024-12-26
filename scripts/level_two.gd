@@ -6,8 +6,10 @@ extends Node2D
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var player_animator: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var puzzle_1_npc: CharacterBody2D = $Puzzle1Npc
+@onready var puzzle_2_npc_collision: CollisionShape2D = $Puzzle2Npc/CollisionShape2D
 
 var has_done_npc1_puzzle = false
+var has_done_npc2_puzzle = false
 
 
 func _ready() -> void:
@@ -51,7 +53,7 @@ func _on_puzzle_1_interaction_body_entered(body: Node2D) -> void:
 			player.set_process_input(false)
 			player_animator.play("idle_right")
 			puzzle_1_npc.global_position.x = 366
-			Dialogic.start("shady_npc1_timelinetimeline")
+			Dialogic.start("on_tsuki_end_stage")
 			await Dialogic.timeline_ended
 			animation_player.play("npc1_out")
 			await animation_player.animation_finished
@@ -63,12 +65,37 @@ func _on_puzzle_1_interaction_body_entered(body: Node2D) -> void:
 func _on_puzzle_2_interaction_body_entered(body: Node2D) -> void:
 	print("entered puzzle 2")
 	if body.is_in_group("Player"):
-		print("player entered puzzle 2")
-		player.set_physics_process(false)
-		player.set_process_input(false)
-		animation_player.play("screen_down")
-		await animation_player.animation_finished
-		animation_player.play("npc2_turn")
-		await animation_player.animation_finished
-		player.set_physics_process(true)
-		player.set_process_input(true)
+		if Global.has_finished_quiz == false:
+			print("player entered puzzle 2")
+			player.set_physics_process(false)
+			player.set_process_input(false)
+			player_animator.play("idle_right")
+			animation_player.play("screen_down")
+			await animation_player.animation_finished
+			animation_player.play("npc2_turn")
+			await animation_player.animation_finished
+			Dialogic.start("quiz_npc_start")
+			await Dialogic.timeline_ended
+			player.set_physics_process(true)
+			player.set_process_input(true)
+			Global.player_position = player.global_position
+			NavigationManager.go_to_level("quiz", null)
+		elif Global.has_finished_quiz and has_done_npc2_puzzle == false:
+			print("player finished puzzle 2")
+			player.set_physics_process(false)
+			player.set_process_input(false)
+			player_animator.play("idle_right")
+			Dialogic.start("quiz_npc_end")
+			await Dialogic.timeline_ended
+			animation_player.play("screen_down")
+			await animation_player.animation_finished
+			puzzle_2_npc_collision.disabled = true
+			player.set_physics_process(true)
+			player.set_process_input(true)
+			has_done_npc2_puzzle = true
+
+
+func _on_go_to_maze_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player") or body is Player:
+		print("player entered")
+		NavigationManager.go_to_level("maze_cutscene", null)
