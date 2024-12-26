@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtcyxu1laejyy"
+path="res://.godot/imported/Bowser Battle  Super Mario Bros 3 Remix-[AudioTrimmer.com].mp3-06178e2102cbf9e64001f4418037afe6.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Bowser Battle  Super Mario Bros 3 Remix-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Bowser Battle  Super Mario Bros 3 Remix-[AudioTrimmer.com].mp3-06178e2102cbf9e64001f4418037afe6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

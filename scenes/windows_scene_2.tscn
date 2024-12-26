@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bgwy04acidn6x"]
+[gd_scene load_steps=45 format=3 uid="uid://bgwy04acidn6x"]
 
 [ext_resource type="Script" path="res://scripts/windows_scene_2.gd" id="1_63wo0"]
 [ext_resource type="Texture2D" uid="uid://c3c8vko1vrlxx" path="res://assets/sprites/windows/level_1_BG.jpg" id="2_14hly"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d2j87gu286if6" path="res://assets/sprites/cypher run bag.png" id="12_ywpt0"]
 [ext_resource type="PackedScene" uid="uid://bibd0yhabfgc1" path="res://scenes/cpu.tscn" id="13_uv8u6"]
 [ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="14_eljtu"]
+[ext_resource type="AudioStream" uid="uid://dtcyxu1laejyy" path="res://assets/sounds/Bowser Battle  Super Mario Bros 3 Remix-[AudioTrimmer.com].mp3" id="15_da5wk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjqkb"]
 shader = ExtResource("7_e7mjc")
@@ -430,5 +431,12 @@ position = Vector2(26, 9.75)
 shape = SubResource("RectangleShape2D_2dbjd")
 
 [node name="circle_transition" parent="." instance=ExtResource("14_eljtu")]
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_da5wk")
+volume_db = -1.5
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="body_entered" from="win" to="." method="_on_win_body_entered"]

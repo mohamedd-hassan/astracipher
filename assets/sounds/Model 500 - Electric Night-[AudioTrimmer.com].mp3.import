@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxtwngve5u4ag"
+path="res://.godot/imported/Model 500 - Electric Night-[AudioTrimmer.com].mp3-38de1418afdea4820af583523c42d22c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Model 500 - Electric Night-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Model 500 - Electric Night-[AudioTrimmer.com].mp3-38de1418afdea4820af583523c42d22c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

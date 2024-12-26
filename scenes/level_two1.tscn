@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://6d7jde1hf3bi"]
+[gd_scene load_steps=42 format=4 uid="uid://6d7jde1hf3bi"]
 
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="1_4afd1"]
 [ext_resource type="Script" path="res://scripts/level_two.gd" id="1_ml28r"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://1yx1sccd3xtj" path="res://assets/sprites/Props-01.png" id="9_hpxhn"]
 [ext_resource type="PackedScene" uid="uid://vvocemyaahid" path="res://scenes/puzzle_2_npc.tscn" id="9_w6u4n"]
 [ext_resource type="Texture2D" uid="uid://bkt1umksb8la1" path="res://assets/sprites/light.png" id="16_d2riq"]
+[ext_resource type="AudioStream" uid="uid://dxtwngve5u4ag" path="res://assets/sounds/Model 500 - Electric Night-[AudioTrimmer.com].mp3" id="16_mpm12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4u1tm"]
 texture = ExtResource("9_hpxhn")
@@ -2065,10 +2066,6 @@ shape = SubResource("RectangleShape2D_iuwc0")
 position = Vector2(0, 10)
 script = ExtResource("4_81otk")
 
-[node name="AnimatedSprite2D" parent="Player" index="0"]
-animation = &"idle_right"
-frame_progress = 0.0
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -29)
 zoom = Vector2(4.13, 4.13)
@@ -2113,13 +2110,17 @@ texture_scale = 0.45
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.657889, 0.79572, 0.974847, 1)
 
-
 [node name="GoToMaze" type="Area2D" parent="."]
 position = Vector2(987, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoToMaze"]
 shape = SubResource("RectangleShape2D_54ana")
 
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_mpm12")
+volume_db = -1.5
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Puzzle2Interaction" to="." method="_on_puzzle_2_interaction_body_entered"]
 [connection signal="body_entered" from="Puzzle1Interaction" to="." method="_on_puzzle_1_interaction_body_entered"]
