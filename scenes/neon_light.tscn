@@ -286,7 +286,8 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_f1vef")
 animation = &"flicker"
 autoplay = "flicker"
-frame_progress = 0.579538
+frame = 19
+frame_progress = 0.424811
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 1, 0, 1)

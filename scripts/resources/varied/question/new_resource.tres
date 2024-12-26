@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://bpmy503eelolb"]
+
+[ext_resource type="Script" path="res://resources/question.gd" id="1_ceho6"]
+
+[resource]
+script = ExtResource("1_ceho6")
+question_info = "What is the dark web?"
+type = 0
+options = Array[String](["A place to watch fun videos", "A hidden part of the internet not found on regular search engines", "A website full of games", "A magical place with unlimited Wi-Fi"])
+correct = "A hidden part of the internet not found on regular search engines"

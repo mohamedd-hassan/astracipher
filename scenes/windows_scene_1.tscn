@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/windows_scene_1.gd" id="1_e1qb4"]
 [ext_resource type="PackedScene" uid="uid://bgwy04acidn6x" path="res://scenes/windows_scene_2.tscn" id="2_uyy70"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://scenes/background_windows.tscn" id="2_ya7lr"]
+=======
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://dunokk2wlu8cc" path="res://assets/sprites/windows/windows_xp_taskbar.png" id="3_4wxaa"]
 [ext_resource type="Texture2D" uid="uid://dmlbhrjy2cooa" path="res://assets/sprites/windows/flagpole.png" id="4_ag0fd"]
 [ext_resource type="Texture2D" uid="uid://b66hsqkp5xlun" path="res://assets/sprites/windows/block.png" id="5_3hrof"]
@@ -85,8 +88,102 @@ tile_set = SubResource("TileSet_f4swh")
 [node name="PlayerSide" parent="TileMapLayer" instance=ExtResource("7_m3xc2")]
 position = Vector2(103, 547)
 
+<<<<<<< Updated upstream
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/PlayerSide"]
 zoom = Vector2(2.75, 2.75)
+=======
+[node name="downloading" type="StaticBody2D" parent="Platforms"]
+position = Vector2(415, 434)
+scale = Vector2(0.755, 0.755)
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/downloading"]
+offset_right = 668.0
+offset_bottom = 307.0
+scale = Vector2(0.377362, 0.377362)
+texture = ExtResource("37_upray")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/downloading"]
+position = Vector2(126, 56.5)
+shape = SubResource("RectangleShape2D_k7nuy")
+
+[node name="critical_error" type="StaticBody2D" parent="Platforms"]
+position = Vector2(881, 444)
+scale = Vector2(0.755, 0.755)
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/critical_error"]
+offset_right = 668.0
+offset_bottom = 307.0
+scale = Vector2(0.377362, 0.377362)
+texture = ExtResource("38_t8wpb")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/critical_error"]
+position = Vector2(126, 56.5)
+shape = SubResource("RectangleShape2D_k7nuy")
+
+[node name="browser" type="StaticBody2D" parent="Platforms"]
+position = Vector2(93, 392)
+scale = Vector2(0.755, 0.755)
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/browser"]
+offset_right = 668.0
+offset_bottom = 307.0
+scale = Vector2(0.106199, 0.106199)
+texture = ExtResource("39_0ver1")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/browser"]
+position = Vector2(182.417, 33.4107)
+shape = SubResource("RectangleShape2D_s3u6h")
+
+[node name="download_failed" type="StaticBody2D" parent="Platforms"]
+position = Vector2(658, 465)
+scale = Vector2(0.755, 0.755)
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/download_failed"]
+offset_right = 668.0
+offset_bottom = 307.0
+scale = Vector2(0.377362, 0.377362)
+texture = ExtResource("40_gghyy")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/download_failed"]
+position = Vector2(126, 56.5)
+shape = SubResource("RectangleShape2D_k7nuy")
+
+[node name="system_failed" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1108, 416)
+scale = Vector2(0.755, 0.755)
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/system_failed"]
+offset_right = 668.0
+offset_bottom = 307.0
+scale = Vector2(0.377362, 0.377362)
+texture = ExtResource("41_86o80")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/system_failed"]
+position = Vector2(126, 56.5)
+shape = SubResource("RectangleShape2D_k7nuy")
+
+[node name="PlayerSide" parent="." instance=ExtResource("7_m3xc2")]
+position = Vector2(135, 99)
+scale = Vector2(1.52127, 1.52127)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PlayerSide"]
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_kmbdv")
+animation = &"jump"
+autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="PlayerSide"]
+zoom = Vector2(1.745, 1.745)
+>>>>>>> Stashed changes
 limit_left = 0
 limit_top = 0
 limit_bottom = 650

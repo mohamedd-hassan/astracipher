@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1qif0uuyd28v"
+path="res://.godot/imported/SpotifyMate.com - California Love - 8 Bit Version - 8 Bit Universe.mp3-eda74e61034964fd6c69febc25f905b9.mp3str"
+
+[deps]
+
+source_file="res://assets/music/SpotifyMate.com - California Love - 8 Bit Version - 8 Bit Universe.mp3"
+dest_files=["res://.godot/imported/SpotifyMate.com - California Love - 8 Bit Version - 8 Bit Universe.mp3-eda74e61034964fd6c69febc25f905b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

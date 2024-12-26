@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://cgc5cttbbfc1f"]
+
+[ext_resource type="Script" path="res://resources/question.gd" id="1_lmqxu"]
+
+[resource]
+script = ExtResource("1_lmqxu")
+question_info = "What is the best way to check if an email is fake?"
+type = 0
+options = Array[String](["Click the link in the email to see where it goes", "Check for spelling mistakes and strange email addresses", "Reply to ask if the email is real", "Forward it to all your friends to warn them"])
+correct = "Check for spelling mistakes and strange email addresses"
