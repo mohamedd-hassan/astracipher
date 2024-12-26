@@ -32,8 +32,10 @@ directories/dch_directory={
 "character": "res://dialogue/timelines/Stage1_Timelines/character.dch",
 "cipher": "res://dialogue/characters/cipher.dch",
 "cipher_monologue": "res://dialogue/timelines/cipher_monologue.dch",
+"nico_9ers": "res://dialogue/characters/nico_9ers.dch",
 "npc1": "res://dialogue/characters/npc1.dch",
 "npc2": "res://dialogue/timelines/Stage1_Timelines/npc2.dch",
+"on_tsuki": "res://dialogue/characters/on_tsuki.dch",
 "villain": "res://dialogue/characters/villain.dch"
 }
 directories/dtl_directory={
@@ -42,16 +44,35 @@ directories/dtl_directory={
 "Stage1_Admin": "res://dialogue/timelines/Stage1_Timelines/Stage1_Admin.dtl",
 "Stage1_NPC2": "res://dialogue/timelines/Stage1_Timelines/Stage1_NPC2.dtl",
 "Stage1_bully": "res://dialogue/timelines/Stage1_Timelines/Stage1_bully.dtl",
+"admin2nd": "res://dialogue/timelines/Stage1_Timelines/admin2nd.dtl",
 "astracipher_timeline": "res://dialogue/timelines/astracipher_timeline.dtl",
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
+"nigtmare": "res://dialogue/timelines/nigtmare.dtl",
 "npc1_timeline": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline.dtl",
+"npc1_timeline2": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline2.dtl",
+"on_tsuki_end_stage": "res://dialogue/timelines/stage2_timelines/on_tsuki_end_stage.dtl",
+"quiz_npc_end": "res://dialogue/timelines/stage2_timelines/quiz_npc_end.dtl",
+"quiz_npc_start": "res://dialogue/timelines/stage2_timelines/quiz_npc_start.dtl",
+"shady_npc1_timelinetimeline": "res://dialogue/timelines/stage2_timelines/shady_npc1_timeline.dtl",
+"spotting npc1": "res://dialogue/timelines/Stage1_Timelines/spotting npc1.dtl",
+"starting": "res://dialogue/timelines/Stage1_Timelines/starting.dtl",
+"talk_to_2": "res://dialogue/timelines/Stage1_Timelines/talk_to_2.dtl",
+"talk_to_one": "res://dialogue/timelines/Stage1_Timelines/talk_to_one.dtl",
+"talknpc2nd": "res://dialogue/timelines/Stage1_Timelines/talknpc2nd.dtl",
 "windows_scene_1_timeline": "res://dialogue/timelines/windows_timelines/windows_scene_1_timeline.dtl"
 }
 layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres", "res://dialogue/characters/astracipher_style.tres"]
 layout/default_style="Default"
 variables={
 "Help_Needed": false,
-"Knowledge": 1.0,
+"Knowledge": 0.5,
+"code": "0",
+"responded": false,
+"talked": false,
+"talked2": false,
+"talked_admin": false,
+"talked_admin_wrong": false,
+"text1": "pop",
 "timelines": 0
 }
 extensions_folder="res://addons/dialogic_additions"
@@ -81,6 +102,10 @@ glossary/default_case_sensitive=true
 window/stretch/mode="canvas_items"
 glossary/default_case_sensitive=true
 
+[editor]
+
+movie_writer/movie_file="D:/Mohamed/Projects/Games/Resources/astracipher.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
@@ -88,6 +113,10 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [global_group]
 
 Player=""
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf"
 
 [input]
 

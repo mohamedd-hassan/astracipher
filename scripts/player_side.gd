@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var is_dying = false
 var is_jumping = false
-
+var can_move = true
 
 
 @export var Gravity = 1000
@@ -12,8 +12,9 @@ var is_jumping = false
 @onready var jump_height_timer: Timer = $jump_height_timer
 @onready var jump_buffer_timer: Timer = $jump_buffer_timer
 @onready var death_timer: Timer = $death_timer
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var coyote_timer: Timer = $coyote_timer
+@onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx
 
 var can_coyote_jump = false
 var jump_buffered = false
@@ -41,15 +42,19 @@ func _physics_process(delta: float) -> void:
 		is_jumping = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and can_move:
 		jump_height_timer.start()
 		jump()
 		
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if can_move:
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if !can_move:
+		velocity.x = 0
 	
 	update_animation(direction)
 	
@@ -73,7 +78,7 @@ func update_animation(direction):
 		animated_sprite_2d.play("jump")
 		if direction !=0:
 			animated_sprite_2d.flip_h = (direction<0)
-	elif direction != 0:
+	elif direction != 0 and can_move:
 		animated_sprite_2d.flip_h = (direction<0)
 		animated_sprite_2d.play("run")
 	else: 
@@ -113,7 +118,10 @@ func _on_DeathTimer_timeout():
 		get_tree().reload_current_scene()
 	else: 
 		Dialogic.VAR.Knowledge -= 0.3
-		get_tree().change_scene_to_file("res://scenes/maze.tscn")
+		Global.player_lives = 3
+		Global.enemies_killed = 0
+		get_tree().reload_current_scene()
+		
 
 func _on_jump_height_timer_timeout() -> void:
 	if !Input.is_action_pressed("jump"):
@@ -132,6 +140,7 @@ func _on_coyote_timer_timeout() -> void:
 func jump():
 	if is_on_floor() || can_coyote_jump:
 		velocity.y = JUMP_VELOCITY
+		jump_sfx.play()
 		is_jumping = true
 		if can_coyote_jump:
 			can_coyote_jump = false

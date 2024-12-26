@@ -1,20 +1,19 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=4 format=3 uid="uid://b4rknyx2lcp08"]
 
-[ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="1_oah3b"]
-[ext_resource type="Texture2D" uid="uid://bv2aaow7fqi32" path="res://assets/sprites/Dungeon_brick_wall_grey.png.png" id="2_xyjuy"]
+[gd_scene load_steps=6 format=3 uid="uid://b4rknyx2lcp08"]
+
+
+[ext_resource type="Texture2D" uid="uid://wra1l767563c" path="res://assets/sprites/main_menu-background.jpeg" id="1_3drfb"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_on067"]
+[ext_resource type="FontFile" uid="uid://bb0rmifmy6x73" path="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_6ngbu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fp7x0"]
 texture = ExtResource("2_xyjuy")
-=======
 [gd_scene load_steps=12 format=3 uid="uid://b4rknyx2lcp08"]
-
 [ext_resource type="Texture2D" uid="uid://wra1l767563c" path="res://assets/sprites/main_menu-background.jpeg" id="1_3drfb"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_on067"]
 [ext_resource type="FontFile" uid="uid://bb0rmifmy6x73" path="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_6ngbu"]
 [ext_resource type="Texture2D" uid="uid://c7eo8rhe4mc58" path="res://assets/sprites/menu-Sheet.png" id="3_8a4bd"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uuvl0"]
 texture = ExtResource("1_3drfb")
 modulate_color = Color(0.728823, 0.728822, 0.728821, 1)
 
@@ -63,7 +62,6 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.203922)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
->>>>>>> Stashed changes
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -75,16 +73,17 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("1_on067")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_uuvl0")
 
-<<<<<<< Updated upstream
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer"]
-=======
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.5, 0.75)
 scale = Vector2(5.19369, 5.172)
@@ -99,6 +98,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+
 offset_left = -506.0
 offset_top = -45.0
 offset_right = -129.0
@@ -108,23 +108,64 @@ grow_vertical = 2
 theme_override_constants/separation = 8
 
 [node name="start" type="Button" parent="VBoxContainer"]
->>>>>>> Stashed changes
+
 layout_mode = 2
 script = ExtResource("1_oah3b")
 
-[node name="Play" type="Button" parent="MarginContainer/Buttons"]
-layout_mode = 2
-text = "Play"
+offset_left = -480.0
+offset_top = -142.0
+offset_right = -103.0
+offset_bottom = 152.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 8
 
-[node name="Options" type="Button" parent="MarginContainer/Buttons"]
+
+[node name="start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.605274, 0.605274, 0.605274, 1)
+theme_override_colors/font_pressed_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_colors/font_focus_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_6ngbu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_lkd00")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lkd00")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lkd00")
+text = "Start game"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.605274, 0.605274, 0.605274, 1)
+theme_override_colors/font_pressed_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_colors/font_focus_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_6ngbu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_lkd00")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lkd00")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lkd00")
 text = "Options"
 
-[node name="Quit" type="Button" parent="MarginContainer/Buttons"]
+[node name="exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.605274, 0.605274, 0.605274, 1)
+theme_override_colors/font_pressed_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_colors/font_focus_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_6ngbu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_lkd00")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lkd00")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lkd00")
+text = "Exit"
 
-<<<<<<< Updated upstream
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -132,13 +173,14 @@ anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_fp7x0")
-=======
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -527.0
-offset_top = -303.0
-offset_right = -14.0
-offset_bottom = -185.0
+offset_left = -474.0
+offset_top = -295.0
+offset_right = 3.0
+offset_bottom = -177.0
+
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 8
 theme_override_fonts/font = ExtResource("2_6ngbu")
@@ -146,8 +188,7 @@ theme_override_font_sizes/font_size = 80
 text = "Astra Cipher"
 horizontal_alignment = 1
 vertical_alignment = 1
->>>>>>> Stashed changes
 
-[connection signal="pressed" from="MarginContainer/Buttons/Play" to="MarginContainer/Buttons" method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/Buttons/Options" to="MarginContainer/Buttons" method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/Buttons/Quit" to="MarginContainer/Buttons" method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

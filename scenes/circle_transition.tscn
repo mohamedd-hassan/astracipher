@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfuwtqgv5o6j"]
+
+[ext_resource type="Shader" path="res://shaders/circle.gdshader" id="1_dnuxg"]
+[ext_resource type="Script" path="res://scripts/circle_transition.gd" id="1_m8p5s"]
+
+[sub_resource type="Animation" id="Animation_cf71s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:material:shader_parameter/circle_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.2]
+}
+
+[sub_resource type="Animation" id="Animation_mmwj7"]
+resource_name = "intro"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:material:shader_parameter/circle_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.666667, 1.5),
+"transitions": PackedFloat32Array(1, 0.594603, 1, 0.732043),
+"update": 0,
+"values": [0.0, 0.107383, 0.107383, 1.2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7lr7i"]
+_data = {
+"RESET": SubResource("Animation_cf71s"),
+"intro": SubResource("Animation_mmwj7")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdkg4"]
+shader = ExtResource("1_dnuxg")
+shader_parameter/circle_radius = 1.2
+shader_parameter/circle_position_x = -0.2
+shader_parameter/circle_position_y = -0.025
+shader_parameter/color = null
+
+[node name="circle_transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8p5s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7lr7i")
+}
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+material = SubResource("ShaderMaterial_hdkg4")
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true

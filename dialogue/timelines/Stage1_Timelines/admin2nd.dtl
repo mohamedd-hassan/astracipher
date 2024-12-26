@@ -1,0 +1,6 @@
+if {talked_admin} == true:
+	Admin: Enter the gate ,this will help you but be carefull
+elif {talked_admin_wrong} == true:
+	Admin: Did you get the code?
+	jump Stage1_Admin/code
+[signal arg="move"]
