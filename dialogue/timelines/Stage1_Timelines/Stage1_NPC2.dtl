@@ -1,9 +1,9 @@
 npc2: Hey there,  Cipher!  what brings you to this part of the world?
 - Just exploring ! Anything interesting around here?
-	npc2: Well,I met someone earlier who claimed to know Astra, but it didn't feel right.
+	npc2: Well, I met someone earlier who claimed to know Astra, but it didn't feel right.
 	- Off? What do you mean?
 		jump point1
-- Hi #2 . #1 said you might know where Astra is. Have you seen her?
+- Hi TimTos . wednesday5009 said you might know where Astra is. Have you seen her?
 	npc2: Hmm...I think I saw someone asking about Astra earlier but they seemed ... off . What's your next move?
 	- Why didn’t it feel right?
 		jump point1
@@ -17,14 +17,14 @@ npc2: They were asking weird questions, like they didn’t really know Astra but
 		npc2: Just be careful. Not everyone is who they say they are.
 		npc2: By the way the Admin may help you , you will find him in the upper part of the city between the buildings and by the way you will need a code 270804 write it down or someting it's important
 		set {Knowledge} -= 0.1
-		set {text1} = "bad"
+		set {text1} = "Be Cautious of imposters and be skeptical of other's intentions"
 	- Good point. Thanks for the heads-up.
 		label point2
-		npc2: No problem. If you're still searching, you should ask #3, the Admin. They might know something.
+		npc2: No problem. If you're still searching, you should ask rou_21, the Admin. They might know something.
 		- Do you know where he is right now?
 			npc2: you will find him in the upper part of the city between the buildings and by the way you will need a code 270804 write it down or someting it's important
 			set {Knowledge} += 0.1
-			set {text1} = "good"
+			set {text1} = "Good job! its good to be a little bit skeptical of people you meet online, not everyone is who they say they are"
 [signal arg="talked2"]
 set {talked2} = true
 [signal arg="move"]

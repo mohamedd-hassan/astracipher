@@ -1,30 +1,30 @@
 npc1: Hi Cipher! What brings you here on a school morning?
 - I ditched school today!
-	npc1: That's cool! My school woudl've never let that slide. What school do you go to?
+	npc1: That's cool! My school woudl've never let that slide. What school do you go to? 
 	- A school nearby. Have you seen Astra by any chance?
 		jump npc1_timeline/A
-	- *school name*, have you heard of it?
+	- Mansoura Langauge School, have you heard of it?
 		npc1: I've sure heard of it...
 		jump npc1_timeline/lose
-- Hi #1. I'm looking for Astra, have you seen her?
+- Hi wednesday5009. I'm looking for Astra, have you seen her?
 	label A
-	npc1: I'm sure I've seen her somewhere. Hmm... have you tried asking #2?
+	npc1: I'm sure I've seen her somewhere. Hmm... have you tried asking TimTos?
 	npc1: you can find him at the parking in the west
 	- I'll check with them now. Thank you!
 		npc1: Good luck!
 		jump npc1_timeline/gain
 	- Yeah, they weren't that helpful. I thought you might have an idea of where she could be.
-		npc1: Oh well, I don't have a clue! By the way, I've seen you hang around *school name* recently. Do you go there?
+		npc1: Oh well, I don't have a clue! By the way, I've seen you hang around Mansoura Langauge School recently. Do you go there?
 		- Yeah I do!
 			npc1: Interesting...
 			label lose
 			set {Knowledge} -= 0.2
-			set {text1} = "bad"
+			set {text1} = "you have to be more careful! some strangers want you to reveal personal information on the internet"
 			[signal arg="end"]
-		- Uh, I don't think that's relevant now. I got to get going, bye #1!
+		- Uh, I don't think that's relevant now. I got to get going, bye wednesday5009!
 			npc1: Okay... Bye...
 			label gain
-			set {text1} = "good"
+			set {text1} = "good job! you were careful not to give any personal information"
 			set {Knowledge} += 0.3
 			[signal arg="end"]
 set {talked} = true

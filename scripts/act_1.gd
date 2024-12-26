@@ -48,6 +48,9 @@ func _on_dialogic_signal(argument:String):
 		
 	if argument == "talked2" and !Dialogic.VAR.responded:
 		npc_3.position=Vector2(-300,-106)	
+	
+	
+	if argument == "talked2":
 		label.text=Dialogic.VAR.text1
 		info_bubble.show()
 		
@@ -85,6 +88,18 @@ func _on_dialogic_signal(argument:String):
 		player.set_process_input(true)
 		npc_3.position+=Vector2(1500,10)
 		#create_popups(avoid_text,3)
+		
+		
+	if argument == "go_away":
+		animated_sprite_2d.play("vanish")
+		animated_sprite_2d.scale = Vector2(1,1) 
+		await get_tree().create_timer(1.5).timeout
+		label.text=avoid_text
+		info_bubble.show()
+		player.set_physics_process(true)
+		player.set_process_input(true)
+		npc_3.position+=Vector2(1500,10)
+	
 	if argument == "wand":
 		sprite_2d_2.play("wand")
 		await get_tree().create_timer(1).timeout

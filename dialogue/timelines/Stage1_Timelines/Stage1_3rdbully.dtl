@@ -6,3 +6,5 @@ bully: What are you doing here now? You think the mayor can save you?
 - Respond
 	set {Knowledge} -= 0.1
 	[signal arg="responded3"]
+[signal arg="move"]
+[signal arg="go_away"]

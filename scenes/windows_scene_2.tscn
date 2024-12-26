@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bgwy04acidn6x"]
+[gd_scene load_steps=46 format=3 uid="uid://bgwy04acidn6x"]
 
 [ext_resource type="Script" path="res://scripts/windows_scene_2.gd" id="1_63wo0"]
 [ext_resource type="Texture2D" uid="uid://c3c8vko1vrlxx" path="res://assets/sprites/windows/level_1_BG.jpg" id="2_14hly"]
@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dym1ca76pvepw" path="res://assets/sprites/cypherjump.png" id="12_qnxje"]
 [ext_resource type="Texture2D" uid="uid://d2j87gu286if6" path="res://assets/sprites/cypher run bag.png" id="12_ywpt0"]
 [ext_resource type="PackedScene" uid="uid://bibd0yhabfgc1" path="res://scenes/cpu.tscn" id="13_uv8u6"]
-[ext_resource type="PackedScene" path="res://scenes/circle_transition.tscn" id="14_eljtu"]
+[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="14_eljtu"]
 [ext_resource type="AudioStream" uid="uid://dtcyxu1laejyy" path="res://assets/sounds/Bowser Battle  Super Mario Bros 3 Remix-[AudioTrimmer.com].mp3" id="15_da5wk"]
+[ext_resource type="PackedScene" uid="uid://3v5dys4mlir2" path="res://scenes/pause_menu_2.tscn" id="16_qj4rx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjqkb"]
 shader = ExtResource("7_e7mjc")
@@ -172,6 +173,7 @@ size = Vector2(78, 28.5)
 script = ExtResource("1_63wo0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_left = -3.0
 offset_top = 259.0
 offset_right = 3597.0
@@ -180,6 +182,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_14hly")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 offset_left = -294.0
 offset_top = 391.0
 offset_right = 3306.0
@@ -438,5 +441,10 @@ volume_db = -1.5
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("16_qj4rx")]
 
 [connection signal="body_entered" from="win" to="." method="_on_win_body_entered"]

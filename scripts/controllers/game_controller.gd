@@ -77,6 +77,7 @@ func next_question():
 	#return array_temp
 	
 func game_over():
+	Global.has_finished_quiz = true
 	if correct <= 3:
 		you_lost.visible = true
 		damn_bruh.visible = true
