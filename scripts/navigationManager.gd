@@ -5,6 +5,7 @@ const scene_level_two = preload("res://scenes/level_two1.tscn")
 const scene_maze_cutscene = preload("res://scenes/maze_cutscene.tscn")
 const scene_maze = preload("res://scenes/maze.tscn")
 const window_scene_1 = preload("res://scenes/windows_scene_1.tscn")
+const quiz = preload("res://scenes/quiz.tscn")
 
 signal on_trigger_player_spawn
 
@@ -16,10 +17,8 @@ func go_to_level(level_tag, destination_tag):
 	match level_tag:
 		"level_one":
 			scene_to_load = scene_level_one
-	  
 		"level_two":
 			scene_to_load = scene_level_two 	
-
 		"maze_cutscene":
 			scene_to_load = scene_maze_cutscene
 		"maze":
@@ -27,9 +26,11 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_maze
 		"windows":
 			scene_to_load = window_scene_1
+		"quiz":
+			scene_to_load = quiz
 			
 	if scene_to_load != null:
-		if level_tag != "windows":
+		if level_tag != "quiz" || level_tag != "windows":
 			Transition.transition()
 			await Transition.on_transition_finished
 		spawn_door_tag = destination_tag

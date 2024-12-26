@@ -32,8 +32,10 @@ directories/dch_directory={
 "character": "res://dialogue/timelines/Stage1_Timelines/character.dch",
 "cipher": "res://dialogue/characters/cipher.dch",
 "cipher_monologue": "res://dialogue/timelines/cipher_monologue.dch",
+"nico_9ers": "res://dialogue/characters/nico_9ers.dch",
 "npc1": "res://dialogue/characters/npc1.dch",
 "npc2": "res://dialogue/timelines/Stage1_Timelines/npc2.dch",
+"on_tsuki": "res://dialogue/characters/on_tsuki.dch",
 "villain": "res://dialogue/characters/villain.dch"
 }
 directories/dtl_directory={
@@ -47,6 +49,10 @@ directories/dtl_directory={
 "cutscene_timeline": "res://dialogue/timelines/cutscene_timeline.dtl",
 "nigtmare": "res://dialogue/timelines/nigtmare.dtl",
 "npc1_timeline": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline.dtl",
+
+"on_tsuki_end_stage": "res://dialogue/timelines/stage2_timelines/on_tsuki_end_stage.dtl",
+"quiz_npc_end": "res://dialogue/timelines/stage2_timelines/quiz_npc_end.dtl",
+"quiz_npc_start": "res://dialogue/timelines/stage2_timelines/quiz_npc_start.dtl",
 "npc1_timeline2": "res://dialogue/timelines/Stage1_Timelines/npc1_timeline2.dtl",
 "shady_npc1_timelinetimeline": "res://dialogue/timelines/stage2_timelines/shady_npc1_timeline.dtl",
 "spotting npc1": "res://dialogue/timelines/Stage1_Timelines/spotting npc1.dtl",

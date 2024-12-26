@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://be136da6h4aqe"]
+[gd_scene load_steps=4 format=3 uid="uid://be136da6h4aqe"]
 
 [ext_resource type="Script" path="res://scripts/controllers/game_controller.gd" id="1_vmno1"]
 [ext_resource type="Resource" uid="uid://c2skkng411wmo" path="res://scripts/resources/varied/theme.tres" id="2_3aagb"]
+[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="3_571gu"]
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource("1_vmno1")
@@ -136,5 +137,7 @@ offset_left = 376.0
 offset_top = 482.0
 offset_right = 876.0
 offset_bottom = 636.0
+
+[node name="circle_transition" parent="." instance=ExtResource("3_571gu")]
 
 [connection signal="pressed" from="ColorRect/Content/GameOver/Button" to="." method="_on_button_pressed"]

@@ -3,6 +3,7 @@ extends Node
 @export var quiz : QuizTheme
 @export var color_right : Color
 @export var color_wrong : Color
+@onready var circle_transition: Control = $circle_transition
 
 var buttons : Array[Button]
 var index : int 
@@ -15,6 +16,7 @@ var current_quiz : QuizQuestion:
 @onready var question_texts: Label = $ColorRect/Content/QuestionInfo/QuestionText
 
 func _ready():
+	circle_transition
 	correct = 0
 	for button in $ColorRect/Content/QuestionHolder .get_children():
 		buttons.append(button)
@@ -69,8 +71,8 @@ func game_over():
 	$ColorRect/Content/GameOver.show()
 	$ColorRect/Content/GameOver/Score.text = str(correct, "/", quiz.theme.size())
 	print("hhhhhh")
+	Global.has_finished_quiz = true
+	NavigationManager.go_to_level("level_two", null)
 	
 func on_button_pressed():
-	get_tree().reload_current_scene()
-
-		
+	pass

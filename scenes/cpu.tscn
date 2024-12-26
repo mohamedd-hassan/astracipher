@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://bibd0yhabfgc1"]
 
-[ext_resource type="Script" path="res://scripts/toad.gd" id="1_nmc3u"]
+[ext_resource type="Script" path="res://scripts/cpu_enemy.gd" id="1_nmc3u"]
 [ext_resource type="Texture2D" uid="uid://rxdtti2nl61n" path="res://assets/sprites/windows/CPU_Sprite.png" id="2_7d7ve"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0lwy"]
@@ -118,7 +118,7 @@ animations = [{
 size = Vector2(43.5, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymoaj"]
-size = Vector2(50, 12.0001)
+size = Vector2(35, 12.0001)
 
 [node name="cpu_enemy" type="CharacterBody2D"]
 position = Vector2(0, -1)
@@ -127,9 +127,9 @@ script = ExtResource("1_nmc3u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.99986, -7.99987)
 sprite_frames = SubResource("SpriteFrames_o7285")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.300916
+frame_progress = 0.403325
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4mma2")
@@ -141,7 +141,7 @@ collision_mask = 3
 collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(4.99994, -25.0001)
+position = Vector2(7.49982, -25.0001)
 shape = SubResource("RectangleShape2D_ymoaj")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=106 format=4 uid="uid://bpi7w14xkyutn"]
+[gd_scene load_steps=107 format=4 uid="uid://bpi7w14xkyutn"]
 
 [ext_resource type="Script" path="res://scripts/windows_scene_1.gd" id="1_e1qb4"]
 [ext_resource type="PackedScene" uid="uid://bgwy04acidn6x" path="res://scenes/windows_scene_2.tscn" id="2_uyy70"]
-
 [ext_resource type="Texture2D" uid="uid://dunokk2wlu8cc" path="res://assets/sprites/windows/windows_xp_taskbar.png" id="3_4wxaa"]
 [ext_resource type="Texture2D" uid="uid://ba5ckwfs2rpgy" path="res://assets/sprites/windows/icons/Bliss_1440x1080.jpg" id="3_s3tyv"]
 [ext_resource type="Texture2D" uid="uid://gcsihuq54xpm" path="res://assets/sprites/windows/icons/IE.png" id="6_hql8c"]
@@ -50,8 +49,10 @@
 [ext_resource type="Texture2D" uid="uid://dym1ca76pvepw" path="res://assets/sprites/cypherjump.png" id="45_x56gt"]
 [ext_resource type="Texture2D" uid="uid://cdojnav07dmp1" path="res://assets/sprites/windows/Hand1.png" id="46_nx33w"]
 [ext_resource type="Texture2D" uid="uid://bq4j50gmkcjem" path="res://assets/sprites/windows/popups/Layer 9.png" id="46_psbf5"]
-[ext_resource type="Shader" path="res://shaders/stage2puzzle2.gdshader" id="49_fm85j"]
 [ext_resource type="Texture2D" uid="uid://btlxb3jogyar8" path="res://assets/sprites/windows/popups/Windows_9X_BSOD.png" id="50_s2tpk"]
+[ext_resource type="AudioStream" uid="uid://c568xrxcf2kb" path="res://assets/sounds/Windows XP Critical Stop Sound.mp3" id="51_46lbg"]
+[ext_resource type="AudioStream" uid="uid://dw381aldn7q7t" path="res://assets/sounds/Click - Sound Effect (HD).mp3" id="52_tscpj"]
+[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="53_amrgc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx6b8"]
 texture = ExtResource("6_hql8c")
@@ -394,67 +395,67 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Glitch:visible")
+tracks/3/path = NodePath("BSOD:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Glitch:material:shader_parameter/shake_rate")
+tracks/4/path = NodePath("Platforms/critical_error:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Glitch:material:shader_parameter/shake_power")
+tracks/5/path = NodePath("Platforms/download_failed:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Glitch:material:shader_parameter/shake_speed")
+tracks/6/path = NodePath("Platforms/system_failed:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.495]
+"update": 1,
+"values": [true]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BSOD:visible")
+tracks/7/path = NodePath("CRT:material:shader_parameter/aberration")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.03]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Platforms/critical_error:visible")
+tracks/8/path = NodePath("critical_error:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -466,7 +467,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Platforms/download_failed:visible")
+tracks/9/path = NodePath("click:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -475,22 +476,10 @@ tracks/9/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Platforms/system_failed:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_qy2o7"]
 resource_name = "cutscene"
-length = 6.0
+length = 6.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -530,98 +519,86 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Glitch:visible")
+tracks/3/path = NodePath("BSOD:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(3.16667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Glitch:material:shader_parameter/shake_rate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(3.16667, 3.43333, 3.75, 4.2, 4.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.6, 0.0, 0.626, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Glitch:material:shader_parameter/shake_power")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(3.16667, 3.43333, 3.75, 4.2, 4.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.03, 0.0, 0.03, 0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Glitch:material:shader_parameter/shake_speed")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("BSOD:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 5.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Platforms/critical_error:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Platforms/critical_error:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(5.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Platforms/download_failed:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Platforms/system_failed:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CRT:material:shader_parameter/aberration")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.3, 3.43333, 3.56667, 3.7, 3.83333, 4, 4.13333, 4.26667, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.03, 0.03, 0.105, 0.03, 0.105, 0.03, 0.105, 0.03, 0.105, 0.03]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("critical_error:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.133333, 0.933333, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Platforms/download_failed:visible")
+tracks/9/path = NodePath("click:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(5.5),
+"times": PackedFloat32Array(2.9),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Platforms/system_failed:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(5.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lsu3e"]
@@ -642,28 +619,20 @@ shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
 shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
+shader_parameter/roll_speed = 1.51
 shader_parameter/roll_size = 0.0
 shader_parameter/roll_variation = 0.1
 shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 0.0
 shader_parameter/static_noise_intensity = 0.0
-shader_parameter/aberration = 4.75e-08
+shader_parameter/aberration = 0.03
 shader_parameter/brightness = 1.13
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.677
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.0
 shader_parameter/vignette_opacity = 0.5
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw2w5"]
-shader = ExtResource("49_fm85j")
-shader_parameter/shake_power = 0.0
-shader_parameter/shake_rate = 0.0
-shader_parameter/shake_speed = 0.495
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.033
 
 [node name="windows_scene_1" type="Node2D"]
 script = ExtResource("1_e1qb4")
@@ -771,7 +740,7 @@ position = Vector2(126, 56.5)
 shape = SubResource("RectangleShape2D_k7nuy")
 
 [node name="PlayerSide" parent="." instance=ExtResource("7_m3xc2")]
-position = Vector2(1182, 424)
+position = Vector2(131, 390)
 scale = Vector2(1.52127, 1.52127)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PlayerSide"]
@@ -823,14 +792,6 @@ position = Vector2(1615, 522)
 position = Vector2(-173, -152)
 shape = SubResource("RectangleShape2D_hgy6s")
 
-[node name="CRT" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_wgwdf")
-offset_left = -34.0
-offset_top = -473.0
-offset_right = 1385.0
-offset_bottom = 672.0
-
 [node name="virus" type="TextureRect" parent="."]
 visible = false
 offset_left = 1111.0
@@ -845,12 +806,6 @@ position = Vector2(1381, 390)
 scale = Vector2(0.444445, 0.444445)
 texture = ExtResource("45_a57fj")
 
-[node name="Glitch" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_yw2w5")
-offset_top = -392.0
-offset_right = 1765.0
-offset_bottom = 682.0
-
 [node name="BSOD" type="TextureRect" parent="."]
 visible = false
 offset_left = 692.0
@@ -859,6 +814,25 @@ offset_right = 1502.0
 offset_bottom = 694.0
 scale = Vector2(0.846, 0.846)
 texture = ExtResource("50_s2tpk")
+
+[node name="CRT" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wgwdf")
+offset_left = -34.0
+offset_top = -473.0
+offset_right = 1385.0
+offset_bottom = 672.0
+
+[node name="critical_error" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("51_46lbg")
+volume_db = 8.0
+bus = &"SFX"
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("52_tscpj")
+volume_db = 8.0
+bus = &"SFX"
+
+[node name="circle_transition" parent="." instance=ExtResource("53_amrgc")]
 
 [connection signal="body_entered" from="pitfall" to="." method="_on_pitfall_body_entered"]
 [connection signal="body_entered" from="win" to="." method="_on_win_body_entered"]
