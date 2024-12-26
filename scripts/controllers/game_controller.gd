@@ -3,8 +3,6 @@ extends Node
 @export var quiz : QuizTheme
 @export var color_right : Color
 @export var color_wrong : Color
-@onready var animation_player: AnimationPlayer = $circle/AnimationPlayer
-@onready var circle: Control = $circle
 
 var buttons : Array[Button]
 var index : int 
@@ -13,15 +11,21 @@ var correct : int
 var current_quiz : QuizQuestion:
 	get: return quiz.theme[index]
 
+@onready var question_texts: Label = $TextureRect/Content/QuestionText
+@onready var you_lost: Label = $you_lost
+@onready var damn_bruh: Label = $damn_bruh
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var timer: Timer = $TextureRect/Timer
+@onready var texture_progress_bar: TextureProgressBar = $TextureRect/TextureProgressBar
+@onready var score: Label = $Score
 
-@onready var question_texts: Label = $ColorRect/Content/QuestionInfo/QuestionText
+func _process(delta: float) -> void:
+	texture_progress_bar.value = (timer.time_left / 120) * 100
 
 func _ready():
-	animation_player.play("intro")
-	await animation_player.animation_finished
-	circle.queue_free()
+	timer.start()
 	correct = 0
-	for button in $ColorRect/Content/QuestionHolder .get_children():
+	for button in $TextureRect/Content/QuestionHolder .get_children():
 		buttons.append(button)
 		
 	#randomize_array(quiz.theme)
@@ -47,9 +51,11 @@ func load_quiz():
 func buttons_answer(button):
 	if current_quiz.correct == button.text : 
 		button.modulate = color_right
+		$AudioCorrect.play()
 		correct += 1
 	else:
 		button.modulate = color_wrong
+		$wrong.play()
 		
 	next_question()
 		
@@ -71,11 +77,42 @@ func next_question():
 	#return array_temp
 	
 func game_over():
-	$ColorRect/Content/GameOver.show()
-	$ColorRect/Content/GameOver/Score.text = str(correct, "/", quiz.theme.size())
-	print("hhhhhh")
-	Global.has_finished_quiz = true
-	NavigationManager.go_to_level("level_two", null)
+	if correct <= 3:
+		you_lost.visible = true
+		damn_bruh.visible = true
+		score.visible = true
+		score.text = str(correct, "/", quiz.theme.size())
+		animation_player.play("lost")
+		await animation_player.animation_finished
+		Transition.transition()
+		await Transition.on_transition_finished
+		get_tree().change_scene_to_file("res://scenes/level_two1.tscn")
+	else:
+		$great_job.visible = true
+		$you_won.visible = true
+		score.visible = true
+		score.text = str(correct, "/", quiz.theme.size())
+		animation_player.play("won")
+		await animation_player.animation_finished
+		Transition.transition()
+		await Transition.on_transition_finished
+		get_tree().change_scene_to_file("res://scenes/level_two1.tscn")
+	# $TextureRect/Content/GameOver.show()
+	# $TextureRect/Content/GameOver/Score.text = str(correct, "/", quiz.theme.size())
 	
 func on_button_pressed():
-	pass
+	get_tree().reload_current_scene()
+
+		
+
+
+func _on_timer_timeout() -> void:
+	you_lost.visible = true
+	damn_bruh.visible = true
+	score.visible = true
+	score.text = str(correct, "/", quiz.theme.size())
+	animation_player.play("lost")
+	await animation_player.animation_finished
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_file("res://scenes/level_two1.tscn")

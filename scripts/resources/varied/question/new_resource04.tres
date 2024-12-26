@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_l7jcr")
-question_info = "Where do I live"
+question_info = "What should you do if someone online asks to meet you in person?"
 type = 0
-options = Array[String](["Mansoura", "Cairo", "Alex", "T"])
-correct = "Mansoura"
+options = Array[String](["Tell a trusted adult immediately", "Go meet them but take your friends along", "Keep chatting until you feel safe meeting them", "Block them but don’t tell anyone"])
+correct = "Tell a trusted adult immediately"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yj3un0ipcrvl"
+path="res://.godot/imported/Fail Sound Effect.mp3-0c878db7f4260ef5f5747820b4fd740d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Fail Sound Effect.mp3"
+dest_files=["res://.godot/imported/Fail Sound Effect.mp3-0c878db7f4260ef5f5747820b4fd740d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

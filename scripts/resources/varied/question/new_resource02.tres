@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_v4vdc")
-question_info = "Who is my favorite Superhero"
+question_info = "How can you tell if a website is safe?"
 type = 0
-options = Array[String](["Iron Man", "Captain America", "Spider Man", "Thor"])
-correct = "Spider Man"
+options = Array[String](["It has lots of pretty pictures", "It loads really quickly", "The web address starts with \"https\" and shows a padlock icon", "It has a cool name"])
+correct = "The web address starts with \"https\" and shows a padlock icon"

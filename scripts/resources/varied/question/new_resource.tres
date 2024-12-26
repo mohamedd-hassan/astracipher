@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ceho6")
-question_info = "What is my name"
+question_info = "What is the dark web?"
 type = 0
-options = Array[String](["ahmed", "khaled", "mohamed", "yousef"])
-correct = "yousef"
+options = Array[String](["A place to watch fun videos", "A hidden part of the internet not found on regular search engines", "A website full of games", "A magical place with unlimited Wi-Fi"])
+correct = "A hidden part of the internet not found on regular search engines"

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_gkn82")
-question_info = "How old am I "
+question_info = "How can you keep your online accounts safe?"
 type = 0
-options = Array[String](["19", "20", "18", "21"])
-correct = "20"
+options = Array[String](["Share your password with your best friend", "Use a password that's easy to guess, like \"1234\"", "Create a strong password and turn on two-factor authentication", "Write your password on your school notebook"])
+correct = "Create a strong password and turn on two-factor authentication"

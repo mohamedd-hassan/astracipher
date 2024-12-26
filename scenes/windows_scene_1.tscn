@@ -52,7 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://btlxb3jogyar8" path="res://assets/sprites/windows/popups/Windows_9X_BSOD.png" id="50_s2tpk"]
 [ext_resource type="AudioStream" uid="uid://c568xrxcf2kb" path="res://assets/sounds/Windows XP Critical Stop Sound.mp3" id="51_46lbg"]
 [ext_resource type="AudioStream" uid="uid://dw381aldn7q7t" path="res://assets/sounds/Click - Sound Effect (HD).mp3" id="52_tscpj"]
-[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="53_amrgc"]
+[ext_resource type="PackedScene" path="res://scenes/circle_transition.tscn" id="53_amrgc"]
 [ext_resource type="AudioStream" uid="uid://cdxtmics4m6wu" path="res://assets/sounds/01. Ground Theme.mp3" id="54_ki4yg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx6b8"]
@@ -740,8 +740,11 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(126, 56.5)
 shape = SubResource("RectangleShape2D_k7nuy")
 
+[node name="TileMapLayer_PlayerSide#Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.75, 2.75)
+
 [node name="PlayerSide" parent="." instance=ExtResource("7_m3xc2")]
-position = Vector2(131, 390)
+position = Vector2(135, 99)
 scale = Vector2(1.52127, 1.52127)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PlayerSide"]

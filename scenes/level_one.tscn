@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://bmia40b27okoa"]
+[gd_scene load_steps=79 format=4 uid="uid://bmia40b27okoa"]
 
 [ext_resource type="Script" path="res://scripts/act_1.gd" id="1_k17nh"]
 [ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="2_eouoh"]
@@ -10,17 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://b5xxx5obog3io" path="res://interaction/interactiona area/interaction_area.tscn" id="6_wtv0u"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="7_dnsdc"]
 [ext_resource type="Script" path="res://scenes/npc2.gd" id="7_x121g"]
-[ext_resource type="PackedScene" uid="uid://dm0tte3plt1e8" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu_1.tscn" id="8_16wmf"]
 [ext_resource type="Script" path="res://scenes/npc3.gd" id="8_f0oo4"]
 [ext_resource type="Texture2D" uid="uid://1l3762sc8dad" path="res://assets/sprites/knight.png" id="10_cgfu1"]
 [ext_resource type="Script" path="res://scenes/admin.gd" id="10_o5gtd"]
 [ext_resource type="Texture2D" uid="uid://we7glyt0cpqx" path="res://assets/sprites/spr_tileset_sunnysideworld_16px.png" id="11_0wrpk"]
 [ext_resource type="Texture2D" uid="uid://c55q385me0q3g" path="res://assets/sprites/Chr_Wizard.png" id="11_uheel"]
+[ext_resource type="Texture2D" uid="uid://d3qla3fut01nd" path="res://assets/sprites/pixilart-sprite (1)-export-export (1).png" id="14_6dlj7"]
 [ext_resource type="Script" path="res://scenes/area_2d.gd" id="14_dh6p8"]
 [ext_resource type="Texture2D" uid="uid://bo37ysagi7ro5" path="res://assets/sprites/hood_guy_spritesheet_n.background.png" id="14_ho2sv"]
-[ext_resource type="Texture2D" uid="uid://jw6vgn338h5b" path="res://assets/sprites/red-riding-hood_1.png" id="14_ikp58"]
 [ext_resource type="Texture2D" uid="uid://bk12um72unckv" path="res://assets/sprites/Fire-bomb.png" id="17_56mo8"]
-[ext_resource type="PackedScene" uid="uid://bjgmibukofn7j" path="res://scenes/info_bubble.tscn" id="19_letfs"]
+[ext_resource type="PackedScene" path="res://scenes/info_bubble.tscn" id="19_letfs"]
 [ext_resource type="AudioStream" uid="uid://cedjapimy8tsg" path="res://assets/sounds/Shiroku - Sports Men (Haruomi Hosono Instrumental Cover).mp3" id="22_3b2ew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8f5w"]
@@ -5663,33 +5663,117 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65oxc"]
-atlas = ExtResource("14_ikp58")
-region = Rect2(1, 0, 28, 29)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb8ib"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(0, 0, 32, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yqxyp"]
-atlas = ExtResource("14_ikp58")
-region = Rect2(32, 0, 28, 29)
+[sub_resource type="AtlasTexture" id="AtlasTexture_utp2q"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(32, 0, 32, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8j8wi"]
-atlas = ExtResource("14_ikp58")
-region = Rect2(63, 0, 28, 29)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tppye"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(64, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv5tf"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(128, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irmq1"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(160, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4lmc"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(192, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol316"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(224, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alw8i"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(256, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mfmb"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(288, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpw4u"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(320, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbsq6"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(352, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr65p"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(384, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwrm8"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(416, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwugu"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(448, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_313wo"]
+atlas = ExtResource("14_6dlj7")
+region = Rect2(480, 0, 32, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wf851"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_65oxc")
+"texture": SubResource("AtlasTexture_qb8ib")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yqxyp")
+"texture": SubResource("AtlasTexture_utp2q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8j8wi")
+"texture": SubResource("AtlasTexture_tppye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv5tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irmq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4lmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol316")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alw8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mfmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpw4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbsq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr65p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwrm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwugu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_313wo")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1ck1"]
@@ -5881,6 +5965,7 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_wf851")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.906974
 
 [node name="npc3" parent="." instance=ExtResource("4_ux1i4")]
 modulate = Color(1, 1, 1, 1)

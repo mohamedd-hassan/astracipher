@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dym1ca76pvepw" path="res://assets/sprites/cypherjump.png" id="12_qnxje"]
 [ext_resource type="Texture2D" uid="uid://d2j87gu286if6" path="res://assets/sprites/cypher run bag.png" id="12_ywpt0"]
 [ext_resource type="PackedScene" uid="uid://bibd0yhabfgc1" path="res://scenes/cpu.tscn" id="13_uv8u6"]
-[ext_resource type="PackedScene" uid="uid://bfuwtqgv5o6j" path="res://scenes/circle_transition.tscn" id="14_eljtu"]
+[ext_resource type="PackedScene" path="res://scenes/circle_transition.tscn" id="14_eljtu"]
 [ext_resource type="AudioStream" uid="uid://dtcyxu1laejyy" path="res://assets/sounds/Bowser Battle  Super Mario Bros 3 Remix-[AudioTrimmer.com].mp3" id="15_da5wk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjqkb"]

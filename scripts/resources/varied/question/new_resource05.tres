@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_an0vh")
-question_info = "Which game I love playing the most"
+question_info = "What is \"phishing\"?"
 type = 0
-options = Array[String](["GTA", "FIFA", "Red Dead", "Spider man"])
-correct = "Red Dead"
+options = Array[String](["A fun game where you catch virtual fish", "A trick where people try to steal your private information through fake emails or messages", "A type of computer virus", "A way to make websites faster"])
+correct = "A trick where people try to steal your private information through fake emails or messages"

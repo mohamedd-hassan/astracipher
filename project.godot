@@ -61,7 +61,7 @@ directories/dtl_directory={
 "talknpc2nd": "res://dialogue/timelines/Stage1_Timelines/talknpc2nd.dtl",
 "windows_scene_1_timeline": "res://dialogue/timelines/windows_timelines/windows_scene_1_timeline.dtl"
 }
-layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres"]
+layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres", "res://dialogue/characters/astracipher_style.tres"]
 layout/default_style="Default"
 variables={
 "Help_Needed": false,

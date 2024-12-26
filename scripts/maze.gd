@@ -13,9 +13,10 @@ extends Node2D
 @onready var solved_maze: CollisionShape2D = $SolvedMaze/CollisionShape2D
 @onready var door_l: CollisionShape2D = $Door_L/CollisionShape2D
 #@onready var timer: Timer = $stopwatch/Stopwatch/Timer
-@onready var stopwatch: Stopwatch = $stopwatch/Stopwatch
-@onready var timer: Timer = $stopwatch/Stopwatch/Timer
 @onready var progress_bar: TextureProgressBar = $stopwatch/Stopwatch/TextureProgressBar
+@onready var stopwatch: Control = $stopwatch/Stopwatch
+@onready var timer: Timer = $stopwatch/Stopwatch/Timer
+
 
 var time = 0.0
 var animation_end = false
@@ -40,6 +41,7 @@ func _process(delta: float) -> void:
 		solved_maze.visible = true
 		if Dialogic.VAR.Knowledge <= 0.5:
 			point_light.texture_scale = 0.5
+			time = 50
 			timer.wait_time = 50
 			point_light.texture_scale = timer.time_left * 0.01
 		else:
