@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvme5avdf08gl"]
 
 [ext_resource type="Script" path="res://scenes/options_buttons_2.gd" id="2_qoqd4"]
-[ext_resource type="Texture2D" uid="uid://ca72n54jpadvx" path="res://assets/pixil-frame-1.png" id="2_s8ng0"]
+[ext_resource type="Texture2D" uid="uid://ca72n54jpadvx" path="res://assets/sprites/pixil-frame-1.png" id="2_s8ng0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4d8gt"]
 

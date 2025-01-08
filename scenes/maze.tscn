@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://d1ih3hgr0wfut"]
+[gd_scene load_steps=79 format=4 uid="uid://d1ih3hgr0wfut"]
 
 [ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
@@ -14,8 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://hb0vy0wxkqe5" path="res://scenes/astra.tscn" id="12_akjf6"]
 [ext_resource type="Texture2D" uid="uid://dc2017ioq7ouv" path="res://assets/sprites/astra idle.png" id="13_3jq6j"]
 [ext_resource type="Texture2D" uid="uid://65x5ygcv2eks" path="res://assets/sprites/astra run.png" id="14_r8847"]
-[ext_resource type="PackedScene" uid="uid://ds2dpfbvg8ca4" path="res://scenes/pause_menu_3.tscn" id="15_8uwc8"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu_3.tscn" id="15_8uwc8"]
 [ext_resource type="PackedScene" uid="uid://b0dxquygfrtv5" path="res://scenes/drone.tscn" id="15_npfd0"]
+[ext_resource type="AudioStream" uid="uid://dx8pdlf1pcnmd" path="res://assets/sounds/water_drip.mp3" id="17_jxjj3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ljqw5"]
 light_mode = 1
@@ -1901,6 +1902,11 @@ position = Vector2(-267, 7)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/StaticBody2D"]
 position = Vector2(-93, 9)
 shape = SubResource("RectangleShape2D_7yba0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_jxjj3")
+bus = &"SFX"
+parameters/looping = true
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

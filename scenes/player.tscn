@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://w0hk7phbdsiq"]
+[gd_scene load_steps=40 format=3 uid="uid://w0hk7phbdsiq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dle7g"]
 [ext_resource type="Texture2D" uid="uid://bmg3qovdqw1q8" path="res://assets/sprites/cypher idle with bag.png" id="2_130fj"]
@@ -283,6 +283,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_810sj"]
 size = Vector2(8, 5.625)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6kga"]
+size = Vector2(20, 19)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -306,3 +309,9 @@ position = Vector2(-9, -17)
 
 [node name="FollowPoint" type="Marker2D" parent="."]
 position = Vector2(-20, 4)
+
+[node name="DialogueInteraction" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteraction"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_n6kga")

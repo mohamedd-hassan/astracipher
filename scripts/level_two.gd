@@ -7,12 +7,17 @@ extends Node2D
 @onready var player_animator: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var puzzle_1_npc: CharacterBody2D = $Puzzle1Npc
 @onready var puzzle_2_npc_collision: CollisionShape2D = $Puzzle2Npc/CollisionShape2D
+@onready var door: Door = $Door_L
+@onready var npc2_animation: AnimatedSprite2D = $Puzzle2Npc/AnimatedSprite2D
+@onready var music: AudioStreamPlayer2D = $music
 
 var has_done_npc1_puzzle = false
 var has_done_npc2_puzzle = false
 
+const STAGE_2 = preload("res://dialogue/stage_2.dialogue")
 
 func _ready() -> void:
+	door.queue_free()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 	if Global.player_position != null:
@@ -29,7 +34,6 @@ func _on_level_spawn(destination_tag: String):
 	NavigationManager.trigger_player_spawn(door.spawn.global_position, door.spawn_direction)
 
 
-
 func _on_puzzle_1_interaction_body_entered(body: Node2D) -> void:
 	print("entered puzzle 1")
 	if body.is_in_group("Player"):
@@ -40,8 +44,8 @@ func _on_puzzle_1_interaction_body_entered(body: Node2D) -> void:
 			player_animator.play("idle_right")
 			animation_player.play("npc1_in")
 			await animation_player.animation_finished
-			Dialogic.start("shady_npc1_timelinetimeline")
-			await Dialogic.timeline_ended
+			DialogueManager.show_dialogue_balloon(STAGE_2, "npc1")
+			await DialogueManager.dialogue_ended
 			player.set_physics_process(true)
 			player.set_process_input(true)
 			Global.player_position = player.global_position
@@ -53,8 +57,8 @@ func _on_puzzle_1_interaction_body_entered(body: Node2D) -> void:
 			player.set_process_input(false)
 			player_animator.play("idle_right")
 			puzzle_1_npc.global_position.x = 366
-			Dialogic.start("on_tsuki_end_stage")
-			await Dialogic.timeline_ended
+			DialogueManager.show_dialogue_balloon(STAGE_2, "npc1")
+			await DialogueManager.dialogue_ended
 			animation_player.play("npc1_out")
 			await animation_player.animation_finished
 			puzzle_1_npc_collision.disabled = true
@@ -74,8 +78,8 @@ func _on_puzzle_2_interaction_body_entered(body: Node2D) -> void:
 			await animation_player.animation_finished
 			animation_player.play("npc2_turn")
 			await animation_player.animation_finished
-			Dialogic.start("quiz_npc_start")
-			await Dialogic.timeline_ended
+			DialogueManager.show_dialogue_balloon(STAGE_2, "npc2")
+			await DialogueManager.dialogue_ended
 			player.set_physics_process(true)
 			player.set_process_input(true)
 			Global.player_position = player.global_position
@@ -85,10 +89,9 @@ func _on_puzzle_2_interaction_body_entered(body: Node2D) -> void:
 			player.set_physics_process(false)
 			player.set_process_input(false)
 			player_animator.play("idle_right")
-			Dialogic.start("quiz_npc_end")
-			await Dialogic.timeline_ended
-			animation_player.play("screen_down")
-			await animation_player.animation_finished
+			npc2_animation.play("idle_left")
+			DialogueManager.show_dialogue_balloon(STAGE_2, "npc2")
+			await DialogueManager.dialogue_ended
 			puzzle_2_npc_collision.disabled = true
 			player.set_physics_process(true)
 			player.set_process_input(true)
@@ -99,3 +102,8 @@ func _on_go_to_maze_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") or body is Player:
 		print("player entered")
 		NavigationManager.go_to_level("maze_cutscene", null)
+func music_stops():
+	music.stop()
+
+func music_plays():
+	music.play()

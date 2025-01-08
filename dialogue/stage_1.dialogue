@@ -1,0 +1,267 @@
+~ start 
+do stop_moving()
+Cipher: I have to ask everyone around if they've seen Astra...
+[i]You can interact by pressing [b]\[E\][/b][/i]
+
+=> END
+
+~ spotting_npc
+do stop_moving()
+Cipher: Oh! There is someone right there, I should go and ask them.
+=> END 
+
+~ npc1
+do stop_moving()
+if !talked_one
+	@wednesday5009: Hi Cipher! What brings you here on a school morning?
+	- I ditched school today!
+		Cipher: I ditched school today!
+		@wednesday5009: That's cool! My school woudl've never let that slide. [b]What school do you go to?[/b]
+		- A school nearby. Have you seen Astra?
+			Cipher: A school nearby. Have you seen Astra by any chance?
+			@wednesday5009: I'm sure I've seen her somewhere. Hmm... have you tried asking [i]@TimTos[/i]?
+			@wednesday5009: You can find him in the [b]parking lot[/b] on the left!
+			- I'll check with them now. 
+				Cipher: I'll check with them now. Thank you!
+				@wednesday5009: Good luck! 
+				do display_info("You avoided sharing personal information with strangers.", "won")
+			- Yes, but they weren't helpful.
+				Cipher: I did, but they weren't helpful.
+				@wednesday5009: Oh, well I don't have a clue.
+				@wednesday5009: By the way, I've seen you around [b]Mansoura Language Schools[/b] recently.
+				@wednesday5009: Do you go there?
+				- Yeah I do!
+					Cipher: Yeah I go there!
+					@wednesday5009: Interesting...
+					do display_info("You should avoid sharing personal information with strangers.", "lost")
+				- Uh... I don't think that's relevant.
+					Cipher: Uh... I don't think that's relevant. [next= auto]
+					Cipher: I got to get going, bye @wednesday5009!
+					@wednesday5009: Okay... Bye...
+					do display_info("You avoided sharing personal information with strangers.", "won")
+		- Mansoura Language Schools, have you heard of it?
+			Cipher: Mansoura Language Schools, have you heard of it?
+			@wednesday5009: I've sure heard of it...
+			do display_info("You should avoid sharing personal information with strangers.", "lost")
+	- I'm looking for Astra.
+		Cipher: Hi [i]@wednesday5009[/i]. I'm looking for my sister, Astra, have you seen her?
+		@wednesday5009: I'm sure I've seen her somewhere. Hmm... have you tried asking [i]@TimTos[/i]?
+		@wednesday5009: You can find him in the [b]parking lot[/b] on the left!
+		- I'll check with them now. Thank you!
+			Cipher: I'll check with them now. Thank you!
+			@wednesday5009: Good luck! 
+			do display_info("You avoided sharing personal information with strangers.", "won")
+		- Yes, but they weren't helpful.
+			Cipher: I did, but they weren't helpful.
+			@wednesday5009: Oh, well I don't have a clue.
+			@wednesday5009: By the way, I've seen you around [b]Mansoura Language Schools[/b] recently.
+			@wednesday5009: Do you go there?
+			- Yeah I do!
+				Cipher: Yeah I go there!
+				@wednesday5009: Interesting...
+				do display_info("You should avoid sharing personal information with strangers.", "lost")
+			- Uh... I don't think that's relevant.
+				Cipher: Uh... I don't think that's relevant. [next= auto]
+				Cipher: I got to get going, bye @wednesday5009!
+				@wednesday5009: Okay... Bye...
+				do display_info("You avoided sharing personal information with strangers.", "won")
+	set talked_one = true
+else
+	@wednesday5009: Hi again! Did you talk to [i]@TimTos[/i] yet?
+	- Not yet.
+		Cipher: I haven't yet.
+		@wednesday5009: Well, you should. He'll be in the [b]parking lot[/b] on the left.
+=> END 
+
+
+~ npc2
+do stop_moving()
+if !talked_two
+	@TimTos: Hey there, Cipher! What brings you to this part of the world?
+	- Just exploring.
+		Cipher: Just exploring! Anything interesting around here?
+		@TimTos: Well, I met someone earlier who were searching for a little girl... Astra, is it?
+		Cipher: What? Why were they searching for her?
+		@TimTos: I don't know... they were asking weird questions, like they didn’t know Astra but [i]really[/i] wanted to.
+		- I need to find this person!
+			Cipher: I need to find this person and talk to them!
+			@TimTos: I really don't think you should. 
+			@TimTos: They seemed really dangerous, you should talk to the [b]admin[/b] instead.
+			- Good point.
+				Cipher: Good point, thanks for the heads-up. Do you know where the admin is?
+				@TimTos: You'll find him at the [b]city centre on the right.[/b]
+				@TimTos: He might need a [b]secret code[/b] from you though.
+				Cipher: What is it?
+				@TimTos: It's [b]270804[/b]. Don't forget!
+				Cipher: Thanks! I won't!
+				do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
+			- I’ll see if I can find them anyway.
+				Cipher: I'll see if I can find them anyway.
+				@TimTos: Your wish... just be careful. Not everyone is who they say they are.
+				@TimTos: If you do end up talking to the admin, you may need a [b]secret code[/b].
+				Cipher: What is it?
+				@TimTos: It's [b]270804[/b]. Don't forget!
+				Cipher: Thanks! I won't!
+				do display_info("Be cautious of imposters and skeptical of others intentions.", "lost")
+		- Maybe they were just curious.
+			Cipher: Maybe they were just curious, people are talking about her missing.
+			@TimTos: Maybe, but there are impostors everywhere. You can’t trust everyone you meet.
+			Cipher: Good point, thanks for the heads-up.
+			@TimTos: Anytime! If you're still searching for Astra, you might want to talk to the [b]admin[/b].
+			Cipher: Do you know where they are?
+			@TimTos: You'll find him at the [b]city centre on the right.[/b]
+			@TimTos: He might need a [b]secret code[/b] from you though.
+			Cipher: What is it?
+			@TimTos: It's [b]270804[/b]. Don't forget!
+			Cipher: Thanks! I won't!
+			do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
+	- Have you seen Astra?
+		if talked_one
+			Cipher: Hey, [i]@wednesday5009[/i] said you might know where Astra is. Have you seen her?
+		else
+			Cipher: Hey, have you seen a little girl named Astra anywhere?
+		@TimTos: Hmm... I think I saw someone asking about Astra earlier, but they seemed... off.
+		Cipher: Off? What do you mean?
+		@TimTos: I don't know... they were asking weird questions, like they didn’t know Astra but [i]really[/i] wanted to.
+		- I need to find this person!
+			Cipher: I need to find this person and talk to them!
+			@TimTos: I really don't think you should. 
+			@TimTos: They seemed really dangerous, you should talk to the [b]admin[/b] instead.
+			- Good point.
+				Cipher: Good point, thanks for the heads-up. Do you know where the admin is?
+				@TimTos: You'll find him at the [b]city centre on the right.[/b]
+				@TimTos: He might need a [b]secret code[/b] from you though.
+				Cipher: What is it?
+				@TimTos: It's [b]270804[/b]. Don't forget!
+				Cipher: Thanks! I won't!
+				do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
+			- I’ll see if I can find them anyway.
+				Cipher: I'll see if I can find them anyway.
+				@TimTos: Your wish... just be careful. Not everyone is who they say they are.
+				@TimTos: If you do end up talking to the admin, you may need a [b]secret code[/b].
+				Cipher: What is it?
+				@TimTos: It's [b]270804[/b]. Don't forget!
+				Cipher: Thanks! I won't!
+				do display_info("Be cautious of imposters and skeptical of others intentions.", "lost")
+		- Maybe they were just curious.
+			Cipher: Maybe they were just curious, people are talking about her missing.
+			@TimTos: Maybe, but there are impostors everywhere. You can’t trust everyone you meet.
+			Cipher: Good point, thanks for the heads-up.
+			@TimTos: Anytime! If you're still searching for Astra, you might want to talk to the [b]admin[/b].
+			Cipher: Do you know where they are?
+			@TimTos: You'll find him at the [b]city centre on the right.[/b]
+			@TimTos: He might need a [b]secret code[/b] from you though.
+			Cipher: What is it?
+			@TimTos: It's [b]270804[/b]. Don't forget!
+			Cipher: Thanks! I won't!
+			do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
+	set talked_two = true
+else
+	@TimTos: You're back for the code?
+	- Yeah...
+		Cipher: Yeah...
+		@TimTos: No worries! It's [b]270804[/b]. Good luck!
+=> END 
+
+
+~ admin
+do stop_moving()
+if !talked_admin
+	Admin: Hello, Cipher! How can I help you today?
+	if !help_needed
+		Cipher: I'm searching for Astra, can you help?
+		Admin: Well yes of course! But first... I'm going to need verification.
+		Admin: What is the code?
+		- 407280 => wrong_code
+		- 304304 => wrong_code
+		- 270804 => right_code
+		- What code?
+			Cipher: What code?
+			Admin: I can't tell you more details, I'm afraid...
+	else
+		Cipher: Someone is bothering me, could you please help?
+		Admin: That guy over there? I'll deal with him.
+		Admin: It's good you asked for help instead of dealing with it by yourself.
+		Cipher: Thanks. Have you seen Astra? I've been told you'd know where I should go.
+		Admin: Ah yes, Astra, I may have an idea...
+		Admin: But first, I'm going to need the code.
+		- 845743
+		- 902384
+		- 270804
+		- What code?
+			Cipher: What code?
+			Admin: I can't tell you more details, I'm afraid...
+	set talked_admin = true
+else
+	Admin: Welcome back! Did you get the right code?
+	- 002004 => wrong_code
+	- 270804 => right_code
+	- 708405 => wrong_code
+	- No...
+		Admin: Well, try again!
+=> END 
+
+~ wrong_code
+do stop_moving()
+% Admin: Wrong! You're gonna have to try again later buddy.
+% Admin: Not quite right! 
+% Admin: Aw man, that's the wrong one! 
+set talked_admin = true
+=> END
+
+~ right_code
+do stop_moving()
+Admin: That is correct! I'm going to show you the way now.
+Admin: But, you should be careful out there. 
+do wand()
+Admin: There will be a lot of suspicious people trying to trick you, so be careful won't you?
+Cipher: I'll try my best.
+Admin: Great, now go forth my child!
+=> END
+
+~ bully_1
+do stop_moving()
+@caeser_99: Well well well, look who it is...
+[i]Be careful! This is a bully[/i]
+- Respond
+	set responded = 1
+	Cipher: Hey! Do we have a problem?
+	@caeser_99: We sure do now!
+	do responded_1()
+	do display_info("You should avoid responding to bullies \and ask for help.", "lost")
+- Ignore
+	do ignored_1()
+	do display_info("You avoided responding to the bully.", "won")
+set times_bullied = 1
+=> END 
+
+~ bully_2
+do stop_moving()
+@caeser_99: You're still around? I thought you'd run away by now! Haha!
+- Respond
+	set responded = 2
+	Cipher: I wouldn't run away from a kid like you!
+	@caeser_99: Watch your mouth bud!
+	do responded_2()
+	do display_info("You should avoid responding to bullies \and ask for help.", "lost")
+- Ignore
+	do ignored_2()
+	do display_info("You avoided responding to the bully.", "won")
+set times_bullied = 2
+=> END 
+
+~ bully_3
+do stop_moving()
+@caeser_99: Man, you're so easy to bother! You think the mayor can save you?
+- Respond
+	set responded = 3
+	Cipher: I can handle a child like you on my own!
+	@caeser_99: Hey! Watch your mouth bud!
+	do display_info("You should avoid responding to bullies \and ask for help.", "lost")
+- Ask the mayor for help
+	Cipher: I'll let an adult handle you.
+	do display_info("You avoided responding to the bully \and asked for help.", "won")
+	set help_needed = true
+
+do go_away()
+=> END 

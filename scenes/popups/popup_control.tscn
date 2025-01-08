@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpvae7yxg5ce4"]
 
-[ext_resource type="Script" path="res://popup.gd" id="1_5ea6y"]
+[ext_resource type="Script" path="res://scripts/popup.gd" id="1_5ea6y"]
 [ext_resource type="FontFile" uid="uid://b654vv76mll3t" path="res://assets/fonts/PixelOperator8.ttf" id="2_3mk2s"]
 
 [node name="Control" type="Control"]

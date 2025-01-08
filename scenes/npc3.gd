@@ -4,6 +4,7 @@ extends Area2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: Player = $"../Player"
+const STAGE_1 = preload("res://dialogue/stage_1.dialogue")
 
 func _ready() -> void:
 	animated_sprite_2d.play("default")
@@ -14,15 +15,13 @@ func _on_body_entered(body: Node2D) -> void:
 	player.set_process_input(false)
 	
 	print("interacted")
-	if Dialogic.VAR.timelines==0:
-		Dialogic.start("Stage1_bully")
+	if Global.times_bullied==0:
+		DialogueManager.show_dialogue_balloon(STAGE_1, "bully_1")
 		player.animated_sprite.play("idle_up")
-	if Dialogic.VAR.timelines==1:
-		Dialogic.start("Stage1_2ndtimebully")
+	elif Global.times_bullied==1:
+		DialogueManager.show_dialogue_balloon(STAGE_1, "bully_2")
 		player.animated_sprite.play("idle_right")
-	if Dialogic.VAR.timelines==2:
+	elif Global.times_bullied==2:
 		player.animated_sprite.play("idle_right")
-		Dialogic.start("Stage1_3rdbully")
-		
-	await Dialogic.timeline_ended
-	pass # Replace with function body.
+		DialogueManager.show_dialogue_balloon(STAGE_1, "bully_3")
+	await DialogueManager.dialogue_ended
