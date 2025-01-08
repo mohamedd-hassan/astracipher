@@ -1,22 +1,18 @@
 extends Control
+
+@onready var lost_won: Label = $LostWon
+@onready var info: Label = $Info
 @onready var info_bubble: Control = $"."
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-#var text_to_show=Dialogic.VAR.text1
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	pass # Replace with function body.
+	if Global.status == "lost":
+		lost_won.text = "You lost 10% Knowledge!"
+	elif Global.status == "won":
+		lost_won.text = "You gained 10% Knowledge!"
+	info.text = Global.info_text
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func resume():
-	print("continue func")
-	get_tree().paused= false
-	
-func _on_continue_pressed() -> void:
-	self.hide()
-	print("CONTIUE")
-	resume()
+func _on_button_pressed() -> void:
+	animation_player.play("fade_out")
+	await animation_player.animation_finished
+	info_bubble.visible = false

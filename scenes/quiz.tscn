@@ -876,6 +876,7 @@ bus = &"SFX"
 
 [node name="bg" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_mehgv")
+volume_db = 15.369
 autoplay = true
 bus = &"Music"
 

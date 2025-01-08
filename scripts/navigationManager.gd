@@ -6,7 +6,7 @@ const scene_maze_cutscene = preload("res://scenes/maze_cutscene.tscn")
 const scene_maze = preload("res://scenes/maze.tscn")
 const window_scene_1 = preload("res://scenes/windows_scene_1.tscn")
 const quiz = preload("res://scenes/quiz.tscn")
-const nightmare = preload("res://nightmare.tscn")
+const nightmare = preload("res://scenes/nightmare.tscn")
 
 signal on_trigger_player_spawn
 

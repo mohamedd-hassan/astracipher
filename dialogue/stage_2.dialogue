@@ -1,0 +1,33 @@
+~ npc1
+if !talked_one2
+	@on_tsuki: Hey kid! Where do you think you're going?
+	Cipher: I'm looking for my sister.
+	@on_tsuki: Oh! Well, I can help with that!!!
+	@on_tsuki: Just come here [shake rate=20 level=10]100% FREE GAURANTEE NO SCAM[/shake] you'll find your sister in no time!!!
+	set talked_one2 = true
+else
+	@on_tsuki: [next=1] Wait how'd you escape?
+	@on_tsuki: [speed=3]Ahem! I meant woah what happened to you, you just disappeared![/speed]
+	@on_tsuki: [speed=3]Well, uhhh. oh, seems like my phone is ringing, I gotta go[/speed]
+=> END
+
+~ npc2
+if !talked_two2
+	@nico_9ers: [shake rate=20 level=10]HURRY HURRY [rainbow freq=1.0 sat=0.8 val=0.8]STEP RIGHT UP[/rainbow][/shake]
+	@nico_9ers: HEY THERE BOY, WANNA PLAY A [wave amp=25 freq=5]GAME?[/wave]
+	Cipher: [next=0.1]Uh... not really, I'm really in rush now to
+	@nico_9ers: WELP, TOO BAD!!
+	@nico_9ers: [shake rate=20 level=10]YOU HAVE TO ANSWER THESE QUESTIONS FIRST!![/shake]
+	Cipher: But I
+	@nico_9ers: NO CHOICE
+	set talked_two2 = true
+else
+	Cipher: I answered your questions, can you tell me where Astra is now?
+	@nico_9ers: Well damn I didn't expect you to actually answer but a promise is a promise
+	@nico_9ers: Head down the [b]alleyway behind me[/b], I've seen a little girl walk that way earlier
+	@nico_9ers: [next=1.5]Be careful though,[do music_stops()] [speed=0.5]I heard once people go there,[/speed]
+	@nico_9ers: [next=2][speed=0.3]they never come back.[/speed]
+	@nico_9ers: [next=0.8][do music_plays()]Anywho, I got a show to run so scram
+	@nico_9ers: [shake rate=20 level=10]HURRY HURRY [rainbow freq=1.0 sat=0.8 val=0.8]STEP RIGHT UP[/rainbow][/shake]
+	
+=> END

@@ -9,13 +9,12 @@ extends Node2D
 @onready var player_animation: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var drone: AnimatedSprite2D = $Drone
 @onready var interaction_area: Area2D = $InteractionArea
-#@onready var stopwatch: Stopwatch = $stopwatch/Stopwatch
 @onready var solved_maze: CollisionShape2D = $SolvedMaze/CollisionShape2D
 @onready var door_l: CollisionShape2D = $Door_L/CollisionShape2D
-#@onready var timer: Timer = $stopwatch/Stopwatch/Timer
 @onready var progress_bar: TextureProgressBar = $stopwatch/Stopwatch/TextureProgressBar
 @onready var stopwatch: Control = $stopwatch/Stopwatch
 @onready var timer: Timer = $stopwatch/Stopwatch/Timer
+@onready var water: AudioStreamPlayer = $AudioStreamPlayer
 
 
 var time = 0.0
@@ -28,6 +27,7 @@ func _ready() -> void:
 	door_l.disabled = true
 	player.global_position = spawn.global_position
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	water.play()
 
 
 func _process(delta: float) -> void:
@@ -71,7 +71,6 @@ func _on_dialogic_signal(argument:String):
 		cutscene_animation.play("drone_out")
 	elif argument == "knowledge_light":
 		cutscene_animation.play("knowledge_light")
-		# await cutscene_animation.animation_finished
 		point_light.visible = true
 	elif argument == "timer":
 		drone.visible = false
@@ -91,6 +90,7 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 		cutscene()
 	
 func cutscene():
+	water.stop()
 	Global.met_cipher = true
 	interaction_area.queue_free()
 	print("should play animation")
