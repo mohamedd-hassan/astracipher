@@ -2002,7 +2002,7 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_quie7")
 animation = &"flash"
 autoplay = "flash"
-frame_progress = 0.0670588
+frame_progress = 0.82038
 
 [node name="bulding_top" type="TileMapLayer" parent="."]
 position = Vector2(752, -80)
@@ -2093,6 +2093,7 @@ limit_left = -140
 limit_right = 1045
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_d6twi")]
 visible = false

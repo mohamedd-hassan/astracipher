@@ -8675,8 +8675,10 @@ _data = {
 script = ExtResource("1_mb1d2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_csxcl")]
+visible = false
 offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0

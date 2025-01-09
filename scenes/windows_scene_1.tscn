@@ -845,8 +845,10 @@ parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("55_45ks5")]
+visible = false
 
 [connection signal="body_entered" from="pitfall" to="." method="_on_pitfall_body_entered"]
 [connection signal="body_entered" from="win" to="." method="_on_win_body_entered"]

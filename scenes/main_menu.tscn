@@ -74,7 +74,7 @@ position = Vector2(2, -2)
 scale = Vector2(5.195, 5.195)
 sprite_frames = SubResource("SpriteFrames_s0cb4")
 autoplay = "default"
-frame_progress = 0.347909
+frame_progress = 0.180321
 
 [node name="Panel" type="Panel" parent="."]
 visible = false

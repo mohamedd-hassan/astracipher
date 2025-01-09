@@ -8314,6 +8314,7 @@ position = Vector2(3, 74)
 position = Vector2(29, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pause_menu1" parent="CanvasLayer" instance=ExtResource("8_16wmf")]
 visible = false

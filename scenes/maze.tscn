@@ -2293,8 +2293,10 @@ libraries = {
 }
 
 [node name="pause menu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pause_menu_3" parent="pause menu" instance=ExtResource("15_8uwc8")]
+visible = false
 offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0
