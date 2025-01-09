@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://diiv8aovqlym2"]
+[gd_scene load_steps=5 format=3 uid="uid://diiv8aovqlym2"]
 
-[ext_resource type="Texture2D" uid="uid://r6rw4prw2auq" path="res://assets/sprites/world_tileset.png" id="1_5nb50"]
 [ext_resource type="Script" path="res://scripts/context_bubble.gd" id="1_vii2p"]
+[ext_resource type="Texture2D" uid="uid://b0veeobow7xr7" path="res://assets/sprites/interact.png" id="2_4inui"]
+[ext_resource type="FontFile" uid="uid://cnr2ngtd7spur" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_8wb1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1fh6"]
 radius = 4.12311
@@ -15,10 +16,31 @@ position = Vector2(9, 25)
 shape = SubResource("CircleShape2D_b1fh6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, -3)
-texture = ExtResource("1_5nb50")
-region_enabled = true
+position = Vector2(13, -13)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("2_4inui")
 region_rect = Rect2(16.1903, 31.7013, 15.7999, 16.0393)
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_bottom = 26.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_8wb1y")
+theme_override_font_sizes/font_size = 25
+text = "[E] To Interact"
+horizontal_alignment = 2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

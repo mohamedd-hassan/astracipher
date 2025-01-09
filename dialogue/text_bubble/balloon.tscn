@@ -215,15 +215,18 @@ autoplay = "indicate"
 
 [node name="Talk_Sound_High" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_vfbsd")
+volume_db = -10.0
 pitch_scale = 0.9
 bus = &"Dialogue"
 
 [node name="Talk_Sound_Medium" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_1fo5b")
+volume_db = -10.0
 bus = &"Dialogue"
 
 [node name="Talk_Sound_Low" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_4gyyo")
+volume_db = -10.0
 bus = &"Dialogue"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]

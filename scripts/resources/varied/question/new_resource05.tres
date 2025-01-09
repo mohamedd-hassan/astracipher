@@ -6,5 +6,5 @@
 script = ExtResource("1_an0vh")
 question_info = "What is \"phishing\"?"
 type = 0
-options = Array[String](["A fun game where you catch virtual fish", "A trick where people try to steal your private information through fake emails or messages", "A type of computer virus", "A way to make websites faster"])
-correct = "A trick where people try to steal your private information through fake emails or messages"
+options = Array[String](["A fun game where you catch virtual fish", "When people try to steal your private information through fake messages", "A type of computer virus", "A way to make websites faster"])
+correct = "When people try to steal your private information through fake messages"

@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 		typing.play()
 
 func transition():
-		Transition.transition()
-		await Transition.on_transition_finished
-		get_tree().change_scene_to_file("res://CREDITS/GodotCredits.tscn")
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_file("res://CREDITS/GodotCredits.tscn")

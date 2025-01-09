@@ -24,6 +24,7 @@ if !talked_one
 			- I'll check with them now. 
 				Cipher: I'll check with them now. Thank you!
 				@wednesday5009: Good luck! 
+				set status = "won"
 				do display_info("You avoided sharing personal information with strangers.", "won")
 			- Yes, but they weren't helpful.
 				Cipher: I did, but they weren't helpful.
@@ -33,15 +34,18 @@ if !talked_one
 				- Yeah I do!
 					Cipher: Yeah I go there!
 					@wednesday5009: Interesting...
+					set status = "lost"
 					do display_info("You should avoid sharing personal information with strangers.", "lost")
 				- Uh... I don't think that's relevant.
 					Cipher: Uh... I don't think that's relevant. [next= auto]
 					Cipher: I got to get going, bye @wednesday5009!
 					@wednesday5009: Okay... Bye...
+					set status = "won"
 					do display_info("You avoided sharing personal information with strangers.", "won")
 		- Mansoura Language Schools, have you heard of it?
 			Cipher: Mansoura Language Schools, have you heard of it?
 			@wednesday5009: I've sure heard of it...
+			set status = "lost"
 			do display_info("You should avoid sharing personal information with strangers.", "lost")
 	- I'm looking for Astra.
 		Cipher: Hi [i]@wednesday5009[/i]. I'm looking for my sister, Astra, have you seen her?
@@ -50,6 +54,7 @@ if !talked_one
 		- I'll check with them now. Thank you!
 			Cipher: I'll check with them now. Thank you!
 			@wednesday5009: Good luck! 
+			set status = "won"
 			do display_info("You avoided sharing personal information with strangers.", "won")
 		- Yes, but they weren't helpful.
 			Cipher: I did, but they weren't helpful.
@@ -59,11 +64,13 @@ if !talked_one
 			- Yeah I do!
 				Cipher: Yeah I go there!
 				@wednesday5009: Interesting...
+				set status = "lost"
 				do display_info("You should avoid sharing personal information with strangers.", "lost")
 			- Uh... I don't think that's relevant.
 				Cipher: Uh... I don't think that's relevant. [next= auto]
 				Cipher: I got to get going, bye @wednesday5009!
 				@wednesday5009: Okay... Bye...
+				set status = "won"
 				do display_info("You avoided sharing personal information with strangers.", "won")
 	set talked_one = true
 else
@@ -78,6 +85,7 @@ else
 do stop_moving()
 if !talked_two
 	@TimTos: Hey there, Cipher! What brings you to this part of the world?
+	set talked_two = true
 	- Just exploring.
 		Cipher: Just exploring! Anything interesting around here?
 		@TimTos: Well, I met someone earlier who were searching for a little girl... Astra, is it?
@@ -94,6 +102,7 @@ if !talked_two
 				Cipher: What is it?
 				@TimTos: It's [b]270804[/b]. Don't forget!
 				Cipher: Thanks! I won't!
+				set status = "won"
 				do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
 			- I’ll see if I can find them anyway.
 				Cipher: I'll see if I can find them anyway.
@@ -102,6 +111,7 @@ if !talked_two
 				Cipher: What is it?
 				@TimTos: It's [b]270804[/b]. Don't forget!
 				Cipher: Thanks! I won't!
+				set status = "lost"
 				do display_info("Be cautious of imposters and skeptical of others intentions.", "lost")
 		- Maybe they were just curious.
 			Cipher: Maybe they were just curious, people are talking about her missing.
@@ -114,6 +124,7 @@ if !talked_two
 			Cipher: What is it?
 			@TimTos: It's [b]270804[/b]. Don't forget!
 			Cipher: Thanks! I won't!
+			set status = "won"
 			do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
 	- Have you seen Astra?
 		if talked_one
@@ -134,6 +145,7 @@ if !talked_two
 				Cipher: What is it?
 				@TimTos: It's [b]270804[/b]. Don't forget!
 				Cipher: Thanks! I won't!
+				set status = "won"
 				do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
 			- I’ll see if I can find them anyway.
 				Cipher: I'll see if I can find them anyway.
@@ -142,6 +154,7 @@ if !talked_two
 				Cipher: What is it?
 				@TimTos: It's [b]270804[/b]. Don't forget!
 				Cipher: Thanks! I won't!
+				set status = "lost"
 				do display_info("Be cautious of imposters and skeptical of others intentions.", "lost")
 		- Maybe they were just curious.
 			Cipher: Maybe they were just curious, people are talking about her missing.
@@ -154,8 +167,8 @@ if !talked_two
 			Cipher: What is it?
 			@TimTos: It's [b]270804[/b]. Don't forget!
 			Cipher: Thanks! I won't!
+			set status = "won"
 			do display_info("You were cautious of imposters and skeptical of others intentions.", "won")
-	set talked_two = true
 else
 	@TimTos: You're back for the code?
 	- Yeah...
@@ -228,9 +241,11 @@ do stop_moving()
 	Cipher: Hey! Do we have a problem?
 	@caeser_99: We sure do now!
 	do responded_1()
-	do display_info("You should avoid responding to bullies \and ask for help.", "lost")
+	set status = "lost"
+	do display_info("You should avoid responding to bullies and ask for help.", "lost")
 - Ignore
 	do ignored_1()
+	set status = "won"
 	do display_info("You avoided responding to the bully.", "won")
 set times_bullied = 1
 => END 
@@ -243,7 +258,8 @@ do stop_moving()
 	Cipher: I wouldn't run away from a kid like you!
 	@caeser_99: Watch your mouth bud!
 	do responded_2()
-	do display_info("You should avoid responding to bullies \and ask for help.", "lost")
+	set status = "lost"
+	do display_info("You should avoid responding to bullies and ask for help.", "lost")
 - Ignore
 	do ignored_2()
 	do display_info("You avoided responding to the bully.", "won")
@@ -257,10 +273,11 @@ do stop_moving()
 	set responded = 3
 	Cipher: I can handle a child like you on my own!
 	@caeser_99: Hey! Watch your mouth bud!
-	do display_info("You should avoid responding to bullies \and ask for help.", "lost")
+	set status = "lost"
+	do display_info("You should avoid responding to bullies and ask for help.", "lost")
 - Ask the mayor for help
 	Cipher: I'll let an adult handle you.
-	do display_info("You avoided responding to the bully \and asked for help.", "won")
+	do display_info("You avoided responding to the bully and asked for help.", "won")
 	set help_needed = true
 
 do go_away()

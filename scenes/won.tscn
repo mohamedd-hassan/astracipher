@@ -100,10 +100,10 @@ tracks/3/path = NodePath("music:volume_db")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(37.8, 39.9667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 37.9, 39.9667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, -80.0]
+"values": [14.0, 14.0, -80.0]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -227,3 +227,4 @@ libraries = {
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_73uxi")
 bus = &"Music"
+parameters/looping = true
