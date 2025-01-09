@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://h0pmky0q3wbu"
+path="res://.godot/imported/Microsoft Windows XP Error - Sound Effect (HD).mp3-39db36e563effd2197ba80d8a56c764e.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Microsoft Windows XP Error - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Microsoft Windows XP Error - Sound Effect (HD).mp3-39db36e563effd2197ba80d8a56c764e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

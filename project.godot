@@ -37,7 +37,6 @@ directories/dch_directory={
 "npc1": "res://dialogue/characters/npc1.dch",
 "npc2": "res://dialogue/timelines/Stage1_Timelines/npc2.dch",
 "on_tsuki": "res://dialogue/characters/on_tsuki.dch",
-"test": "res://dialogue/characters/test.dch",
 "villain": "res://dialogue/characters/villain.dch"
 }
 directories/dtl_directory={
@@ -61,7 +60,6 @@ directories/dtl_directory={
 "talk_to_2": "res://dialogue/timelines/Stage1_Timelines/talk_to_2.dtl",
 "talk_to_one": "res://dialogue/timelines/Stage1_Timelines/talk_to_one.dtl",
 "talknpc2nd": "res://dialogue/timelines/Stage1_Timelines/talknpc2nd.dtl",
-"test": "res://dialogue/timelines/test.dtl",
 "windows_scene_1_timeline": "res://dialogue/timelines/windows_timelines/windows_scene_1_timeline.dtl"
 }
 layout/style_list=["res://dialogue/characters/styles.tres", "res://dialogue/timelines/cutscene_style.tres", "res://dialogue/characters/astracipher_style.tres", "res://dialogue/timelines/test.tres"]
@@ -179,7 +177,7 @@ esc={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/stage_1.dialogue", "res://dialogue/stage_2.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/stage_1.dialogue", "res://dialogue/stage_2.dialogue", "res://dialogue/maze.dialogue")
 
 [layer_names]
 

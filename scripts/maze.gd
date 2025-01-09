@@ -14,8 +14,12 @@ extends Node2D
 @onready var progress_bar: TextureProgressBar = $stopwatch/Stopwatch/TextureProgressBar
 @onready var stopwatch: Control = $stopwatch/Stopwatch
 @onready var timer: Timer = $stopwatch/Stopwatch/Timer
-@onready var water: AudioStreamPlayer = $AudioStreamPlayer
+@onready var water: AudioStreamPlayer = $water
+@onready var chase: AudioStreamPlayer = $chase
+@onready var end_level: AnimationPlayer = $SolvedMaze/EndLevel
+@onready var hope: AudioStreamPlayer = $hope
 
+const MAZE = preload("res://dialogue/maze.dialogue")
 
 var time = 0.0
 var animation_end = false
@@ -26,7 +30,6 @@ func _ready() -> void:
 	drone.visible = false
 	door_l.disabled = true
 	player.global_position = spawn.global_position
-	Dialogic.signal_event.connect(_on_dialogic_signal)
 	water.play()
 
 
@@ -50,35 +53,6 @@ func _process(delta: float) -> void:
 			point_light.texture_scale = timer.time_left * 0.01
 		progress_bar.value = (timer.time_left / time) * 100
 
-
-func _on_dialogic_signal(argument:String):
-	# really milking the dialogue signals for this one
-	if argument == "move_forward":
-		cutscene_animation.play("move_forward")
-	elif argument == "astra_turn1":
-		cutscene_animation.play("astra_turn1")
-	elif argument == "astra_turn2":
-		cutscene_animation.play("astra_turn2")
-	elif argument == "zoom_out":
-		cutscene_animation.play("zoom_out")
-	elif argument == "drone_in":
-		drone.visible = true
-		drone.play("idle")
-		cutscene_animation.play("drone_in")
-	elif argument == "lights_off":
-		cutscene_animation.play("lights_off")
-	elif argument == "drone_out":
-		cutscene_animation.play("drone_out")
-	elif argument == "knowledge_light":
-		cutscene_animation.play("knowledge_light")
-		point_light.visible = true
-	elif argument == "timer":
-		drone.visible = false
-		stopwatch.visible = true
-		player.set_physics_process(true)
-		player.set_process_input(true)
-		timer.start()
-		
 func update_astra_animation():
 	if Global.met_cipher and Global.cutscene_end:
 		astra_animation.play(player_animation.animation)
@@ -88,6 +62,12 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 		Global.met_cipher = true
 		print("entered body (ew?)")
 		cutscene()
+func start_timer():
+	drone.visible = false
+	stopwatch.visible = true
+	player.set_physics_process(true)
+	player.set_process_input(true)
+	timer.start()
 	
 func cutscene():
 	water.stop()
@@ -98,8 +78,8 @@ func cutscene():
 	player.set_process_input(false)
 	cutscene_animation.play("walk_to_astra")
 	await cutscene_animation.animation_finished
-	Dialogic.start("astracipher_timeline")
-	await Dialogic.timeline_ended
+	DialogueManager.show_dialogue_balloon(MAZE, "astracipher")
+	await DialogueManager.dialogue_ended
 	Global.cutscene_end = true
 
 
@@ -113,11 +93,13 @@ func _on_solved_maze_body_entered(body: Node2D) -> void:
 		won()
 	
 func lost():
+	end_level.play("end_level")
 	Transition.transition()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/lost.tscn")
 	
 func won():
+	end_level.play("end_level")
 	Transition.transition2()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/won.tscn")

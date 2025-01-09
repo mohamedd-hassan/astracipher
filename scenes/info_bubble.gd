@@ -5,7 +5,7 @@ extends Control
 @onready var info_bubble: Control = $"."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-func _ready() -> void:
+func _process(delta: float) -> void:
 	if Global.status == "lost":
 		lost_won.text = "You lost 10% Knowledge!"
 	elif Global.status == "won":

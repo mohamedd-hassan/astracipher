@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://b4yfvvy5sqt40"]
+[gd_scene load_steps=46 format=4 uid="uid://b4yfvvy5sqt40"]
 
 [ext_resource type="Script" path="res://scripts/maze_cutscene.gd" id="1_mb1d2"]
 [ext_resource type="PackedScene" uid="uid://bgvt16mn7imu8" path="res://scenes/door.tscn" id="2_2tplq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://6jx4e5rgo4xb" path="res://assets/sprites/64x64 textures (4).png" id="8_f74rt"]
 [ext_resource type="Texture2D" uid="uid://bmg3qovdqw1q8" path="res://assets/sprites/cypher idle with bag.png" id="11_nrwxq"]
 [ext_resource type="Texture2D" uid="uid://d2j87gu286if6" path="res://assets/sprites/cypher run bag.png" id="12_mgqwo"]
+[ext_resource type="AudioStream" uid="uid://dp3wavktbol8a" path="res://assets/music/ruby_sample.mp3" id="13_fh86d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nswj4"]
 texture = ExtResource("2_cxsvx")
@@ -8674,8 +8675,10 @@ _data = {
 script = ExtResource("1_mb1d2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_csxcl")]
+visible = false
 offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0
@@ -8748,33 +8751,35 @@ frame_progress = 0.189423
 [node name="Monologue" type="Node" parent="."]
 
 [node name="one" type="Area2D" parent="Monologue"]
+position = Vector2(-73, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monologue/one"]
 position = Vector2(-238, -1)
 shape = SubResource("RectangleShape2D_48t66")
 
 [node name="two" type="Area2D" parent="Monologue"]
+position = Vector2(-73, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monologue/two"]
 position = Vector2(13, -1)
 shape = SubResource("RectangleShape2D_48t66")
 
 [node name="three" type="Area2D" parent="Monologue"]
-position = Vector2(109, 0)
+position = Vector2(-49, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monologue/three"]
 position = Vector2(246, -1)
 shape = SubResource("RectangleShape2D_48t66")
 
 [node name="four" type="Area2D" parent="Monologue"]
-position = Vector2(41, 0)
+position = Vector2(-117, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monologue/four"]
 position = Vector2(490, -1)
 shape = SubResource("RectangleShape2D_48t66")
 
 [node name="five" type="Area2D" parent="Monologue"]
-position = Vector2(-19, 0)
+position = Vector2(-177, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monologue/five"]
 position = Vector2(767, -1)
@@ -8842,6 +8847,10 @@ theme_override_font_sizes/normal_font_size = 35
 text = "I can’t."
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_fh86d")
+volume_db = 1.734
 
 [connection signal="body_entered" from="Monologue/one" to="." method="_on_one_body_entered"]
 [connection signal="body_entered" from="Monologue/two" to="." method="_on_two_body_entered"]

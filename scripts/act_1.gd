@@ -13,11 +13,13 @@ const STAGE_1 = preload("res://dialogue/stage_1.dialogue")
 @onready var player_sprite: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $npc3/AnimatedSprite2D
 @onready var info_animation: AnimationPlayer = $Control/info_bubble/AnimationPlayer
+@onready var info_sound: AudioStreamPlayer = $info
 
 
 func _ready() -> void:
 	collision_shape.disabled = true
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	DialogueManager.got_dialogue.connect(_on_dialogue_started)
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 	DialogueManager.show_dialogue_balloon(STAGE_1, "start")
@@ -34,15 +36,20 @@ func _on_level_spawn(destination_tag: String):
 
 func display_info(info: String, status: String):
 	Global.status = status
-	label.text = info
+	Global.info_text = info
 	info_bubble.show()
+	info_sound.play()
 	info_animation.play("fade_in")
 
 func _on_dialogue_ended(resource: DialogueResource):
 	print(Global.status)
+	InteractionManager.can_interact = true
 	player.set_physics_process(true)
 	player.set_process_input(true)
 	
+func _on_dialogue_started(line: DialogueLine):
+	InteractionManager.can_interact = false
+
 func stop_moving():
 	print("stopped moving")
 	player.set_physics_process(false)

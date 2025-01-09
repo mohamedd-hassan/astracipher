@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://d1ih3hgr0wfut"]
+[gd_scene load_steps=85 format=4 uid="uid://d1ih3hgr0wfut"]
 
 [ext_resource type="Script" path="res://scripts/maze.gd" id="1_vvat7"]
 [ext_resource type="PackedScene" uid="uid://w0hk7phbdsiq" path="res://scenes/player.tscn" id="2_h1crq"]
@@ -11,12 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://dvvttu2tg7nal" path="res://scenes/lantern.tscn" id="10_63ogl"]
 [ext_resource type="Texture2D" uid="uid://cwewt2ty8tanw" path="res://assets/sprites/dungeon_tiles.png" id="10_gygvg"]
 [ext_resource type="Texture2D" uid="uid://bkt1umksb8la1" path="res://assets/sprites/light.png" id="11_l6wkn"]
+[ext_resource type="Texture2D" uid="uid://1jnfwo80eo7m" path="res://assets/sprites/torchSIDE.png" id="12_8hyxy"]
 [ext_resource type="PackedScene" uid="uid://hb0vy0wxkqe5" path="res://scenes/astra.tscn" id="12_akjf6"]
 [ext_resource type="Texture2D" uid="uid://dc2017ioq7ouv" path="res://assets/sprites/astra idle.png" id="13_3jq6j"]
 [ext_resource type="Texture2D" uid="uid://65x5ygcv2eks" path="res://assets/sprites/astra run.png" id="14_r8847"]
 [ext_resource type="PackedScene" path="res://scenes/pause_menu_3.tscn" id="15_8uwc8"]
 [ext_resource type="PackedScene" uid="uid://b0dxquygfrtv5" path="res://scenes/drone.tscn" id="15_npfd0"]
 [ext_resource type="AudioStream" uid="uid://dx8pdlf1pcnmd" path="res://assets/sounds/water_drip.mp3" id="17_jxjj3"]
+[ext_resource type="AudioStream" uid="uid://bxm1odgat3uy2" path="res://assets/music/chase2.mp3" id="19_mj7sb"]
+[ext_resource type="AudioStream" uid="uid://dpv31oqagd8u5" path="res://assets/music/hopeful.mp3" id="20_uoij2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ljqw5"]
 light_mode = 1
@@ -684,7 +687,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../lanterns/Lantern/PointLight2D2:energy")
+tracks/7/path = NodePath("../lanterns_front/Lantern/PointLight2D2:energy")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -696,7 +699,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../lanterns/Lantern2/PointLight2D2:energy")
+tracks/8/path = NodePath("../lanterns_front/Lantern2/PointLight2D2:energy")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -708,7 +711,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../lanterns/Lantern3/PointLight2D2:energy")
+tracks/9/path = NodePath("../lanterns_front/Lantern3/PointLight2D2:energy")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -720,7 +723,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../lanterns/Lantern4/PointLight2D2:energy")
+tracks/10/path = NodePath("../lanterns_front/Lantern4/PointLight2D2:energy")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -732,7 +735,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../lanterns/Lantern5/PointLight2D2:energy")
+tracks/11/path = NodePath("../lanterns_front/Lantern5/PointLight2D2:energy")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -744,7 +747,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../lanterns/Lantern6/PointLight2D2:energy")
+tracks/12/path = NodePath("../lanterns_front/Lantern6/PointLight2D2:energy")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -756,7 +759,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../lanterns/Lantern7/PointLight2D2:energy")
+tracks/13/path = NodePath("../lanterns_front/Lantern7/PointLight2D2:energy")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -768,7 +771,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../lanterns/Lantern8/PointLight2D2:energy")
+tracks/14/path = NodePath("../lanterns_front/Lantern8/PointLight2D2:energy")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -780,7 +783,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../lanterns/Lantern9/PointLight2D2:energy")
+tracks/15/path = NodePath("../lanterns_front/Lantern9/PointLight2D2:energy")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -792,7 +795,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../lanterns/Lantern10/PointLight2D2:energy")
+tracks/16/path = NodePath("../lanterns_front/Lantern10/PointLight2D2:energy")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -804,7 +807,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../lanterns/Lantern11/PointLight2D2:energy")
+tracks/17/path = NodePath("../lanterns_front/Lantern11/PointLight2D2:energy")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -816,7 +819,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../lanterns/Lantern12/PointLight2D2:energy")
+tracks/18/path = NodePath("../lanterns_front/Lantern12/PointLight2D2:energy")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -828,7 +831,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../lanterns/Lantern13/PointLight2D2:energy")
+tracks/19/path = NodePath("../lanterns_front/Lantern13/PointLight2D2:energy")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -840,7 +843,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../lanterns/Lantern14/PointLight2D2:energy")
+tracks/20/path = NodePath("../lanterns_front/Lantern14/PointLight2D2:energy")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -852,7 +855,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../lanterns/Lantern15/PointLight2D2:energy")
+tracks/21/path = NodePath("../lanterns_front/Lantern15/PointLight2D2:energy")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -864,7 +867,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../lanterns/Lantern16/PointLight2D2:energy")
+tracks/22/path = NodePath("../lanterns_front/Lantern16/PointLight2D2:energy")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -876,7 +879,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../lanterns/Lantern17/PointLight2D2:energy")
+tracks/23/path = NodePath("../lanterns_front/Lantern17/PointLight2D2:energy")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -888,7 +891,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../lanterns/Lantern18/PointLight2D2:energy")
+tracks/24/path = NodePath("../lanterns_front/Lantern18/PointLight2D2:energy")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -900,7 +903,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../lanterns/Lantern19/PointLight2D2:energy")
+tracks/25/path = NodePath("../lanterns_front/Lantern19/PointLight2D2:energy")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -912,7 +915,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../lanterns/Lantern20/PointLight2D2:energy")
+tracks/26/path = NodePath("../lanterns_front/Lantern20/PointLight2D2:energy")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -936,10 +939,130 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../lanterns/Lantern21/PointLight2D2:energy")
+tracks/28/path = NodePath("../lanterns_front/Lantern21/PointLight2D2:energy")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../lanterns_side/torch/PointLight2D2:energy")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("../lanterns_side/torch2/PointLight2D2:energy")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("../lanterns_side/torch3/PointLight2D2:energy")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("../lanterns_side/torch5/PointLight2D2:energy")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("../lanterns_side/torch6/PointLight2D2:energy")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../lanterns_side/torch9/PointLight2D2:energy")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("../lanterns_side/torch10/PointLight2D2:energy")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("../lanterns_side/torch11/PointLight2D2:energy")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../lanterns_side/torch12/PointLight2D2:energy")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../lanterns_side/torch13/PointLight2D2:energy")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1118,7 +1241,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../lanterns/Lantern/PointLight2D2:energy")
+tracks/0/path = NodePath("../lanterns_front/Lantern/PointLight2D2:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1130,7 +1253,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../lanterns/Lantern2/PointLight2D2:energy")
+tracks/1/path = NodePath("../lanterns_front/Lantern2/PointLight2D2:energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1142,7 +1265,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../lanterns/Lantern3/PointLight2D2:energy")
+tracks/2/path = NodePath("../lanterns_front/Lantern3/PointLight2D2:energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1154,7 +1277,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../lanterns/Lantern4/PointLight2D2:energy")
+tracks/3/path = NodePath("../lanterns_front/Lantern4/PointLight2D2:energy")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1166,7 +1289,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../lanterns/Lantern5/PointLight2D2:energy")
+tracks/4/path = NodePath("../lanterns_front/Lantern5/PointLight2D2:energy")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1178,7 +1301,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../lanterns/Lantern6/PointLight2D2:energy")
+tracks/5/path = NodePath("../lanterns_front/Lantern6/PointLight2D2:energy")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1190,7 +1313,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../lanterns/Lantern7/PointLight2D2:energy")
+tracks/6/path = NodePath("../lanterns_front/Lantern7/PointLight2D2:energy")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1202,7 +1325,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../lanterns/Lantern8/PointLight2D2:energy")
+tracks/7/path = NodePath("../lanterns_front/Lantern8/PointLight2D2:energy")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1214,7 +1337,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../lanterns/Lantern9/PointLight2D2:energy")
+tracks/8/path = NodePath("../lanterns_front/Lantern9/PointLight2D2:energy")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1226,7 +1349,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../lanterns/Lantern10/PointLight2D2:energy")
+tracks/9/path = NodePath("../lanterns_front/Lantern10/PointLight2D2:energy")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1238,7 +1361,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../lanterns/Lantern11/PointLight2D2:energy")
+tracks/10/path = NodePath("../lanterns_front/Lantern11/PointLight2D2:energy")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -1250,7 +1373,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../lanterns/Lantern12/PointLight2D2:energy")
+tracks/11/path = NodePath("../lanterns_front/Lantern12/PointLight2D2:energy")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -1262,7 +1385,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../lanterns/Lantern13/PointLight2D2:energy")
+tracks/12/path = NodePath("../lanterns_front/Lantern13/PointLight2D2:energy")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -1274,7 +1397,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../lanterns/Lantern14/PointLight2D2:energy")
+tracks/13/path = NodePath("../lanterns_front/Lantern14/PointLight2D2:energy")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -1286,7 +1409,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../lanterns/Lantern15/PointLight2D2:energy")
+tracks/14/path = NodePath("../lanterns_front/Lantern15/PointLight2D2:energy")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -1298,7 +1421,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../lanterns/Lantern16/PointLight2D2:energy")
+tracks/15/path = NodePath("../lanterns_front/Lantern16/PointLight2D2:energy")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -1310,7 +1433,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../lanterns/Lantern17/PointLight2D2:energy")
+tracks/16/path = NodePath("../lanterns_front/Lantern17/PointLight2D2:energy")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -1322,7 +1445,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../lanterns/Lantern18/PointLight2D2:energy")
+tracks/17/path = NodePath("../lanterns_front/Lantern18/PointLight2D2:energy")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -1334,7 +1457,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../lanterns/Lantern19/PointLight2D2:energy")
+tracks/18/path = NodePath("../lanterns_front/Lantern19/PointLight2D2:energy")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -1346,7 +1469,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../lanterns/Lantern20/PointLight2D2:energy")
+tracks/19/path = NodePath("../lanterns_front/Lantern20/PointLight2D2:energy")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -1358,10 +1481,130 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../lanterns/Lantern21/PointLight2D2:energy")
+tracks/20/path = NodePath("../lanterns_front/Lantern21/PointLight2D2:energy")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../lanterns_side/torch/PointLight2D2:energy")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../lanterns_side/torch2/PointLight2D2:energy")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("../lanterns_side/torch3/PointLight2D2:energy")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("../lanterns_side/torch5/PointLight2D2:energy")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("../lanterns_side/torch6/PointLight2D2:energy")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("../lanterns_side/torch9/PointLight2D2:energy")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("../lanterns_side/torch10/PointLight2D2:energy")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../lanterns_side/torch11/PointLight2D2:energy")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../lanterns_side/torch12/PointLight2D2:energy")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("../lanterns_side/torch13/PointLight2D2:energy")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
 "times": PackedFloat32Array(0, 0.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -1506,6 +1749,66 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1hj1"]
 size = Vector2(67, 54)
 
+[sub_resource type="Animation" id="Animation_uayhd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../chase:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../stopwatch/Stopwatch:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_obg7b"]
+resource_name = "end_level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../chase:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-10.855, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../stopwatch/Stopwatch:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eei7x"]
+_data = {
+"RESET": SubResource("Animation_uayhd"),
+"end_level": SubResource("Animation_obg7b")
+}
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8hpya"]
 light_mode = 1
 
@@ -1533,6 +1836,9 @@ texture_scale = 0.3
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_h1crq")]
 position = Vector2(304, -292)
+
+[node name="AnimatedSprite2D" parent="Player" index="0"]
+animation = &"idle_down"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 material = SubResource("CanvasItemMaterial_ljqw5")
@@ -1571,7 +1877,7 @@ tile_map_data = PackedByteArray("AAADAPj/AAAEAAMAAAADAPn/AAACAAIAAAADAPr/AAAFAAM
 tile_set = SubResource("TileSet_ycfao")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0678074, 0.026035, 0.100526, 1)
+color = Color(0.0627451, 0.0235294, 0.0941176, 1)
 
 [node name="Door_L" parent="." instance=ExtResource("5_emj1k")]
 position = Vector2(-142, 15)
@@ -1585,240 +1891,355 @@ visible = false
 [node name="Spawn" parent="Door_L" index="2"]
 position = Vector2(74, 1)
 
-[node name="lanterns" type="Node" parent="."]
+[node name="lanterns_front" type="Node" parent="."]
 
-[node name="Lantern" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(64, -125)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 frame_progress = 0.765242
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern2" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern2" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(186, -14)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern2"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern2"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern3" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern3" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(111, -300)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern3"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern3"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern4" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern4" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(237, -79)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern4"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern4"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern5" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern5" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(369, -283)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern5"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern5"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern6" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern6" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(367, -79)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern6"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern6"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern7" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern7" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(431, -13)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern7"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern7"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern8" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern8" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(446, -492)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern8"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern8"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern9" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern9" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(263, -237)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern9"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern9"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern10" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern10" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(302, -492)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern10"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern10"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern11" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern11" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(169, -492)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern11"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern11"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern12" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern12" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(422, -429)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern12"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern12"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern13" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern13" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(300, -429)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern13"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern13"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern14" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern14" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(167, -429)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern14"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern14"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern15" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern15" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(406, -348)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern15"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern15"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern16" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern16" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(308, -348)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern16"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern16"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern17" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern17" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(161, -364)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern17"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern17"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern18" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern18" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(364, -139)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 frame_progress = 0.404021
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern18"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern18"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern19" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern19" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(253, -139)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 frame_progress = 0.404021
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern19"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern19"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern20" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern20" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(215, -299)
 scale = Vector2(0.955, 0.955)
 skew = -0.0139626
 frame_progress = 0.404021
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern20"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern20"]
 scale = Vector2(0.605, 0.605)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
 
-[node name="Lantern21" parent="lanterns" instance=ExtResource("10_63ogl")]
+[node name="Lantern21" parent="lanterns_front" instance=ExtResource("10_63ogl")]
 position = Vector2(-69, -11)
 scale = Vector2(0.912025, 0.912203)
 skew = -0.0279212
 frame_progress = 0.404021
 
-[node name="PointLight2D2" type="PointLight2D" parent="lanterns/Lantern21"]
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_front/Lantern21"]
 scale = Vector2(0.605, 0.605)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="lanterns_side" type="Node" parent="."]
+
+[node name="torch" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(66, 31)
+rotation = 1.5708
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch2" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(300, 31)
+rotation = 1.5708
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch2"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch3" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(514, 31)
+rotation = 1.5708
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch3"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch5" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(50, -466)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch5"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch6" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(50, -365)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch6"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch9" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(559, -411)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch9"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch10" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(559, -318)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch10"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch11" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(559, -227)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch11"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch12" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(559, -120)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch12"]
+scale = Vector2(7.68, 7.68)
+color = Color(1, 1, 0.698039, 1)
+shadow_item_cull_mask = 0
+texture = ExtResource("11_l6wkn")
+
+[node name="torch13" type="Sprite2D" parent="lanterns_side"]
+position = Vector2(559, -34)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("12_8hyxy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns_side/torch13"]
+scale = Vector2(7.68, 7.68)
 color = Color(1, 1, 0.698039, 1)
 shadow_item_cull_mask = 0
 texture = ExtResource("11_l6wkn")
@@ -1839,9 +2260,8 @@ visible = false
 position = Vector2(0, -9.4)
 scale = Vector2(1.915, 1.915)
 sprite_frames = SubResource("SpriteFrames_b5ptd")
-animation = &"idle_down"
+animation = &"up"
 autoplay = "idle_down"
-frame_progress = 0.305775
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Astra"]
 position = Vector2(0, 9.5)
@@ -1867,9 +2287,16 @@ speed_scale = 0.8
 position = Vector2(-148, 20)
 shape = SubResource("RectangleShape2D_l1hj1")
 
+[node name="EndLevel" type="AnimationPlayer" parent="SolvedMaze"]
+libraries = {
+"": SubResource("AnimationLibrary_eei7x")
+}
+
 [node name="pause menu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pause_menu_3" parent="pause menu" instance=ExtResource("15_8uwc8")]
+visible = false
 offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0
@@ -1903,9 +2330,20 @@ position = Vector2(-267, 7)
 position = Vector2(-93, 9)
 shape = SubResource("RectangleShape2D_7yba0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="water" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_jxjj3")
 bus = &"SFX"
+parameters/looping = true
+
+[node name="chase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_mj7sb")
+volume_db = -10.855
+bus = &"Music"
+parameters/looping = true
+
+[node name="hope" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_uoij2")
+volume_db = 1.81
 parameters/looping = true
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

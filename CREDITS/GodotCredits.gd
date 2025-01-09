@@ -40,8 +40,8 @@ var credits = [
 		"A game by... TBD?"
 	],[
 		"Programming",
-		"Mohamed Hassan",
 		"Nourin Awad",
+		"Mohamed Hassan",
 		"Omar Ashraf",
 		"Marwa Al-Azzazi",
 		"Yousef Fawzy"

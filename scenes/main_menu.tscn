@@ -74,7 +74,7 @@ position = Vector2(2, -2)
 scale = Vector2(5.195, 5.195)
 sprite_frames = SubResource("SpriteFrames_s0cb4")
 autoplay = "default"
-frame_progress = 0.202894
+frame_progress = 0.180321
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -115,7 +115,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_lkd00")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lkd00")
 text = "Start game"
 
-[node name="options" type="Button" parent="VBoxContainer"]
+[node name="resources" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -128,7 +128,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_lkd00")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lkd00")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lkd00")
-text = "Options"
+text = "Resources"
 
 [node name="exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -164,5 +164,5 @@ stream = ExtResource("5_p04w0")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/resources" to="." method="_on_resources_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

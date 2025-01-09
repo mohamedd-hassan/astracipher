@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://bmia40b27okoa"]
+[gd_scene load_steps=91 format=4 uid="uid://bmia40b27okoa"]
 
 [ext_resource type="Script" path="res://scripts/act_1.gd" id="1_k17nh"]
 [ext_resource type="Texture2D" uid="uid://dh1vs16nri00b" path="res://assets/sprites/sTiles.png" id="2_tnk8s"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bjq8m1pxskhu4" path="res://scenes/info_bubble.tscn" id="19_letfs"]
 [ext_resource type="Texture2D" uid="uid://bjhxs80tna00e" path="res://assets/sprites/3.png" id="20_7t11j"]
 [ext_resource type="AudioStream" uid="uid://cedjapimy8tsg" path="res://assets/sounds/Shiroku - Sports Men (Haruomi Hosono Instrumental Cover).mp3" id="22_3b2ew"]
+[ext_resource type="AudioStream" uid="uid://c568xrxcf2kb" path="res://assets/sounds/Windows XP Critical Stop Sound.mp3" id="26_niwxu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xtsu"]
 texture = ExtResource("2_tnk8s")
@@ -7916,7 +7917,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjjwj"]
-size = Vector2(11, 11)
+size = Vector2(11, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qb8ib"]
 atlas = ExtResource("14_6dlj7")
@@ -8193,7 +8194,10 @@ position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_l1vi6")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="npc"]
+[node name="StaticBody2D" type="StaticBody2D" parent="npc"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc/StaticBody2D"]
+z_index = 2
 position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_vj310")
 
@@ -8228,8 +8232,10 @@ sprite_frames = SubResource("SpriteFrames_6sv3f")
 animation = &"wand_in"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="npc4"]
-position = Vector2(0.5, -90.5)
+[node name="StaticBody2D" type="StaticBody2D" parent="npc4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc4/StaticBody2D"]
+position = Vector2(0.5, -89)
 shape = SubResource("RectangleShape2D_wjjwj")
 
 [node name="npc2" parent="." instance=ExtResource("4_ux1i4")]
@@ -8257,7 +8263,9 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.906974
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="npc2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="npc2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc2/StaticBody2D"]
 position = Vector2(4.5, 2.5)
 shape = SubResource("RectangleShape2D_du4ut")
 
@@ -8306,6 +8314,7 @@ position = Vector2(3, 74)
 position = Vector2(29, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pause_menu1" parent="CanvasLayer" instance=ExtResource("8_16wmf")]
 visible = false
@@ -8330,7 +8339,7 @@ offset_bottom = -2.0
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_3b2ew")
-volume_db = -5.0
+volume_db = -13.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
@@ -8354,6 +8363,11 @@ shape = SubResource("RectangleShape2D_ribvm")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundary/StaticBody2D"]
 position = Vector2(-112, -476)
 shape = SubResource("RectangleShape2D_ribvm")
+
+[node name="info" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_niwxu")
+volume_db = 5.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

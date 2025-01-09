@@ -10,6 +10,7 @@ extends Node2D
 @onready var door: Door = $Door_L
 @onready var npc2_animation: AnimatedSprite2D = $Puzzle2Npc/AnimatedSprite2D
 @onready var music: AudioStreamPlayer2D = $music
+@onready var puzzle_2: AudioStreamPlayer = $puzzle2
 
 var has_done_npc1_puzzle = false
 var has_done_npc2_puzzle = false
@@ -73,6 +74,8 @@ func _on_puzzle_2_interaction_body_entered(body: Node2D) -> void:
 			print("player entered puzzle 2")
 			player.set_physics_process(false)
 			player.set_process_input(false)
+			music.stop()
+			puzzle_2.play()
 			player_animator.play("idle_right")
 			animation_player.play("screen_down")
 			await animation_player.animation_finished
