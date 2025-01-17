@@ -1835,7 +1835,7 @@ texture = ExtResource("11_l6wkn")
 texture_scale = 0.3
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_h1crq")]
-position = Vector2(304, -292)
+position = Vector2(320, -217)
 
 [node name="AnimatedSprite2D" parent="Player" index="0"]
 animation = &"idle_down"
@@ -2260,7 +2260,7 @@ visible = false
 position = Vector2(0, -9.4)
 scale = Vector2(1.915, 1.915)
 sprite_frames = SubResource("SpriteFrames_b5ptd")
-animation = &"up"
+animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Astra"]

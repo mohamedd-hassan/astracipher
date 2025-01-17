@@ -26,7 +26,7 @@ Drone: Try escaping the maze now losers![/speed]
 do cutscene_animation.play("drone_out")
 do wait(1.0)
 do cutscene_animation.play("knowledge_light")
-do wait(2.0)
+do wait(1.0)
 Cipher: We need to move fast, [set point_light.visible = true]I don't have much time left before my [b]Knowledge Light[/b] runs out!
 do start_timer()
 => END!
